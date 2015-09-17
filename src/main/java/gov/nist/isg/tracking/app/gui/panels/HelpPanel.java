@@ -17,12 +17,11 @@ import main.java.gov.nist.isg.tracking.app.gui.HelpDocumentationViewer;
  */
 public class HelpPanel extends JPanel {
 
-  // TODO update these links once github is created
   private static final String documentationURL =
-      "https://github.com/NIST-ISG/LineageMapper/wiki";
+      "https://github.com/NIST-ISG/Lineage-Mapper/wiki";
 
   private static final String sourceURL =
-      "https://github.com/NIST-ISG/LineageMapper";
+      "https://github.com/NIST-ISG/Lineage-Mapper";
 
 
   private static final String aboutUsURL =

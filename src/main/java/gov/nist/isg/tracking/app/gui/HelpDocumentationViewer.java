@@ -18,7 +18,7 @@ import java.io.IOException;
 public class HelpDocumentationViewer implements ActionListener{
 
 
-  private static final String helpDocumentation = "Lineage-Mapper-User-Guide.md.html";
+  private static final String helpDocumentation = "User-Guide.md.html";
   private static File mainDocumentationTempFile;
 
   private File htmlAncorLoader;
