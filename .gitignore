@@ -1,0 +1,13 @@
+/bin/
+/out/
+\bin\
+\out\
+.classpath
+*.dat
+*.class
+target
+
+
+.idea/workspace.xml
+.idea\workspace.xml
+.idea/codeStyleSettings.xml
