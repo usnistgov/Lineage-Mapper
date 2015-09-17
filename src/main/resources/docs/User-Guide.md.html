@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta charset="utf-8" />
-      <title>Lineage-Mapper-User-Guide</title>
+      <title>User-Guide</title>
       <style>.markdown-preview, .markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 1.6; word-wrap: break-word; overflow: scroll; box-sizing: border-box; padding: 20px; background-color: rgb(255, 255, 255); }
 .markdown-preview > :first-child, .markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
 .markdown-preview > :last-child, .markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
@@ -367,9 +367,8 @@ pre.editor-colors[mini] .scroll-view,
 </li>
 </ul>
 </li>
-<li><a href="#faq">FAQ</a><!-- /TOC -->
-</li>
 </ul>
+<!-- /TOC -->
 <h2 id="getting-started">Getting Started</h2>
 <p>This section describes how to install the <em>Lineage Mapper</em> plugin. Section <a href="#installing-fiji">Installing Fiji</a> describes how to get Fiji. Section <a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a> describes how to add the plugin into Fiji. General help relating to Fiji and ImageJ can be found online.</p>
 <ol>
@@ -383,19 +382,18 @@ pre.editor-colors[mini] .scroll-view,
 <ol>
 <li>Open Fiji</li>
 <li><p>Menu item: <em>Help</em> &gt;&gt; <em>Update...</em> (If any updates are available, apply changes first and restart Fiji and redo steps 1 and 2)</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Update.png" alt="image"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Update.png" alt="image"></p>
 </li>
 <li><p>Click: Manage update sites</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Manage_Update_Sites.png" alt="image"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Manage_Update_Sites.png" alt="image"></p>
 </li>
 <li><p>Click: Add (This will create a new row)</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Add_Update_Site.png" alt="image"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Add_Update_Site.png" alt="image"></p>
 </li>
 <li><p>Select name column in new row and type: <em>Lineage Mapper</em></p>
 </li>
-<li><p>Select URL column in new row and type:
-<strong>TODO</strong></p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Update_Site_Added.png" alt="image"></p>
+<li><p>Select URL column in new row and type:</p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Update_Site_Added.png" alt="image"></p>
 </li>
 <li><p>Press Enter and <em>Apply changes</em> to install</p>
 </li>
@@ -409,20 +407,24 @@ pre.editor-colors[mini] .scroll-view,
 <li><p>Open Fiji</p>
 </li>
 <li><p>Menu item: <em>Plugins</em> &gt;&gt; <em>Tracking</em> &gt;&gt; <em>Lineage Mapper</em></p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Open_Plugin.png" alt="Launching Tracking Plugin"></p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Plugin_Main_Window.png" alt="NIST Cell Tracking Main Window"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Plugin.png" alt="Launching Tracking Plugin"></p>
+</li>
+<li><p>Lineage Mapper main window opens</p>
+<p> <img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Plugin_Main_Window.png" alt="Lineage Mapper Main Window"></p>
 </li>
 </ol>
 <h3 id="loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</h3>
-<p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a> documentation. Methods of loading an image sequence into Fiji:</p>
+<p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see:</p>
+<p>-ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and </p>
+<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a> documentation. </p>
+<p>Methods of loading an image sequence into Fiji:</p>
 <ol>
 <li>Drag and Drop a folder containing images onto the Fiji Window.</li>
-<li><p>Menu item: <em>File</em> &gt;&gt; <em>Import</em> &gt;&gt; <em>Image Sequence</em></p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Fiji_Open_Image_Sequence.png" alt="image"></p>
-</li>
+<li>Menu item: <em>File</em> &gt;&gt; <em>Import</em> &gt;&gt; <em>Image Sequence</em></li>
 </ol>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Image_Sequence.png" alt="image"></p>
 <h2 id="lineage-mapper-gui">Lineage Mapper GUI</h2>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Anotated_Plugin_Main_Window.png" alt="Main Window"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Plugin_Main_Window.png" alt="Main Window"></p>
 <ul>
 <li><p><strong>(1) Save Params</strong> - Saves the current parameters to a file. When clicked, a save dialog will appear.</p>
 </li>
@@ -438,7 +440,7 @@ pre.editor-colors[mini] .scroll-view,
 </li>
 </ul>
 <h3 id="input-parameters">Input Parameters</h3>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Anotated_Input_Tab.png" alt="Input Tab"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Input_Tab.png" alt="Input Tab"></p>
 <ul>
 <li><p><strong>(1) Image Sequence</strong> - Specifies which of the image sequences open in Fiji is tracked. The drop down will show “null” if there are no valid image sequences open in Fiji. The Refresh button will update this list. If an image sequence does not appear on the list it is not a valid image sequence for tracking.</p>
 </li>
@@ -447,7 +449,7 @@ pre.editor-colors[mini] .scroll-view,
 <li><p><strong>(3) Maximum Centroid Displacement</strong> - The maximum centroid distance (in pixels) is used to consider which cells could possibly be tracked together. The radius from a cell centroid to the max centroid distance represents the area of a possible cell migration. For example, the red cell represents the current frame, whereas the blue cells represent the next frame. The Cell Tracker would consider the upper blue cell as a possible tracking option to the red cell and the lower blue cell would be ignored.</p>
 </li>
 </ul>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Max_Centroid_Distance_Example.png" alt="image"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Max_Centroid_Distance_Example.png" alt="image"></p>
 <ul>
 <li><p><strong>(4) Enable Division</strong> - If cell division is enabled, the daughters cells of a mitotic event will be assigned new cell labels, different from their mother cell label. If disabled, the daughters will keep the same label as the mother cell and no mitotic event will be considered. This functionality is helpful when dealing with particle tracking or colony tracking.</p>
 </li>
@@ -456,7 +458,7 @@ pre.editor-colors[mini] .scroll-view,
 </ul>
 <h3 id="output-parameters">Output Parameters</h3>
 <p>Once the tracker has successfully completed a tracking session the tracking data collected during the session will be available here.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Anotated_Output_Tab.png" alt="Output Tab"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Output_Tab.png" alt="Output Tab"></p>
 <ul>
 <li><p><strong>(1) Save Outputs to Disk</strong> - Checkbox controls whether outputs from the cell tracker are written to disk, or just displayed using Fiji.</p>
 </li>
@@ -479,7 +481,7 @@ Metadata files are saved in the format:</p>
 <li><p><strong>(5) Overlay Object Labels</strong> - If selected, the output tracked images displayed in Fiji will have ROI labels superimposed over each cell object displaying that objects global ID. These labels are non destructive as they do not modify the underlying image; they are simply displayed over top of the image by Fiji.</p>
 </li>
 </ul>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Overlay_Object_Labels.png" alt="image"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Overlay_Object_Labels.png" alt="image"></p>
 <ul>
 <li><p><strong>(6) Show Birth/Death</strong> - Opens the tracked object birth and death data and displays it in a table. The Birth and Death is a table with three columns and <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the global cell ID number. The second column (Birth) is the frame index where the cell first appeared in the Field of View and the third column (Death) is the frame index where the cell last appeared in the Field of View.</p>
 </li>
@@ -490,9 +492,9 @@ Metadata files are saved in the format:</p>
 <li><p><strong>(9) Show Confidence Index</strong> - Opens the tracked object confidence index data and displays it in a table. The confidence index is a table of two columns and <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the global cell ID number and the second column is the confidence index of that cell. The table is sorted in a descending order with respect to the confidence index. Higher confidence index value corresponds to more trust in the entire track of a cell during its lifetime.</p>
 </li>
 </ul>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Metadata_Example.png" alt="Example Metadata Windows"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Metadata_Example.png" alt="Example Metadata Windows"></p>
 <h3 id="advanced-parameters">Advanced Parameters</h3>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Anotated_Advanced_Tab.png" alt="Advanced Tab"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Advanced_Tab.png" alt="Advanced Tab"></p>
 <ul>
 <li><p><strong>(1) Cost Parameters</strong> - The cell tracker uses a cost function to create a tracking decision between cells in consecutive frames. The weights represent the importance of each term in the computation of the cost function. The higher the weight the more important is that term. The cost function that relates two Cellular objects between consecutive frames is computed using the following normalized weighted 3 time-lapse cell characteristics:</p>
 <ol>
@@ -506,21 +508,21 @@ Metadata files are saved in the format:</p>
 </li>
 </ul>
 <p>Some possible scenarios for cell tracking: <em>Problem 1</em> is our typical problem encountered in most cases, when cells change shape often and go into mitosis and image acquisition rate is high enough that there are good cellular overlaps between consecutive acquisitions. In general, the overlap weight should be proportional to the acquisition rate. <em>Problems 2</em> and <em>Problem 3</em> are considered to have low acquisition rates. In <em>Problem 2</em> cells change shape but don’t move long distances and in <em>Problem 3</em> like for particle tracking problems where objects don’t change shape and we have low image acquisition rate. A proposed weight combination to solve each of these problems is given in the table below. It is important to note that the cell tracker is very robust with regards to the weights. The three weights don’t need to be changed for solving similar problems like the ones displayed in the table below.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Cost_Function_Weights_Example.png" alt="Cost Function Example"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Cost_Function_Weights_Example.png" alt="Cost Function Example"></p>
 <ul>
 <li><p><strong>(5) Division Parameters</strong> - The cell tracker bases its decision on detecting mitotic events using cell overlap between mother and its 2 daughter cells. If the cell overlap between one frame and the next is above the Min Division Overlap threshold, the Cell Tracker will label that as a possible mitosis event. The Cell Tracker will then test the Daughter Size Similarity, Daughter Aspect Ratio Similarity, and Mother Circularity Index thresholds to determine if a mitotic event has occurred. If all of the tests pass, the Cell Tracker will record the mitotic event in the division table.</p>
 <ol>
 <li><p><strong>(6) Minimum Division Overlap</strong> - If cell overlap in percent is above this threshold between one frame and the next the Cell Tracker will record a possible mitotic event. The following table illustrates the value of this parameter with respect to the overlapping positions between a red cell from the current frame and     the blue cell from the next frame. If this parameter is set to 0%, all cases will be considered as a potential mitotic event. If this parameter is set to 100% cell mitosis is discarded where the daughter cell that overlaps the most with the mother cell will keep its unique global ID label and the other one will get a new label.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Min_Division_Overlap_Example.png" alt="Min Division Overlap Example"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Min_Division_Overlap_Example.png" alt="Min Division Overlap Example"></p>
 </li>
 <li><p><strong>(7) Daughter Size Similarity</strong> - This parameter is a measure of the size similarity between daughter cells. In a real mitotic event the size of the daughter cells should be very similar to each other. A mother cell doesn’t really produce a large daughter and a small one. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Daughter_Size_Similarity_Example.png" alt="Daughter Size Similarity Example"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Daughter_Size_Similarity_Example.png" alt="Daughter Size Similarity Example"></p>
 </li>
 <li><p><strong>(8) Daughter Aspect Ratio Similarity</strong> - This parameter is a measure of the aspect ratio similarity between daughter cells. In a real mitotic event daughter cells should have similar shapes to each other. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Daughter_Aspect_Ratio_Example.png" alt="Daughter Aspect Ratio Similarity Example"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Daughter_Aspect_Ratio_Example.png" alt="Daughter Aspect Ratio Similarity Example"></p>
 </li>
 <li><p><strong>(9) Mother Circularity Threshold</strong> - For a cell to be considered a mother cell in a possible mitotic event it must have been round within the previous <strong>Number of Frames to Check Circularity</strong> parameter. This circularity threshold determines what is round enough to be considered a mitotic cell. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\image-tracking\Java_Cell_Tracker\src\main\resources\docs\imgs\Mother_Cell_Circularity_Example.png" alt="Mother Circularity Example"></p>
+<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Mother_Cell_Circularity_Example.png" alt="Mother Circularity Example"></p>
 </li>
 <li><p><strong>(10) Number Frames to Check Circularity</strong> - The Cell Tracker will determine if the cell had a circularity threshold above the Mother Circularity Index between the current frame and the previous number of frames. If the cell’s circularity is not above the threshold at least for one frame within this range, then the mitotic event will not be recorded.</p>
 </li>
@@ -547,7 +549,5 @@ Metadata files are saved in the format:</p>
 </li>
 <li><p><strong>(18) Load Default Parameters</strong> - Loads the default tracking parameters into the GUI.</p>
 </li>
-</ul>
-<h1 id="faq">FAQ</h1>
-<p>Coming soon</p></body>
+</ul></body>
 </html>
