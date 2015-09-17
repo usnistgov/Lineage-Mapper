@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ij-1.48a">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/ij-1.48a.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
