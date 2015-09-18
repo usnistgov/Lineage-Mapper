@@ -378,35 +378,14 @@ pre.editor-colors[mini] .scroll-view,
 <h3 id="installing-fiji">Installing Fiji</h3>
 <p>To download Fiji go to <a href="http://fiji.sc/Downloads">http://fiji.sc/Downloads</a> and follow their installation instructions for your platform.</p>
 <h3 id="lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</h3>
-<p>Use the following steps to add the Lineage Mapper site to the list of your Fiji update sites in order to add the plugin into Fiji.</p>
-<ol>
-<li>Open Fiji</li>
-<li><p>Menu item: <em>Help</em> &gt;&gt; <em>Update...</em> (If any updates are available, apply changes first and restart Fiji and redo steps 1 and 2)</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Update.png" alt="image"></p>
-</li>
-<li><p>Click: Manage update sites</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Manage_Update_Sites.png" alt="image"></p>
-</li>
-<li><p>Click: Add (This will create a new row)</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Add_Update_Site.png" alt="image"></p>
-</li>
-<li><p>Select name column in new row and type: <em>Lineage Mapper</em></p>
-</li>
-<li><p>Select URL column in new row and type:</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Update_Site_Added.png" alt="image"></p>
-</li>
-<li><p>Press Enter and <em>Apply changes</em> to install</p>
-</li>
-<li><p>Relaunch Fiji to complete installation</p>
-</li>
-</ol>
-<h3 id="launching-the-plugin">Launching the Plugin</h3>
+<p>See the wiki <a href="Install-Guide.html">Install-Guide</a> for instructions.</p>
+<h3 id="launching-lineagemapper">Launching LineageMapper</h3>
 <p>This section assumes you have already installed the plugin using the steps described in section <a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a>.</p>
 <p>To launch the <em>Lineage Mapper</em> plugin:</p>
 <ol>
 <li><p>Open Fiji</p>
 </li>
-<li><p>Menu item: <em>Plugins</em> &gt;&gt; <em>Tracking</em> &gt;&gt; <em>Lineage Mapper</em></p>
+<li><p>Menu item: <em>Plugins</em> &gt;&gt; <em>Tracking</em> &gt;&gt; <em>LineageMapper</em></p>
 <p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Plugin.png" alt="Launching Tracking Plugin"></p>
 </li>
 <li><p>Lineage Mapper main window opens</p>
@@ -415,8 +394,8 @@ pre.editor-colors[mini] .scroll-view,
 </ol>
 <h3 id="loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</h3>
 <p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see:</p>
-<p>-ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and </p>
-<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a> documentation. </p>
+<p>-ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and</p>
+<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a> documentation.</p>
 <p>Methods of loading an image sequence into Fiji:</p>
 <ol>
 <li>Drag and Drop a folder containing images onto the Fiji Window.</li>
