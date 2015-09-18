@@ -15,3 +15,12 @@ This repository contains source code for the plugin in one branch and the source
 #### - [About Lineage Mapper](https://isg.nist.gov/deepzoomweb/resources/csmet/pages/cell_tracking/cell_tracking.html)
 #### - [Wiki](https://github.com/NIST-ISG/Lineage-Mapper/wiki)
 #### - [User Guide](https://github.com/NIST-ISG/Lineage-Mapper/wiki/User-Guide)
+
+
+## Sample Data Sets
+
+We have an example dataset of segmented images and the tracking results. Included are the parameters used to generate the included tracking results. 
+
+The dataset can be downloaded from the following link:
+
+[LineageMapper_Test_Data.zip ~ 55 KB](../../wiki/testdata/LineageMapper_Test_Data.zip)

@@ -355,20 +355,21 @@ pre.editor-colors[mini] .scroll-view,
 <li><a href="#getting-started">Getting Started</a><ul>
 <li><a href="#installing-fiji">Installing Fiji</a></li>
 <li><a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a></li>
-<li><a href="#launching-the-plugin">Launching the Plugin</a></li>
+<li><a href="#launching-lineagemapper">Launching LineageMapper</a></li>
 <li><a href="#loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</a></li>
 </ul>
 </li>
+<li><a href="#installation-validation-test">Installation Validation Test</a></li>
 <li><a href="#lineage-mapper-gui">Lineage Mapper GUI</a><ul>
 <li><a href="#input-parameters">Input Parameters</a></li>
 <li><a href="#output-parameters">Output Parameters</a></li>
-<li><a href="#advanced-parameters">Advanced Parameters</a></li>
-</ul>
+<li><a href="#advanced-parameters">Advanced Parameters</a><!-- /TOC -->
 </li>
 </ul>
 </li>
 </ul>
-<!-- /TOC -->
+</li>
+</ul>
 <h2 id="getting-started">Getting Started</h2>
 <p>This section describes how to install the <em>Lineage Mapper</em> plugin. Section <a href="#installing-fiji">Installing Fiji</a> describes how to get Fiji. Section <a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a> describes how to add the plugin into Fiji. General help relating to Fiji and ImageJ can be found online.</p>
 <ol>
@@ -393,15 +394,36 @@ pre.editor-colors[mini] .scroll-view,
 </li>
 </ol>
 <h3 id="loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</h3>
-<p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see:</p>
+<p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see the documentation at:</p>
 <p>-ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and</p>
-<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a> documentation.</p>
+<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a></p>
 <p>Methods of loading an image sequence into Fiji:</p>
 <ol>
-<li>Drag and Drop a folder containing images onto the Fiji Window.</li>
-<li>Menu item: <em>File</em> &gt;&gt; <em>Import</em> &gt;&gt; <em>Image Sequence</em></li>
+<li><p>Drag and Drop a folder containing images onto the Fiji Window.</p>
+</li>
+<li><p>Menu item: <em>File</em> &gt;&gt; <em>Import</em> &gt;&gt; <em>Image Sequence</em></p>
+</li>
 </ol>
 <p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Image_Sequence.png" alt="image"></p>
+<h2 id="installation-validation-test">Installation Validation Test</h2>
+<p>In this section, we will walk through setting up running LineageMapper on the small test dataset in order to validate that the plugin is installed correctly.</p>
+<ol>
+<li>Download test images: <a href="testdata/LineageMapper_Test_Data.zip">LineageMapper_Test_Data.zip ~ 55 KB</a></li>
+<li>Extract LineageMapper_Test_Data.zip into a directory</li>
+<li><a href="#launching-lineagemapper">Launch LineageMapper plugin from Fiji</a></li>
+<li>Load the test sequence of segmented images into Fiji <a href="#loading-an-image-sequence-into-fiji">Loading Image Sequence</a></li>
+<li>Select <strong>Load Params</strong> and open &#39;[extractionPath]/LineageMapper_Test_Data/tracking_parameters.txt&#39;</li>
+<li>To avoid using <strong>Load Params</strong><ol>
+<li>Under <strong>Image Sequence to Track</strong> select the name of your sequence</li>
+<li>Select the <strong>Advanced</strong> tab<ol>
+<li>Scroll to the bottom and press <strong>Load Default Parameters</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Select <strong>Output</strong> tab and de-select <strong>Save Outputs to Disk</strong></li>
+<li>Click <strong>Track</strong> to launch</li>
+</ol>
 <h2 id="lineage-mapper-gui">Lineage Mapper GUI</h2>
 <p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Plugin_Main_Window.png" alt="Main Window"></p>
 <ul>
