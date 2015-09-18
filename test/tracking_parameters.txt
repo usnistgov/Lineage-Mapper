@@ -15,7 +15,7 @@ Enable Cell Division: true
 Min Cell Area: 100
 Min Fusion Overlap: 0.2
 Enable Cell Fusion: false
-Output Directory: ./track_results
-Output Prefix: track_
+Output Directory: ./tracked_images
+Output Prefix: trk_
 Save Output Images: true
 Label Output Masks: true
