@@ -4,7 +4,7 @@ Welcome to Lineage Mapper - the National Institute of Standards and Technology's
 
 We developed an open source, highly accurate, overlap-based cell tracking system that tracks live cells across a set of time-lapse images. The processing pipeline of the Lineage mapper is shown in Figure 1. The Lineage Mapper successfully detects dynamic single cell behavior: cell migration, changes in cell state (mitosis, apoptosis); cells within colonies or the entire colonies, cells within cell sheets or cells moving around with high cell-cell contact.
 
-![LineageMapper Pipeline](../../wiki/imgs/LineageMapper_Pipeline.png)
+![Lineage Mapper Pipeline](../../wiki/imgs/Lineage_Mapper_Pipeline.png)
 
 Figure 1: Lineage Mapper processing pipeline and tracking outputs. The algorithmic steps consists of: (1) compute cost between cells from consecutive frames, (2) detect cell collision and account for it, (3) detect mitosis events, (4) assign tracks between cells, and (5) create tracking outputs. The outputs includes saved tracked images, the cell lineage plotting and 4 tracking output measurements: (1) confidence index, (2) the birth and death matrix, (3) the mitosis matrix, (4) the fusion matrix.
 
