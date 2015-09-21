@@ -58,8 +58,8 @@ function Lineage_Mapper(varargin)
 if ~isdeployed
 	parent_dir = fileparts(pwd);
   addpath([parent_dir filesep 'doc']);
+  addpath([parent_dir filesep 'imgs']);
   addpath([pwd filesep 'sub_functions']);
-  addpath([pwd filesep 'imgs']);
 end
 
 % ----------------------------------------------------------------------
@@ -1638,7 +1638,7 @@ tracked_images_path = [parent_dir filesep 'test' filesep 'tracked_images' filese
 
 segmented_images_common_name = 'seg_';
 raw_images_common_name = '';
-tracked_images_common_name = 'tracked_';
+tracked_images_common_name = 'trk_';
 
 
 set(raw_images_path_edit, 'String', raw_images_path);

@@ -1,0 +1,38 @@
+<08:31:51> Tracked Images Exist, overwriting...
+
+<08:31:51>   -------- Lineage Mapper GUI --------
+<08:31:51> Folder Tab Parameters
+<08:31:51>   Raw Images Directory: 
+<08:31:51>   Segmented Images Directory: C:\majurski\NISTGithub\Lineage-Mapper\test\segmented_images\
+<08:31:51>   Tracked Images Directory: C:\majurski\NISTGithub\Lineage-Mapper\test\tracked_images\
+<08:31:51>   Metadata Directory: C:\majurski\NISTGithub\Lineage-Mapper\test\tracked_images\
+<08:31:51>   Raw Image Common Name: <>
+<08:31:51>   Segmented Image Common Name: <seg_>
+<08:31:51>   Tracked Image Common Name: <trk_>
+<08:31:51> Tracking Parameters: 
+<08:31:51>   Cost Function Parameters: 
+<08:31:51>     Weight Cell Overlap: <100>
+<08:31:51>     Weight Centroids Distance: <50>
+<08:31:51>     Weight Cell Size: <20>
+<08:31:51>     Max Centroids Distance: <150>
+<08:31:51>     Frames to Track: <0>
+<08:31:51>   Mitotic Parameters: 
+<08:31:51>     Min Mitotic Overlap: <20>
+<08:31:51>     Circularity Index: <30>
+<08:31:51>     Daughter Size Similarity: <50>
+<08:31:51>     Daughter Aspect Ratio Similarity: <70>
+<08:31:51>     Enable Cell Mitotis: <1>
+<08:31:51>     Number of Frames: <5>
+<08:31:51>   Confidence Index Parameters: 
+<08:31:51>     Min Cell Life: <32>
+<08:31:51>     Cell Death Delta Centroid: <10>
+<08:31:51>     Cell Density CI Flag: <1>
+<08:31:51>     Border Cell CI Flag: <1>
+<08:31:51>   Fusion Parameters: 
+<08:31:51>     Min Cell Area: <200>
+<08:31:51>     Min Fusion Overlap: <20>
+<08:31:51>     Enable Fusion: <0>
+<08:31:51> Tracking Cells
+<08:31:51> Generating Ouput Metadata
+<08:31:51> Generating Confidence Index
+<08:31:51> Done Tracking
