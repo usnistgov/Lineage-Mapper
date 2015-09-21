@@ -56,8 +56,10 @@ function Lineage_Mapper(varargin)
 % add the folder 'Sub_Functions' to the Matlab search path so it finds any
 % functions placed in that subfolder
 if ~isdeployed
-    addpath([pwd filesep 'src']);
-    addpath([pwd filesep 'doc']);
+	parent_dir = fileparts(pwd);
+  addpath([parent_dir filesep 'doc']);
+  addpath([pwd filesep 'sub_functions']);
+  addpath([pwd filesep 'imgs']);
 end
 
 % ----------------------------------------------------------------------
@@ -1629,9 +1631,10 @@ function Plot_Fusion_Lineage_callback(varargin)
 default_parameters();
 
 % set the default path
+parent_dir = fileparts(pwd);
 raw_images_path = '';
-segmented_images_path = [pwd filesep 'test' filesep 'segmented_images' filesep];
-tracked_images_path = [pwd filesep 'test' filesep 'tracked_images' filesep];
+segmented_images_path = [parent_dir filesep 'test' filesep 'segmented_images' filesep];
+tracked_images_path = [parent_dir filesep 'test' filesep 'tracked_images' filesep];
 
 segmented_images_common_name = 'seg_';
 raw_images_common_name = '';
