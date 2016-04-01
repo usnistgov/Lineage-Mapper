@@ -14,8 +14,8 @@ This repository contains source code for the plugin in one branch and the source
 # Quick Navigation
 
 #### - [About Lineage Mapper](https://isg.nist.gov/deepzoomweb/resources/csmet/pages/cell_tracking/cell_tracking.html)
-#### - [Wiki](https://github.com/NIST-ISG/Lineage-Mapper/wiki)
-#### - [User Guide](https://github.com/NIST-ISG/Lineage-Mapper/wiki/User-Guide)
+#### - [Wiki](https://github.com/USNISTGOV/Lineage-Mapper/wiki)
+#### - [User Guide](https://github.com/USNISTGOV/Lineage-Mapper/wiki/User-Guide)
 
 
 ## Sample Data Sets
