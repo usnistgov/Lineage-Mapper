@@ -18,10 +18,10 @@ import main.java.gov.nist.isg.tracking.app.gui.HelpDocumentationViewer;
 public class HelpPanel extends JPanel {
 
   private static final String documentationURL =
-      "https://github.com/NIST-ISG/Lineage-Mapper/wiki";
+      "https://github.com/usnistgov/Lineage-Mapper/wiki";
 
   private static final String sourceURL =
-      "https://github.com/NIST-ISG/Lineage-Mapper";
+      "https://github.com/usnistgov/Lineage-Mapper";
 
 
   private static final String aboutUsURL =
@@ -75,7 +75,8 @@ public class HelpPanel extends JPanel {
     content.add(buttonPanel,c);
 
     c.gridy = 1;
-    JLabel aboutUsLink = new JLabel("<html><a href=\"" + aboutUsURL + "\">" + "About MIST" + "</a></html>");
+    JLabel aboutUsLink = new JLabel("<html><a href=\"" + aboutUsURL + "\">" + "About " +
+        "Lineage-Mapper" + "</a></html>");
     aboutUsLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
     content.add(aboutUsLink, c);
 
