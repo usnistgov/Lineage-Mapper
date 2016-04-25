@@ -20,6 +20,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import ij.IJ;
+import ij.gui.YesNoCancelDialog;
+import ij.ImageStack;
+import ij.WindowManager;
+import ij.process.ImageProcessor;
 import main.java.gov.nist.isg.tracking.app.gui.ImageWindowComboBox;
 import main.java.gov.nist.isg.tracking.app.TrackingAppParams;
 import main.java.gov.nist.isg.tracking.textfield.TextFieldInputPanel;
@@ -37,6 +42,8 @@ public class InputPanel extends JPanel {
   private TextFieldInputPanel<Double> maxCentroidDisplacement;
   private JCheckBox enableDivisionCheckbox;
   private JCheckBox enableFusionCheckbox;
+
+  private boolean allowBinaryImages = false;
 
   public InputPanel() {
     super();
@@ -159,6 +166,38 @@ public class InputPanel extends JPanel {
     if(maxCentroidDisplacement.hasError())
       ret += "Invalid Maximum Centroid Displacement: \"" + maxCentroidDisplacement.getText() + "\"\n";
 
+    // Check that the first image in the sequence has more than one label since labeled images
+    // are required
+    String name = this.getImageWindowName();
+    if(!allowBinaryImages && name != null && name.compareToIgnoreCase("<null>") != 0) {
+      ImageStack imgStack = WindowManager.getImage(name).getImageStack();
+      if(imgStack.getSize() >= 1) {
+        IJ.log("Checking that the input image stack is non-binary.");
+        ImageProcessor imp = imgStack.getProcessor(1);
+        int[] hist = imp.getHistogram();
+        int nbNonEmptyBins = 0;
+        for(int i = 1; i < hist.length; i++) { // start counting nonzero hist bins
+          if(hist[i] > 0)
+            nbNonEmptyBins++;
+        }
+        if(nbNonEmptyBins < 2) {
+          YesNoCancelDialog dialog = new YesNoCancelDialog(null, "Binary Image Detected","First " +
+              "image in the sequence is binary.\nLineage Mapper requires labeled images.\n" +
+              "Continue?");
+          if(!dialog.yesPressed()) {
+            ret += "Invalid Image Stack Selected: Binary Image Detected.";
+          }
+          if(dialog.yesPressed()) {
+            allowBinaryImages = true;
+          }
+        }
+
+      }
+    }
+
+
+
+
     return ret;
   }
 
@@ -181,5 +220,6 @@ public class InputPanel extends JPanel {
   public String getImageWindowName() {
     return (String)imageWindowComboBox.getSelectedItem();
   }
+
 
 }
