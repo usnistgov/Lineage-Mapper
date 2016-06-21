@@ -4,6 +4,9 @@
     <root id="archive" name="Lineage_Mapper.jar">
       <element id="file-copy" path="$PROJECT_DIR$/plugins.config" />
       <element id="module-output" name="Lineage_Mapper" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>

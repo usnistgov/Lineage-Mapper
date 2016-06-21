@@ -3,140 +3,133 @@
   <head>
       <meta charset="utf-8" />
       <title>User-Guide</title>
-      <style>.markdown-preview, .markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; font-size: 16px; line-height: 1.6; word-wrap: break-word; overflow: scroll; box-sizing: border-box; padding: 20px; background-color: rgb(255, 255, 255); }
-.markdown-preview > :first-child, .markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
-.markdown-preview > :last-child, .markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
-.markdown-preview a:not([href]), .markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
-.markdown-preview .absent, .markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
-.markdown-preview .anchor, .markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
-.markdown-preview .anchor:focus, .markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
-.markdown-preview h1, .markdown-preview[data-use-github-style] h1, .markdown-preview h2, .markdown-preview[data-use-github-style] h2, .markdown-preview h3, .markdown-preview[data-use-github-style] h3, .markdown-preview h4, .markdown-preview[data-use-github-style] h4, .markdown-preview h5, .markdown-preview[data-use-github-style] h5, .markdown-preview h6, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
-.markdown-preview h1 .octicon-link, .markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview h2 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview h3 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview h4 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview h5 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview h6 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
-.markdown-preview h1:hover .anchor, .markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview h2:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview h3:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview h4:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview h5:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview h6:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
-.markdown-preview h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview h6:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
-.markdown-preview h1 tt, .markdown-preview[data-use-github-style] h1 tt, .markdown-preview h2 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview h3 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview h4 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview h5 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview h6 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview h1 code, .markdown-preview[data-use-github-style] h1 code, .markdown-preview h2 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview h3 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview h4 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview h5 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview h6 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
-.markdown-preview h1, .markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
-.markdown-preview h1 .anchor, .markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
-.markdown-preview h2, .markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
-.markdown-preview h2 .anchor, .markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
-.markdown-preview h3, .markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
-.markdown-preview h3 .anchor, .markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
-.markdown-preview h4, .markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
-.markdown-preview h4 .anchor, .markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
-.markdown-preview h5, .markdown-preview[data-use-github-style] h5 { font-size: 1em; }
-.markdown-preview h5 .anchor, .markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
-.markdown-preview h6, .markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
-.markdown-preview h6 .anchor, .markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
-.markdown-preview p, .markdown-preview[data-use-github-style] p, .markdown-preview blockquote, .markdown-preview[data-use-github-style] blockquote, .markdown-preview ul, .markdown-preview[data-use-github-style] ul, .markdown-preview ol, .markdown-preview[data-use-github-style] ol, .markdown-preview dl, .markdown-preview[data-use-github-style] dl, .markdown-preview table, .markdown-preview[data-use-github-style] table, .markdown-preview pre, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
-.markdown-preview hr, .markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
-.markdown-preview ul, .markdown-preview[data-use-github-style] ul, .markdown-preview ol, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
-.markdown-preview ul.no-list, .markdown-preview[data-use-github-style] ul.no-list, .markdown-preview ol.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
-.markdown-preview ul ul, .markdown-preview[data-use-github-style] ul ul, .markdown-preview ul ol, .markdown-preview[data-use-github-style] ul ol, .markdown-preview ol ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview ol ul, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
-.markdown-preview li > p, .markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
-.markdown-preview dl, .markdown-preview[data-use-github-style] dl { padding: 0px; }
-.markdown-preview dl dt, .markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
-.markdown-preview dl dd, .markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
-.markdown-preview blockquote, .markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
-.markdown-preview blockquote > :first-child, .markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
-.markdown-preview blockquote > :last-child, .markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
-.markdown-preview table, .markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: normal; }
-.markdown-preview table th, .markdown-preview[data-use-github-style] table th { font-weight: bold; }
-.markdown-preview table th, .markdown-preview[data-use-github-style] table th, .markdown-preview table td, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview table tr, .markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
-.markdown-preview table tr:nth-child(2n), .markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-.markdown-preview img, .markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
-.markdown-preview .emoji, .markdown-preview[data-use-github-style] .emoji { max-width: none; }
-.markdown-preview span.frame, .markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
-.markdown-preview span.frame > span, .markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
-.markdown-preview span.frame span img, .markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
-.markdown-preview span.frame span span, .markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
-.markdown-preview span.align-center, .markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
-.markdown-preview span.align-center > span, .markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
-.markdown-preview span.align-center span img, .markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
-.markdown-preview span.align-right, .markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
-.markdown-preview span.align-right > span, .markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
-.markdown-preview span.align-right span img, .markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
-.markdown-preview span.float-left, .markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
-.markdown-preview span.float-left span, .markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
-.markdown-preview span.float-right, .markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
-.markdown-preview span.float-right > span, .markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
-.markdown-preview code, .markdown-preview[data-use-github-style] code, .markdown-preview tt, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
-.markdown-preview code::before, .markdown-preview[data-use-github-style] code::before, .markdown-preview tt::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview code::after, .markdown-preview[data-use-github-style] code::after, .markdown-preview tt::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: ' '; }
-.markdown-preview code br, .markdown-preview[data-use-github-style] code br, .markdown-preview tt br, .markdown-preview[data-use-github-style] tt br { display: none; }
-.markdown-preview del code, .markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
-.markdown-preview pre > code, .markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
-.markdown-preview .highlight, .markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
-.markdown-preview .highlight pre, .markdown-preview[data-use-github-style] .highlight pre, .markdown-preview pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
-.markdown-preview .highlight pre, .markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
-.markdown-preview pre, .markdown-preview[data-use-github-style] pre { word-wrap: normal; }
-.markdown-preview pre code, .markdown-preview[data-use-github-style] pre code, .markdown-preview pre tt, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
-.markdown-preview pre code::before, .markdown-preview[data-use-github-style] pre code::before, .markdown-preview pre tt::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview pre code::after, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview pre tt::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
-.markdown-preview kbd, .markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
-.markdown-preview, .markdown-preview[data-use-github-style], .markdown-preview code, .markdown-preview[data-use-github-style] code { color: rgb(51, 51, 51); }
-.markdown-preview h1, .markdown-preview[data-use-github-style] h1, .markdown-preview h2, .markdown-preview[data-use-github-style] h2, .markdown-preview h3, .markdown-preview[data-use-github-style] h3, .markdown-preview h4, .markdown-preview[data-use-github-style] h4, .markdown-preview h5, .markdown-preview[data-use-github-style] h5, .markdown-preview h6, .markdown-preview[data-use-github-style] h6 { -webkit-font-smoothing: antialiased; cursor: text; }
-.markdown-preview > h1:first-child, .markdown-preview[data-use-github-style] > h1:first-child, .markdown-preview > h1:first-child + h2, .markdown-preview[data-use-github-style] > h1:first-child + h2, .markdown-preview > h2:first-child, .markdown-preview[data-use-github-style] > h2:first-child, .markdown-preview > h3:first-child, .markdown-preview[data-use-github-style] > h3:first-child, .markdown-preview > h4:first-child, .markdown-preview[data-use-github-style] > h4:first-child, .markdown-preview > h5:first-child, .markdown-preview[data-use-github-style] > h5:first-child, .markdown-preview > h6:first-child, .markdown-preview[data-use-github-style] > h6:first-child { margin-top: 0px; padding-top: 0px; }
-.markdown-preview a, .markdown-preview[data-use-github-style] a, .markdown-preview a code, .markdown-preview[data-use-github-style] a code { color: rgb(65, 131, 196); }
-.markdown-preview a:first-child h1, .markdown-preview[data-use-github-style] a:first-child h1, .markdown-preview a:first-child h2, .markdown-preview[data-use-github-style] a:first-child h2, .markdown-preview a:first-child h3, .markdown-preview[data-use-github-style] a:first-child h3, .markdown-preview a:first-child h4, .markdown-preview[data-use-github-style] a:first-child h4, .markdown-preview a:first-child h5, .markdown-preview[data-use-github-style] a:first-child h5, .markdown-preview a:first-child h6, .markdown-preview[data-use-github-style] a:first-child h6 { margin-top: 0px; padding-top: 0px; }
-.markdown-preview h1 + p, .markdown-preview[data-use-github-style] h1 + p, .markdown-preview h2 + p, .markdown-preview[data-use-github-style] h2 + p, .markdown-preview h3 + p, .markdown-preview[data-use-github-style] h3 + p, .markdown-preview h4 + p, .markdown-preview[data-use-github-style] h4 + p, .markdown-preview h5 + p, .markdown-preview[data-use-github-style] h5 + p, .markdown-preview h6 + p, .markdown-preview[data-use-github-style] h6 + p { margin-top: 0px; }
-.markdown-preview li p.first, .markdown-preview[data-use-github-style] li p.first { display: inline-block; }
-.markdown-preview ul li > :first-child, .markdown-preview[data-use-github-style] ul li > :first-child, .markdown-preview ol li > :first-child, .markdown-preview[data-use-github-style] ol li > :first-child, .markdown-preview ul li ul:first-of-type, .markdown-preview[data-use-github-style] ul li ul:first-of-type, .markdown-preview ol li ul:first-of-type, .markdown-preview[data-use-github-style] ol li ul:first-of-type { margin-top: 0px; }
-.markdown-preview ol > li, .markdown-preview[data-use-github-style] ol > li { list-style-type: decimal; }
-.markdown-preview ul > li, .markdown-preview[data-use-github-style] ul > li { list-style-type: disc; }
-.markdown-preview dl dt:first-child, .markdown-preview[data-use-github-style] dl dt:first-child { padding: 0px; }
-.markdown-preview dl dt > :first-child, .markdown-preview[data-use-github-style] dl dt > :first-child { margin-top: 0px; }
-.markdown-preview dl dt > :last-child, .markdown-preview[data-use-github-style] dl dt > :last-child { margin-bottom: 0px; }
-.markdown-preview dl dd > :first-child, .markdown-preview[data-use-github-style] dl dd > :first-child { margin-top: 0px; }
-.markdown-preview dl dd > :last-child, .markdown-preview[data-use-github-style] dl dd > :last-child { margin-bottom: 0px; }
-.markdown-preview blockquote p, .markdown-preview[data-use-github-style] blockquote p { font-size: 16px; line-height: 1.5; }
-.markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 16px; overflow: auto; font-size: 84%; line-height: 1.45; border-radius: 3px; background-color: rgb(29, 31, 33); }
-.markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { margin-bottom: 16px; word-break: normal; }
-.markdown-preview code, .markdown-preview[data-use-github-style] code, .markdown-preview tt, .markdown-preview[data-use-github-style] tt, .markdown-preview pre.editor-colors, .markdown-preview[data-use-github-style] pre.editor-colors { font-family: Consolas, 'Liberation Mono', Courier, monospace; }
-.markdown-preview .emoji, .markdown-preview[data-use-github-style] .emoji { height: 20px; width: 20px; }
-.markdown-preview code { text-shadow: none; }
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(85, 85, 85); overflow: auto; background-color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(126, 126, 126); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(126, 126, 126); border-color: rgb(214, 214, 214); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(214, 214, 214); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(3, 3, 3); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(214, 214, 214); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(3, 3, 3); background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(245, 245, 245); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(3, 3, 3); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(214, 214, 214) rgb(214, 214, 214) rgb(199, 199, 199); background-color: rgb(240, 240, 240); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
 .bracket-matcher .region {
   border-bottom: 1px dotted lime;
   position: absolute;
 }
 
 .spell-check-misspelling .region {
-  border-bottom: 1px dashed rgba(250, 128, 114, 0.5);
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
 }
 
 pre.editor-colors,
 .host {
-  background-color: #1d1f21;
-  color: #c5c8c6;
-}
-pre.editor-colors .wrap-guide,
-.host .wrap-guide {
-  background-color: #282a2e;
-}
-pre.editor-colors .indent-guide,
-.host .indent-guide {
-  color: #373b41;
+  background-color: #ffffff;
+  color: #555555;
 }
 pre.editor-colors .invisible-character,
 .host .invisible-character {
-  color: #373b41;
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(85, 85, 85, 0.2);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(85, 85, 85, 0.2);
 }
 pre.editor-colors .gutter,
 .host .gutter {
-  background-color: #282a2e;
-  border-right: 2px solid #373b41;
-  color: #c5c8c6;
-}
-pre.editor-colors .gutter .line-number,
-.host .gutter .line-number {
-  padding: 0 0.25em 0 0.5em;
-}
-pre.editor-colors .gutter .line-number.cursor-line,
-.host .gutter .line-number.cursor-line {
-  background-color: #373b41;
-  color: #c5c8c6;
-}
-pre.editor-colors .gutter .line-number.cursor-line-no-selection,
-.host .gutter .line-number.cursor-line-no-selection {
-  color: #c5c8c6;
+  color: #555555;
+  background: #ffffff;
 }
 pre.editor-colors .gutter .line-number.folded,
 .host .gutter .line-number.folded,
@@ -144,209 +137,190 @@ pre.editor-colors .gutter .line-number:after,
 .host .gutter .line-number:after,
 pre.editor-colors .fold-marker:after,
 .host .fold-marker:after {
-  color: #969896;
+  color: #e87b00;
 }
 pre.editor-colors .invisible,
 .host .invisible {
-  color: #c5c8c6;
-}
-pre.editor-colors .cursor,
-.host .cursor {
-  color: #ffffff;
+  color: #555;
 }
 pre.editor-colors .selection .region,
 .host .selection .region {
-  background-color: #404349;
+  background-color: #e1e1e1;
+}
+pre.editor-colors.is-focused .cursor,
+.host.is-focused .cursor {
+  border-color: #000000;
+}
+pre.editor-colors.is-focused .selection .region,
+.host.is-focused .selection .region {
+  background-color: #afc4da;
+}
+pre.editor-colors.is-focused .line-number.cursor-line-no-selection,
+.host.is-focused .line-number.cursor-line-no-selection,
+pre.editor-colors.is-focused .line.cursor-line,
+.host.is-focused .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
+}
+pre.editor-colors .source.gfm,
+.host .source.gfm {
+  color: #444;
+}
+pre.editor-colors .gfm .markup.heading,
+.host .gfm .markup.heading {
+  color: #111;
+}
+pre.editor-colors .gfm .link,
+.host .gfm .link {
+  color: #888;
+}
+pre.editor-colors .gfm .variable.list,
+.host .gfm .variable.list {
+  color: #888;
+}
+pre.editor-colors .markdown .paragraph,
+.host .markdown .paragraph {
+  color: #444;
+}
+pre.editor-colors .markdown .heading,
+.host .markdown .heading {
+  color: #111;
+}
+pre.editor-colors .markdown .link,
+.host .markdown .link {
+  color: #888;
+}
+pre.editor-colors .markdown .link .string,
+.host .markdown .link .string {
+  color: #888;
+}
+.host(.is-focused) .cursor {
+  border-color: #000000;
+}
+.host(.is-focused) .selection .region {
+  background-color: #afc4da;
+}
+.host(.is-focused) .line-number.cursor-line-no-selection,
+.host(.is-focused) .line.cursor-line {
+  background-color: rgba(255, 255, 134, 0.34);
 }
 .comment {
-  color: #969896;
-}
-.entity.name.type {
-  color: #f0c674;
-  text-decoration: underline;
-}
-.entity.other.inherited-class {
-  color: #b5bd68;
-}
-.keyword {
-  color: #b294bb;
-}
-.keyword.control {
-  color: #b294bb;
-}
-.keyword.operator {
-  color: #c5c8c6;
-}
-.keyword.other.special-method {
-  color: #81a2be;
-}
-.keyword.other.unit {
-  color: #de935f;
-}
-.storage {
-  color: #b294bb;
-}
-.constant {
-  color: #de935f;
-}
-.constant.character.escape {
-  color: #8abeb7;
-}
-.constant.numeric {
-  color: #de935f;
-}
-.constant.other.color {
-  color: #8abeb7;
-}
-.constant.other.symbol {
-  color: #b5bd68;
-}
-.variable {
-  color: #cc6666;
-}
-.variable.interpolation {
-  color: #a3685a;
-}
-.variable.parameter.function {
-  color: #c5c8c6;
-}
-.invalid.illegal {
-  background-color: #cc6666;
-  color: #1d1f21;
+  color: #999988;
+  font-style: italic;
 }
 .string {
-  color: #b5bd68;
+  color: #D14;
 }
-.string.regexp {
-  color: #8abeb7;
+.string .source,
+.string .meta.embedded.line {
+  color: #5A5A5A;
 }
-.string.regexp .source.ruby.embedded {
-  color: #ff8000;
+.string .punctuation.section.embedded {
+  color: #920B2D;
 }
-.string.other.link {
-  color: #cc6666;
+.string .punctuation.section.embedded .source {
+  color: #920B2D;
 }
-.punctuation.definition.comment {
-  color: #969896;
+.constant.numeric {
+  color: #D14;
 }
-.punctuation.definition.parameters,
-.punctuation.definition.array {
-  color: #c5c8c6;
+.constant.language {
+  color: #606aa1;
 }
-.punctuation.definition.heading,
-.punctuation.definition.identity {
-  color: #81a2be;
+.constant.character,
+.constant.other {
+  color: #606aa1;
 }
-.punctuation.definition.bold {
-  color: #f0c674;
+.constant.symbol {
+  color: #990073;
+}
+.constant.numeric.line-number.find-in-files .match {
+  color: rgba(143, 190, 0, 0.63);
+}
+.variable {
+  color: #008080;
+}
+.variable.parameter {
+  color: #606aa1;
+}
+.keyword {
+  color: #222;
   font-weight: bold;
 }
-.punctuation.definition.italic {
-  color: #b294bb;
-  font-style: italic;
+.keyword.unit {
+  color: #445588;
 }
-.punctuation.section.embedded {
-  color: #a3685a;
+.keyword.special-method {
+  color: #0086B3;
 }
-.support.class {
-  color: #f0c674;
+.storage {
+  color: #222;
 }
-.support.function {
-  color: #8abeb7;
+.storage.type {
+  color: #222;
 }
-.support.function.any-method {
-  color: #81a2be;
+.entity.name.class {
+  text-decoration: underline;
+  color: #606aa1;
+}
+.entity.other.inherited-class {
+  text-decoration: underline;
+  color: #606aa1;
 }
 .entity.name.function {
-  color: #81a2be;
-}
-.entity.name.class,
-.entity.name.type.class {
-  color: #f0c674;
-}
-.entity.name.section {
-  color: #81a2be;
+  color: #900;
 }
 .entity.name.tag {
-  color: #cc6666;
-  text-decoration: underline;
+  color: #008080;
 }
 .entity.other.attribute-name {
-  color: #de935f;
-}
-.entity.other.attribute-name.id {
-  color: #81a2be;
-}
-.meta.class {
-  color: #f0c674;
-}
-.meta.link {
-  color: #de935f;
-}
-.meta.require {
-  color: #81a2be;
-}
-.meta.selector {
-  color: #b294bb;
-}
-.meta.separator {
-  background-color: #373b41;
-  color: #c5c8c6;
-}
-.meta.tag {
-  color: #c5c8c6;
-}
-.none {
-  color: #c5c8c6;
-}
-.markup.bold {
-  color: #de935f;
+  color: #458;
   font-weight: bold;
 }
-.markup.changed {
-  color: #b294bb;
+.entity.name.filename.find-in-files {
+  color: #E6DB74;
 }
-.markup.deleted {
-  color: #cc6666;
+.support.constant,
+.support.function,
+.support.type {
+  color: #458;
 }
-.markup.italic {
-  color: #b294bb;
-  font-style: italic;
+.support.class {
+  color: #008080;
 }
-.markup.heading .punctuation.definition.heading {
-  color: #81a2be;
+.invalid {
+  color: #F8F8F0;
+  background-color: #00A8C6;
 }
-.markup.inserted {
-  color: #b5bd68;
+.invalid.deprecated {
+  color: #F8F8F0;
+  background-color: #8FBE00;
 }
-.markup.list {
-  color: #cc6666;
+.meta.structure.dictionary.json > .string.quoted.double.json,
+.meta.structure.dictionary.json > .string.quoted.double.json .punctuation.string {
+  color: #000080;
 }
-.markup.quote {
-  color: #de935f;
+.meta.structure.dictionary.value.json > .string.quoted.double.json {
+  color: #d14;
 }
-.markup.raw.inline {
-  color: #b5bd68;
+.meta.diff,
+.meta.diff.header {
+  color: #75715E;
 }
-.source.gfm .markup {
-  -webkit-font-smoothing: auto;
+.css.support.property-name {
+  font-weight: bold;
+  color: #333;
 }
-.source.gfm .markup.heading {
-  color: #cc6666;
+.css.constant {
+  color: #099;
 }
-.source.gfm .markup.link {
-  color: #81a2be;
-}
-.source.gfm .link .entity {
-  color: #8abeb7;
-}
-pre.editor-colors[mini] .scroll-view,
-.host([mini]) .scroll-view {
-  padding-left: 1px;
+.bracket-matcher .region {
+  background-color: #C9C9C9;
+  opacity: .7;
+  border-bottom: 0 none;
 }
 </style>
   </head>
-  <body class='markdown-preview'><h1 id="lineage-mapper-user-guide">Lineage Mapper User Guide</h1>
+  <body class='markdown-preview' data-use-github-style><h1 id="lineage-mapper-user-guide">Lineage Mapper User Guide</h1>
 <h2 id="table-of-contents">Table of Contents</h2>
 <!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 <ul>
@@ -356,20 +330,19 @@ pre.editor-colors[mini] .scroll-view,
 <li><a href="#installing-fiji">Installing Fiji</a></li>
 <li><a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a></li>
 <li><a href="#launching-lineagemapper">Launching LineageMapper</a></li>
-<li><a href="#loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</a></li>
+<li><a href="#selecting-which-images-to-track">Selecting Which Images to Track</a></li>
 </ul>
 </li>
 <li><a href="#installation-validation-test">Installation Validation Test</a></li>
 <li><a href="#lineage-mapper-gui">Lineage Mapper GUI</a><ul>
-<li><a href="#input-parameters">Input Parameters</a></li>
-<li><a href="#output-parameters">Output Parameters</a></li>
-<li><a href="#advanced-parameters">Advanced Parameters</a><!-- /TOC -->
-</li>
+<li><a href="#general-parameters">General Parameters</a></li>
+<li><a href="#advanced-parameters">Advanced Parameters</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
+<!-- /TOC -->
 <h2 id="getting-started">Getting Started</h2>
 <p>This section describes how to install the <em>Lineage Mapper</em> plugin. Section <a href="#installing-fiji">Installing Fiji</a> describes how to get Fiji. Section <a href="#lineage-mapper-plugin-installation">Lineage Mapper Plugin Installation</a> describes how to add the plugin into Fiji. General help relating to Fiji and ImageJ can be found online.</p>
 <ol>
@@ -387,45 +360,29 @@ pre.editor-colors[mini] .scroll-view,
 <li><p>Open Fiji</p>
 </li>
 <li><p>Menu item: <em>Plugins</em> &gt;&gt; <em>Tracking</em> &gt;&gt; <em>LineageMapper</em></p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Plugin.png" alt="Launching Tracking Plugin"></p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Fiji_Open_Plugin.png" alt="Launching Tracking Plugin"></p>
 </li>
 <li><p>Lineage Mapper main window opens</p>
-<p> <img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Plugin_Main_Window.png" alt="Lineage Mapper Main Window"></p>
+<p> <img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Plugin_Main_Window.png" alt="Lineage Mapper Main Window"></p>
 </li>
 </ol>
-<h3 id="loading-an-image-sequence-into-fiji">Loading an Image Sequence into Fiji</h3>
-<p>The Cell Tracker expects a segmented image sequence (an Image Stack within ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-8.html</a>). Segmented images are images where the regions of interest are labeled from 1 to maximum number of objects per image. The object numbering does not need to reflect any organization of the objects. The labeled regions of interest in the segmented images all consist of pixels that have the value of the object label. For example, every pixel in the object labeled 5 has a pixel value of 5. Background pixels have the value 0. The image sequence can be loaded into Fiji in any number of ways. For a full listing see the documentation at:</p>
-<p>-ImageJ <a href="http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html">http://rsbweb.nih.main.java.gov/ij/docs/guide/146-26.html</a> and</p>
-<p>-Fiji <a href="http://fiji.sc/Importing_Image_Files">http://fiji.sc/Importing_Image_Files</a></p>
-<p>Methods of loading an image sequence into Fiji:</p>
-<ol>
-<li><p>Drag and Drop a folder containing images onto the Fiji Window.</p>
-</li>
-<li><p>Menu item: <em>File</em> &gt;&gt; <em>Import</em> &gt;&gt; <em>Image Sequence</em></p>
-</li>
-</ol>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Fiji_Open_Image_Sequence.png" alt="image"></p>
+<h3 id="selecting-which-images-to-track">Selecting Which Images to Track</h3>
+<p>The Lineage-Mapper tracks a series of labeled segmented images saved on disk. A labeled image is a segmented image where the regions of interest (ROI) are labeled from 1 to maximum number of objects per image. The ROI numbering does not need to reflect any organization. The labeled ROIs in the segmented images all consist of pixels that have the value of the ROI label. For example, every pixel in the ROI labeled 5 has a pixel value of 5. Background pixels have the value 0.</p>
+<p><strong>Lineage Mapper does not automatically label the input images because that would undo any previous segmentation of touching ROIs.</strong></p>
+<p>The input to the cell tracker is a set of labeled segmented images where each Region of Interest (ROI) is assigned a unique number starting from 1 to the maximum number of ROIs in that image.</p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Segmented_image_example.png" alt="image"></p>
 <h2 id="installation-validation-test">Installation Validation Test</h2>
 <p>In this section, we will walk through setting up running LineageMapper on the small test dataset in order to validate that the plugin is installed correctly.</p>
 <ol>
 <li>Download test images: <a href="testdata/LineageMapper_Test_Data.zip">LineageMapper_Test_Data.zip ~ 55 KB</a></li>
 <li>Extract LineageMapper_Test_Data.zip into a directory</li>
 <li><a href="#launching-lineagemapper">Launch LineageMapper plugin from Fiji</a></li>
-<li>Load the test sequence of segmented images into Fiji <a href="#loading-an-image-sequence-into-fiji">Loading Image Sequence</a></li>
-<li>Select <strong>Load Params</strong> and open &#39;[extractionPath]/LineageMapper_Test_Data/tracking_parameters.txt&#39;</li>
-<li>To avoid using <strong>Load Params</strong><ol>
-<li>Under <strong>Image Sequence to Track</strong> select the name of your sequence</li>
-<li>Select the <strong>Advanced</strong> tab<ol>
-<li>Scroll to the bottom and press <strong>Load Default Parameters</strong></li>
-</ol>
-</li>
-</ol>
-</li>
-<li>Select <strong>Output</strong> tab and de-select <strong>Save Outputs to Disk</strong></li>
+<li>Select <strong>Load Params</strong> and open &#39;[extractionPath]/LineageMapper_Test_Data/tracking-params.txt&#39;</li>
+<li>Modify the Input and Output directories appropriately</li>
 <li>Click <strong>Track</strong> to launch</li>
 </ol>
 <h2 id="lineage-mapper-gui">Lineage Mapper GUI</h2>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Plugin_Main_Window.png" alt="Main Window"></p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Anotated_Plugin_Main_Window.png" alt="Main Window"></p>
 <ul>
 <li><p><strong>(1) Save Params</strong> - Saves the current parameters to a file. When clicked, a save dialog will appear.</p>
 </li>
@@ -440,115 +397,98 @@ pre.editor-colors[mini] .scroll-view,
 <li><p><strong>(6) Log Window</strong> - The log window is a text area that contains useful information after you click the <em>Track</em> button. Any errors will be appended to the log window.</p>
 </li>
 </ul>
-<h3 id="input-parameters">Input Parameters</h3>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Input_Tab.png" alt="Input Tab"></p>
+<h3 id="general-parameters">General Parameters</h3>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Anotated_Input_Tab.png" alt="Input Tab"></p>
 <ul>
-<li><p><strong>(1) Image Sequence</strong> - Specifies which of the image sequences open in Fiji is tracked. The drop down will show “null” if there are no valid image sequences open in Fiji. The Refresh button will update this list. If an image sequence does not appear on the list it is not a valid image sequence for tracking.</p>
+<li><p><strong>(1) Input Directory</strong> - The directory where the source segmented images are located. Select browse to open a directory browser. These input images must be labeled segmented masks.</p>
 </li>
-<li><p><strong>(2) Minimum Object Size</strong> - The minimum size a labeled foreground object must be in order to be recognized as a cell. Objects smaller than this threshold will be deleted if they were created by splitting the group of cellular area into single cell segments. This parameter is only used when a fusion cases is detected and the cells are cut apart. Otherwise no minimum object size will be enforced on the input labeled masks.</p>
+<li><p><strong>(2) Filename Pattern</strong> - Used to select which images to load from a directory. Important: the character &quot;%&quot; cannot be used as part of a filename pattern.</p>
+<blockquote>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Example:&nbsp;img_001.tif&nbsp;=&nbsp;img_{iii}.tif</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{iii}&nbsp;-&nbsp;Special&nbsp;text&nbsp;that&nbsp;represents&nbsp;index&nbsp;numbering&nbsp;between&nbsp;0&nbsp;and&nbsp;999.&nbsp;Increase&nbsp;the&nbsp;number&nbsp;of&nbsp;i&#39;s&nbsp;to&nbsp;represent&nbsp;larger&nbsp;numbers.</span></span></span></div></pre></blockquote>
 </li>
-<li><p><strong>(3) Maximum Centroid Displacement</strong> - The maximum centroid distance (in pixels) is used to consider which cells could possibly be tracked together. The radius from a cell centroid to the max centroid distance represents the area of a possible cell migration. For example, the red cell represents the current frame, whereas the blue cells represent the next frame. The Cell Tracker would consider the upper blue cell as a possible tracking option to the red cell and the lower blue cell would be ignored.</p>
+<li><p><strong>(3) Output Directory</strong> - Specifies the location to save output tracked images and associated tracking metadata.</p>
+<blockquote>
+<p>Files that are saved:</p>
+<ul>
+<li><strong>{namePrefix}{filenamePattern}</strong> - the tracked images</li>
+<li><strong>{namePrefix}</strong>tracking-parameters.txt - tracking parameters used (can be loaded into the GUI)</li>
+<li><strong>{namePrefix}</strong>birth-death.csv</li>
+<li><strong>{namePrefix}</strong>confidence-index.csv</li>
+<li><strong>{namePrefix}</strong>division.csv</li>
+<li><strong>{namePrefix}</strong>fusion.csv</li>
+<li><strong>{namePrefix}</strong>lineage-viewer/ - auto generated lineage viewer webpage and associated files</li>
+</ul>
+</blockquote>
+</li>
+<li><p><strong>(4) Prefix</strong> - The prefix given to output files.</p>
+</li>
+<li><p><strong>(5) Minimum Object Size</strong> - The minimum size a labeled foreground object must be in order to be recognized as a cell. Objects smaller than this threshold will be deleted if they were created by splitting the group of cellular area into single cell segments. This parameter is only used when a fusion cases is detected and the cells are cut apart. Otherwise no minimum object size will be enforced on the input labeled masks.</p>
+</li>
+<li><p><strong>(6) Maximum Centroid Displacement</strong> - The maximum centroid distance (in pixels) is used to consider which cells could possibly be tracked together. The radius from a cell centroid to the max centroid distance represents the area of a possible cell migration. For example, the red cell represents the current frame, whereas the blue cells represent the next frame. The Cell Tracker would consider the upper blue cell as a possible tracking option to the red cell and the lower blue cell would be ignored.</p>
 </li>
 </ul>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Max_Centroid_Distance_Example.png" alt="image"></p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Max_Centroid_Distance_Example.png" alt="image"></p>
 <ul>
-<li><p><strong>(4) Enable Division</strong> - If cell division is enabled, the daughters cells of a mitotic event will be assigned new cell labels, different from their mother cell label. If disabled, the daughters will keep the same label as the mother cell and no mitotic event will be considered. This functionality is helpful when dealing with particle tracking or colony tracking.</p>
+<li><p><strong>(7) Enable Division</strong> - If cell division is enabled, the daughters cells of a mitotic event will be assigned new cell labels, different from their mother cell label. If disabled, the daughters will keep the same label as the mother cell and no mitotic event will be considered. This functionality is helpful when dealing with particle tracking or colony tracking.</p>
 </li>
-<li><p><strong>(5) Enable Fusion</strong> - If cell fusion is enabled, the cell tracker will assign a new unique global ID number to the fused region and will consider all the cells from the previous frame as dead. If disabled, the cell tracker will separate the cellular area in the current frame into a group of single cells by relying on the previous frames information.</p>
+<li><p><strong>(8) Enable Fusion</strong> - If cell fusion is enabled, the cell tracker will assign a new unique global ID number to the fused region and will consider all the cells from the previous frame as dead. If disabled, the cell tracker will separate the cellular area in the current frame into a group of single cells by relying on the previous frames information.</p>
 </li>
 </ul>
-<h3 id="output-parameters">Output Parameters</h3>
-<p>Once the tracker has successfully completed a tracking session the tracking data collected during the session will be available here.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Output_Tab.png" alt="Output Tab"></p>
-<ul>
-<li><p><strong>(1) Save Outputs to Disk</strong> - Checkbox controls whether outputs from the cell tracker are written to disk, or just displayed using Fiji.</p>
-</li>
-<li><p><strong>(2) Directory</strong> - Specify the output directory where the tracked images and metadata files are saved. This is only enabled and valid if <strong>(1)</strong> is enabled.
-Metadata files are saved in the format:</p>
-<ul>
-<li><em>prefix</em>_ birth_death.csv</li>
-<li><em>prefix</em>_fusion.csv</li>
-<li><em>prefix</em>_division.csv</li>
-<li><em>prefix</em>_confidence_index.csv</li>
-</ul>
-</li>
-</ul>
-<p><em>prefix</em>  - the prefix prepended to output files.</p>
-<ul>
-<li><p><strong>(3) Prefix</strong> - The prefix prepended to the output file common names. Files that will be overwritten throw a warning and get confirmation before being overwritten. To remove the warning change the <strong>Prefix</strong> to a unique value.</p>
-</li>
-<li><p><strong>(4) Save Output Images in Single Tiff Stack</strong> - Toggles whether the output tracked images are saved into a single Tiff file as a time sequence, or into individual Tiff files with time point numbering appended to <strong>(3)</strong>. If this is disabled, one Tiff file per time point in the input image sequence will be generated and saved into directory specified in <strong>(2)</strong>. Otherwise a single Tiff file “<em>prefix</em>.tif” will be generated.</p>
-</li>
-<li><p><strong>(5) Overlay Object Labels</strong> - If selected, the output tracked images displayed in Fiji will have ROI labels superimposed over each cell object displaying that objects global ID. These labels are non destructive as they do not modify the underlying image; they are simply displayed over top of the image by Fiji.</p>
-</li>
-</ul>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Overlay_Object_Labels.png" alt="image"></p>
-<ul>
-<li><p><strong>(6) Show Birth/Death</strong> - Opens the tracked object birth and death data and displays it in a table. The Birth and Death is a table with three columns and <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the global cell ID number. The second column (Birth) is the frame index where the cell first appeared in the Field of View and the third column (Death) is the frame index where the cell last appeared in the Field of View.</p>
-</li>
-<li><p><strong>(7) Show Division</strong> - Opens the tracked object division data and displays it in a table. This is only valid if division was enabled. Division is a table with four columns and <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the time point (frame number) where the division occurred. The second column is global cell ID number of the mother cell. The third column is the global cell ID number of the one of the daughter cells and the fourth column is the global cell ID number of the other daughter cell. The Cell Tracker considers mitosis between a mother cell and its two daughter cells.</p>
-</li>
-<li><p><strong>(8) Show Fusion</strong> - Opens the tracked object fusion data and displays it in a table. This is only valid if fusion was enabled. Fusion is a table of (<em>m+2</em>) columns where <em>m</em> is the maximum number of cells that fused together at frame <em>t</em> to form one object at frame <em>t+1</em>. There are <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the time point (frame number) where the fusion occurred. The second column is the global cell ID number of the fused cell at time point <em>t+1</em>. The last <em>m</em> columns contain the global ID numbers of the cells that fused together in time point <em>t</em> to create the fused cell at time point <em>t+1</em>.</p>
-</li>
-<li><p><strong>(9) Show Confidence Index</strong> - Opens the tracked object confidence index data and displays it in a table. The confidence index is a table of two columns and <em>n</em> rows where <em>n</em> is the total number of cells globally labeled throughout the experiment. The first column is the global cell ID number and the second column is the confidence index of that cell. The table is sorted in a descending order with respect to the confidence index. Higher confidence index value corresponds to more trust in the entire track of a cell during its lifetime.</p>
-</li>
-</ul>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Metadata_Example.png" alt="Example Metadata Windows"></p>
 <h3 id="advanced-parameters">Advanced Parameters</h3>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Anotated_Advanced_Tab.png" alt="Advanced Tab"></p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Anotated_Advanced_Tab.png" alt="Advanced Tab"></p>
 <ul>
-<li><p><strong>(1) Cost Parameters</strong> - The cell tracker uses a cost function to create a tracking decision between cells in consecutive frames. The weights represent the importance of each term in the computation of the cost function. The higher the weight the more important is that term. The cost function that relates two Cellular objects between consecutive frames is computed using the following normalized weighted 3 time-lapse cell characteristics:</p>
+<li><p><strong>Cost Parameters</strong> - The cell tracker uses a cost function to create a tracking decision between cells in consecutive frames. The weights represent the importance of each term in the computation of the cost function. The higher the weight the more important is that term. The cost function that relates two Cellular objects between consecutive frames is computed using the following normalized weighted 3 time-lapse cell characteristics:</p>
 <ol>
-<li><p><strong>(2) Weight Cell Overlap</strong> - If cells tend to move slowly and have big overlapping areas between consecutive frames, then this value should be the highest among all other cost function weights.</p>
+<li><p><strong>(1) Weight Cell Overlap</strong> - If cells tend to move slowly and have big overlapping areas between consecutive frames, then this value should be the highest among all other cost function weights.</p>
 </li>
-<li><p><strong>(3) Weight Cell Centroid Distance</strong> - In the event when cells don’t overlap as much and/or amount of overlap is almost similar, the distance of their centroids movement will make the difference in the tracking decision.</p>
+<li><p><strong>(2) Weight Cell Centroid Distance</strong> - In the event when cells don’t overlap as much and/or amount of overlap is almost similar, the distance of their centroids movement will make the difference in the tracking decision.</p>
 </li>
-<li><p><strong>(4) Weight Cell Size</strong> - If cells retain their size between consecutive frames then this weight value should be high. However, if cells go into mitosis and their respective size changes rapidly then this value should be low.</p>
+<li><p><strong>(3) Weight Cell Size</strong> - If cells retain their size between consecutive frames then this weight value should be high. However, if cells go into mitosis and their respective size changes rapidly then this value should be low.</p>
 </li>
 </ol>
 </li>
 </ul>
 <p>Some possible scenarios for cell tracking: <em>Problem 1</em> is our typical problem encountered in most cases, when cells change shape often and go into mitosis and image acquisition rate is high enough that there are good cellular overlaps between consecutive acquisitions. In general, the overlap weight should be proportional to the acquisition rate. <em>Problems 2</em> and <em>Problem 3</em> are considered to have low acquisition rates. In <em>Problem 2</em> cells change shape but don’t move long distances and in <em>Problem 3</em> like for particle tracking problems where objects don’t change shape and we have low image acquisition rate. A proposed weight combination to solve each of these problems is given in the table below. It is important to note that the cell tracker is very robust with regards to the weights. The three weights don’t need to be changed for solving similar problems like the ones displayed in the table below.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Cost_Function_Weights_Example.png" alt="Cost Function Example"></p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Cost_Function_Weights_Example.png" alt="Cost Function Example"></p>
 <ul>
-<li><p><strong>(5) Division Parameters</strong> - The cell tracker bases its decision on detecting mitotic events using cell overlap between mother and its 2 daughter cells. If the cell overlap between one frame and the next is above the Min Division Overlap threshold, the Cell Tracker will label that as a possible mitosis event. The Cell Tracker will then test the Daughter Size Similarity, Daughter Aspect Ratio Similarity, and Mother Circularity Index thresholds to determine if a mitotic event has occurred. If all of the tests pass, the Cell Tracker will record the mitotic event in the division table.</p>
+<li><p><strong>Division Parameters</strong> - The cell tracker bases its decision on detecting mitotic events using cell overlap between mother and its 2 daughter cells. If the cell overlap between one frame and the next is above the Min Division Overlap threshold, the Cell Tracker will label that as a possible mitosis event. The Cell Tracker will then test the Daughter Size Similarity, Daughter Aspect Ratio Similarity, and Mother Circularity Index thresholds to determine if a mitotic event has occurred. If all of the tests pass, the Cell Tracker will record the mitotic event in the division table.</p>
 <ol>
-<li><p><strong>(6) Minimum Division Overlap</strong> - If cell overlap in percent is above this threshold between one frame and the next the Cell Tracker will record a possible mitotic event. The following table illustrates the value of this parameter with respect to the overlapping positions between a red cell from the current frame and     the blue cell from the next frame. If this parameter is set to 0%, all cases will be considered as a potential mitotic event. If this parameter is set to 100% cell mitosis is discarded where the daughter cell that overlaps the most with the mother cell will keep its unique global ID label and the other one will get a new label.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Min_Division_Overlap_Example.png" alt="Min Division Overlap Example"></p>
+<li><p><strong>(4) Minimum Division Overlap</strong> - If cell overlap in percent is above this threshold between one frame and the next the Cell Tracker will record a possible mitotic event. The following table illustrates the value of this parameter with respect to the overlapping positions between a red cell from the current frame and     the blue cell from the next frame. If this parameter is set to 0%, all cases will be considered as a potential mitotic event. If this parameter is set to 100% cell mitosis is discarded where the daughter cell that overlaps the most with the mother cell will keep its unique global ID label and the other one will get a new label.</p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Min_Division_Overlap_Example.png" alt="Min Division Overlap Example"></p>
 </li>
-<li><p><strong>(7) Daughter Size Similarity</strong> - This parameter is a measure of the size similarity between daughter cells. In a real mitotic event the size of the daughter cells should be very similar to each other. A mother cell doesn’t really produce a large daughter and a small one. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Daughter_Size_Similarity_Example.png" alt="Daughter Size Similarity Example"></p>
+<li><p><strong>(5) Daughter Size Similarity</strong> - This parameter is a measure of the size similarity between daughter cells. In a real mitotic event the size of the daughter cells should be very similar to each other. A mother cell doesn’t really produce a large daughter and a small one. Set this parameter to 0% to discard it.</p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Daughter_Size_Similarity_Example.png" alt="Daughter Size Similarity Example"></p>
 </li>
-<li><p><strong>(8) Daughter Aspect Ratio Similarity</strong> - This parameter is a measure of the aspect ratio similarity between daughter cells. In a real mitotic event daughter cells should have similar shapes to each other. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Daughter_Aspect_Ratio_Example.png" alt="Daughter Aspect Ratio Similarity Example"></p>
+<li><p><strong>(6) Daughter Aspect Ratio Similarity</strong> - This parameter is a measure of the aspect ratio similarity between daughter cells. In a real mitotic event daughter cells should have similar shapes to each other. Set this parameter to 0% to discard it.</p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Daughter_Aspect_Ratio_Example.png" alt="Daughter Aspect Ratio Similarity Example"></p>
 </li>
-<li><p><strong>(9) Mother Circularity Threshold</strong> - For a cell to be considered a mother cell in a possible mitotic event it must have been round within the previous <strong>Number of Frames to Check Circularity</strong> parameter. This circularity threshold determines what is round enough to be considered a mitotic cell. Set this parameter to 0% to discard it.</p>
-<p><img src="C:\majurski\NISTGithub\Lineage-Mapper.wiki\imgs\Mother_Cell_Circularity_Example.png" alt="Mother Circularity Example"></p>
+<li><p><strong>(7) Mother Circularity Threshold</strong> - For a cell to be considered a mother cell in a possible mitotic event it must have been round within the previous <strong>Number of Frames to Check Circularity</strong> parameter. This circularity threshold determines what is round enough to be considered a mitotic cell. Set this parameter to 0% to discard it.</p>
+<p><img src="https://raw.githubusercontent.com/wiki/usnistgov/Lineage-Mapper/imgs/Mother_Cell_Circularity_Example.png" alt="Mother Circularity Example"></p>
 </li>
-<li><p><strong>(10) Number Frames to Check Circularity</strong> - The Cell Tracker will determine if the cell had a circularity threshold above the Mother Circularity Index between the current frame and the previous number of frames. If the cell’s circularity is not above the threshold at least for one frame within this range, then the mitotic event will not be recorded.</p>
+<li><p><strong>(8) Number Frames to Check Circularity</strong> - The Cell Tracker will determine if the cell had a circularity threshold above the Mother Circularity Index between the current frame and the previous number of frames. If the cell’s circularity is not above the threshold at least for one frame within this range, then the mitotic event will not be recorded.</p>
 </li>
 </ol>
 </li>
-<li><p><strong>(11) Fusion Parameters</strong> - Cell fusion occurs when multiple cells get together and form one cellular object. It can come from an actual fusion where, for example, two colonies merge into one or from cells migrating so close together that segmentation technique considers them a single cell.</p>
+<li><p><strong>Fusion Parameters</strong> - Cell fusion occurs when multiple cells get together and form one cellular object. It can come from an actual fusion where, for example, two colonies merge into one or from cells migrating so close together that segmentation technique considers them a single cell.</p>
 <ol>
-<li><strong>(12) Minimum Fusion Overlap</strong> - This parameter represents the amount of overlap in percent of cell area, above which an area at the current frame is considered as a group of cells from the previous frame and that this area needs to be split into multiple single cells. For example: if 2 cells A &amp; B at frame <em>t</em> have tracks to the same cell C at frame <em>t+1</em> and the amount of overlap between A&amp;C = 45% of size A and the overlap between B&amp;C = 50% of size B, then C should be split into 2 single cells.</li>
+<li><strong>(9) Minimum Fusion Overlap</strong> - This parameter represents the amount of overlap in percent of cell area, above which an area at the current frame is considered as a group of cells from the previous frame and that this area needs to be split into multiple single cells. For example: if 2 cells A &amp; B at frame <em>t</em> have tracks to the same cell C at frame <em>t+1</em> and the amount of overlap between A&amp;C = 45% of size A and the overlap between B&amp;C = 50% of size B, then C should be split into 2 single cells.</li>
 </ol>
 </li>
 </ul>
 <ul>
-<li><p><strong>(13) Confidence Index Parameters</strong> - The Lineage Mapper assigns a tracking confidence index for each tracked object in the time-lapse sequence. The confidence index is only an indicator of how well we trust the track of a given cell during its entire cell cycle. There are three components that can affect the computation of the confidence index; each one can be disabled if needed: cell lifetime threshold, neighbor density, and border distance. All cells start with the same confidence index value of 1, and then we analyze the confidence index parameters of each cell. For example, if a cell meets the minimum expected lifetime defined by the user, the confidence increases by a point. The confidence index decreases if a cell was in a very confluent area and was touching other cells or if a cell was too close to the border (as defined by the user).</p>
+<li><p><strong>Confidence Index Parameters</strong> - The Lineage Mapper assigns a tracking confidence index for each tracked object in the time-lapse sequence. The confidence index is only an indicator of how well we trust the track of a given cell during its entire cell cycle. There are three components that can affect the computation of the confidence index; each one can be disabled if needed: cell lifetime threshold, neighbor density, and border distance. All cells start with the same confidence index value of 1, and then we analyze the confidence index parameters of each cell. For example, if a cell meets the minimum expected lifetime defined by the user, the confidence increases by a point. The confidence index decreases if a cell was in a very confluent area and was touching other cells or if a cell was too close to the border (as defined by the user).</p>
 <ol>
-<li><p><strong>(14) Minimum Cell Lifespan</strong> - The minimum cell life is the number of frames a cell must be present throughout to increase its confidence by a point. This index does not affect cells that are present at the beginning of the experiment (first frame).</p>
+<li><p><strong>(10) Minimum Cell Lifespan</strong> - The minimum cell life is the number of frames a cell must be present throughout to increase its confidence by a point. This index does not affect cells that are present at the beginning of the experiment (first frame).</p>
 </li>
-<li><p><strong>(15) Cell Death Delta Centroids Threshold</strong> - If a cell centroid does not move more than this value (in pixels) the cell will be recorded as dead.</p>
+<li><p><strong>(11) Cell Death Delta Centroids Threshold</strong> - If a cell centroid does not move more than this value (in pixels) the cell will be recorded as dead.</p>
 </li>
-<li><p><strong>(16) Cell Density Affects Confidence Index</strong> - If enabled, a lower confidence index will be assigned to cells that have grouped into colonies or become close to other cells.</p>
+<li><p><strong>(12) Cell Density Affects Confidence Index</strong> - If enabled, a lower confidence index will be assigned to cells that have grouped into colonies or become close to other cells.</p>
 </li>
-<li><p><strong>(17) Border Cell Affects Confidence Index</strong> - If enabled, only cells that never touch the image border (Field of View) boundaries will increase their corresponding confidence index by a point.</p>
+<li><p><strong>(13) Border Cell Affects Confidence Index</strong> - If enabled, only cells that never touch the image border (Field of View) boundaries will increase their corresponding confidence index by a point.</p>
 </li>
 </ol>
 </li>
-<li><p><strong>(18) Load Default Parameters</strong> - Loads the default tracking parameters into the GUI.</p>
+<li><p><strong>(14) Load Default Parameters</strong> - Loads the default tracking parameters into the GUI.</p>
 </li>
 </ul></body>
 </html>
