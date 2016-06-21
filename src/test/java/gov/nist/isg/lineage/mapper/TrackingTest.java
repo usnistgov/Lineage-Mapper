@@ -19,9 +19,9 @@ public class TrackingTest {
 //    new ImageJ();
 
 
-    String inputDirectory = "/Users/mmajurski/Workspace/ThesisImages/NIH_3T3/manual_segmentation//";
-    String filenamePattern = "phase_image_{iii}.tif";
-    String outputDirectory = "/Users/mmajurski/Workspace/ThesisImages/NIH_3T3/tmp_tracking_output/";
+    String inputDirectory = "C:\\majurski\\image-data\\Tracking_Test_Data\\msks\\";
+    String filenamePattern = "segmented_image_{iii}.tif";
+    String outputDirectory = "C:\\majurski\\image-data\\Tracking_Test_Data\\results\\";
     String outputPrefix = "trk-";
 
     TrackingAppParams params = new TrackingAppParams();
@@ -29,6 +29,8 @@ public class TrackingTest {
     params.setFilenamePattern(filenamePattern);
     params.setOutputDirectory(outputDirectory);
     params.setOutputPrefix(outputPrefix);
+
+    params.setIsMacro(true); // disables auto-open of lineage viewer webpage
 
     LineageMapper lm = new LineageMapper(params);
     lm.run();

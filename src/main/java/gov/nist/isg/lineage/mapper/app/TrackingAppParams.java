@@ -93,7 +93,7 @@ public class TrackingAppParams {
   private boolean enableCellFusion = false;
 
 
-  private CellTrackerGUI ctGUI = null;
+  private CellTrackerGUI ctGUI = new CellTrackerGUI(this, false);
   private boolean tracking = false;
   private boolean macro = false;
   private Thread trackingThread = null;
@@ -105,13 +105,6 @@ public class TrackingAppParams {
   private List<ImageFrame> framesList = null;
 
 
-  // TODO replace checking the individual panels with this function
-  public boolean hasError() {
-    if (ctGUI == null)
-      return true;
-
-    return ctGUI.getOptionsPanel().hasError() || ctGUI.getAdvancedPanel().hasError();
-  }
 
   public void validateParameters() throws IllegalArgumentException {
     String errors = getErrorString();
