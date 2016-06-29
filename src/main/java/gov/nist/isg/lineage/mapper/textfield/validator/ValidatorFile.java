@@ -15,6 +15,9 @@ public class ValidatorFile implements Validator<File> {
 
   private String errorText;
 
+  /**
+   * Creates a file validator that allows any valid filepath
+   */
   public ValidatorFile() {
     errorText = "<html>Please only a valid File Path.</html>";
   }

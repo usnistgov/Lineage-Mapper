@@ -28,7 +28,9 @@ import main.java.gov.nist.isg.lineage.mapper.app.gui.swingworkers.TrackSwingWork
 import main.java.gov.nist.isg.lineage.mapper.app.images.AppImageHelper;
 import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 
-
+/**
+ * Special JPanel to hold the tracking control elements
+ */
 public class ControlPanel extends JPanel {
 
   private JButton trackButton;
@@ -40,7 +42,11 @@ public class ControlPanel extends JPanel {
   private JProgressBar progressBar;
   private TrackingAppParams params;
 
-
+  /**
+   * Special JPanel to hold the tracking control elements
+   * @param params instance of TrackingAppParams to be updated by the options available in this
+   *               panel.
+   */
   public ControlPanel(TrackingAppParams params) {
     super();
 
@@ -118,7 +124,6 @@ public class ControlPanel extends JPanel {
         System.out.println("Log: " + logLevelComboBox.getSelectedItem().toString());
       }
     });
-    logLevelComboBox.setSelectedIndex(0);
 
     saveParamsButton = new JButton("Save Params");
     saveParamsButton.addActionListener(new ActionListener() {

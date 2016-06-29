@@ -16,12 +16,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Class to hold a 2D matrix of double values, including simple processing operations that can be
+ * performed on the data.
+ */
 public class Matrix2D {
 
   int m;
   int n;
   double[][] data;
 
+  /**
+   * Create a new double precision matrix.
+   * @param newM the height
+   * @param newN the width
+   */
   public Matrix2D(int newM, int newN) {
     if (newM < 1 || newN < 1) {
       m = 0;
@@ -72,6 +81,10 @@ public class Matrix2D {
     return data;
   }
 
+  /**
+   * Initialize all elements of the matrix to the specified value.
+   * @param init the value to set all matrix elements to.
+   */
   public void initTo(double init) {
     for (int i = 0; i < m; i++) {
       for (int j = 0; j < n; j++) {
@@ -120,6 +133,10 @@ public class Matrix2D {
     this.add((int) i, (int) j, val);
   }
 
+  /**
+   * return a 1D matrix containing the sum of this matrix performed column-wise.
+   * @return the vertical sum of this matrix (column-wise).
+   */
   public Matrix2D sumVertical() {
     Matrix2D ret = new Matrix2D(1, n);
     for (int i = 0; i < m; i++) {
@@ -130,6 +147,10 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * return a 1D matrix containing the sum of this matrix performed row-wise.
+   * @return the horizontal sum of this matrix (row-wise).
+   */
   public Matrix2D sumHorizontal() {
     Matrix2D ret = new Matrix2D(m, 1);
     for (int i = 0; i < m; i++) {
@@ -140,6 +161,10 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * Compute the sum of all elements in this matrix
+   * @return the sum of all elements in this matrix.
+   */
   public double sum() {
     double ret = 0;
     for (int i = 0; i < m; i++) {
@@ -150,6 +175,10 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * Compute the maximum value in this matrix.
+   * @return the maximum value in the matrix.
+   */
   public double max() {
     double ret = Double.NaN;
     for (int i = 0; i < m; i++) {
@@ -164,6 +193,10 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * Compute the minimum value in this matrix.
+   * @return the minimum value in the matrix.
+   */
   public double min() {
     double ret = Double.NaN;
     for (int i = 0; i < m; i++) {
@@ -178,6 +211,11 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * Find the minimum value per row (value and index).
+   * @param minValues matrix to hold the row-size minimum values
+   * @param minIndicies matrix to hold the index of the row-wise minimum values.
+   */
   public void rowWiseMin(Matrix2D minValues, Matrix2D minIndicies) {
     if (minValues.getM() != m || minValues.getN() != 1) {
       throw new IllegalArgumentException("minValues input Matrix2D wrong size");
@@ -215,6 +253,11 @@ public class Matrix2D {
     }
   }
 
+  /**
+   * Find the minimum value per column (value and index).
+   * @param minValues matrix to hold the column-size minimum values
+   * @param minIndicies matrix to hold the index of the column-wise minimum values.
+   */
   public void colWiseMin(Matrix2D minValues, Matrix2D minIndicies) {
     if (minValues.getN() != n || minValues.getM() != 1) {
       throw new IllegalArgumentException("minValues input Matrix2D wrong size");
@@ -251,6 +294,11 @@ public class Matrix2D {
     }
   }
 
+  /**
+   * Find the maximum value per row (value and index).
+   * @param maxValues matrix to hold the row-size maximum values
+   * @param maxIndicies matrix to hold the index of the row-wise maximum values.
+   */
   public void rowWiseMax(Matrix2D maxValues, Matrix2D maxIndicies) {
     if (maxValues.getM() != m || maxValues.getN() != 1) {
       throw new IllegalArgumentException("maxValues input Matrix2D wrong size");
@@ -287,6 +335,11 @@ public class Matrix2D {
     }
   }
 
+  /**
+   * Find the maximum value per column (value and index).
+   * @param maxValues matrix to hold the column-size maximum values
+   * @param maxIndicies matrix to hold the index of the column-wise maximum values.
+   */
   public void colWiseMax(Matrix2D maxValues, Matrix2D maxIndicies) {
     if (maxValues.getN() != n || maxValues.getM() != 1) {
       throw new IllegalArgumentException("maxValues input Matrix2D wrong size");
@@ -339,7 +392,7 @@ public class Matrix2D {
   }
 
   /**
-   * Display the matrix to the console
+   * Display the matrix on the console
    */
   public void disp() {
     System.out.println("->");
@@ -352,7 +405,7 @@ public class Matrix2D {
   }
 
   /**
-   * @return clone of the Matrix2D object
+   * @return clone of the Matrix2D object (deep copy)
    */
   @Override
   public Matrix2D clone() {
@@ -365,6 +418,9 @@ public class Matrix2D {
     return ret;
   }
 
+  /**
+   * Display the matrix on the console in sparse form
+   */
   public void dispSparse() {
     System.out.println("->");
     for (int j = 0; j < n; j++) {
@@ -376,6 +432,10 @@ public class Matrix2D {
     }
   }
 
+  /**
+   * write the matrix to a csv file
+   * @param f file to write to matrix data to
+   */
   public void writeToCSV(File f) {
 
     try {
@@ -384,9 +444,17 @@ public class Matrix2D {
 
       for (int i = 0; i < m; i++) {
         for (int j = 0; j < n - 1; j++) {
-          pw.print(data[i][j] + ",");
+          if(data[i][j]%1 ==0) {
+            pw.print((int)data[i][j] + ",");
+          }else{
+            pw.print(data[i][j] + ",");
+          }
         }
-        pw.println(data[i][n - 1]);
+        if(data[i][n-1]%1 ==0) {
+          pw.println((int)data[i][n - 1]);
+        }else{
+          pw.println(data[i][n - 1]);
+        }
       }
 
       //Flush the output to the file

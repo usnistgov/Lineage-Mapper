@@ -37,6 +37,9 @@ public class ImageTile {
   }
 
 
+  /**
+   * Read the image from disk and convert it to 16bit (short)
+   */
   public void readImage() {
     ImagePlus imp = new ImagePlus(filepath);
     ImageProcessor ip = imp.getProcessor();

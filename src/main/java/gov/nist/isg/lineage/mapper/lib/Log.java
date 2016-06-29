@@ -26,10 +26,6 @@ import java.util.HashMap;
 
 import ij.IJ;
 
-/**
- * @author Tim Blattner
- * @version 2.0
- */
 public class Log {
 
   /**

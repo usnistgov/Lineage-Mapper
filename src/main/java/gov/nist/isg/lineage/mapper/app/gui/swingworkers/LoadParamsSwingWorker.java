@@ -16,10 +16,17 @@ import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 
 
+/**
+ * Swing worker to load the tracking parameters from a text file into the TrackingAppParams instance
+ */
 public class LoadParamsSwingWorker extends SwingWorker<Void, Void> {
 
   private TrackingAppParams params;
 
+  /**
+   * Swing worker to load the tracking parameters from a text file into the TrackingAppParams instance
+   * @param params the TrackingAppParams instance to load parameters into
+   */
   public LoadParamsSwingWorker(TrackingAppParams params) {
     this.params = params;
   }
@@ -27,7 +34,6 @@ public class LoadParamsSwingWorker extends SwingWorker<Void, Void> {
   @Override
   protected Void doInBackground() {
     Log.debug("Loading Parameters from file.");
-
 
     JProgressBar progressBar = params.getGuiPane().getControlPanel().getProgressBar();
     progressBar.setString("Loading Parameters...");

@@ -19,26 +19,32 @@ import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 
 public class DivisionMetadata {
 
-  private JTable table = null;
   private static final String fileName = "division.csv";
-
   public static String getFileName() {
     return fileName;
   }
 
+
+  private JTable table = null;
   private TrackingAppParams params;
 
+  /**
+   * Create a Division metadata object
+   * @param params the TrackingAppParams instance to build the metadata from
+   */
   public DivisionMetadata(TrackingAppParams params) {
     this.params = params;
   }
 
-
+  /**
+   * Build the division metadata table
+   */
   public void buildMetadataTable() {
 
     if (table != null) return;
 
     HashMap<Integer, ArrayList<Integer>> division = CellTrackerMetadata.generateDivisionMatrix(params);
-    if (division == null) return;
+    if (division == null || division.size() == 0) return;
     int[] death = CellTrackerMetadata.generateDeathMatrix(params);
     if (death == null) return;
 

@@ -35,6 +35,10 @@ public class LineageMapper implements Runnable {
   private List<ImageFrame> framesList = null;
   private TrackingAppParams params;
 
+  /**
+   * Create a new Lineage Mapper instance.
+   * @param params the TrackingAppParams specifying the tracking options
+   */
   public LineageMapper(TrackingAppParams params) {
     this.params = params;
 
@@ -81,10 +85,11 @@ public class LineageMapper implements Runnable {
     params.setFramesList(framesList);
   }
 
-
+  /**
+   * Run the LineageMapper
+   */
   public void run() {
     try {
-
       File file = new File(params.getOutputDirectory());
       if (!file.exists())
         file.mkdir();
@@ -107,7 +112,11 @@ public class LineageMapper implements Runnable {
     }
   }
 
-  public void worker() throws InterruptedException {
+  /**
+   * Loops over all images in the sequence of images performing pairwise tracking
+   * @throws InterruptedException
+   */
+  private void worker() throws InterruptedException {
 
     ImageFrame curFrame = null;
     ImageFrame prevFrame = null;
@@ -192,6 +201,7 @@ public class LineageMapper implements Runnable {
 
     // Generate the cost matrix between the cells in the previous and current frames
     computeCost(curFrame, prevFrame);
+
     // generate the track vector that maps the previous frame cell numbers onto the current frame
     generateTrackVector(curFrame);
 
@@ -212,7 +222,6 @@ public class LineageMapper implements Runnable {
       // Generate the cost matrix between the cells in the previous and current frames
       computeCost(curFrame, prevFrame);
     }
-
 
     // find the best match for the untracked source and target cells
     hungarianOptimization(curFrame);
@@ -1532,17 +1541,24 @@ public class LineageMapper implements Runnable {
   }
 
 
-
+  /**
+   * main function to allow using the LineageMapper from the command line, assuming all required
+   * dependencies have been packaged into the jar.
+   * @param args the array of argument strings
+   */
   public static void main(String[] args) {
     TrackingAppParams params = new TrackingAppParams();
-    // create a new (non-showing) gui to validate the params
-    params.setGuiPane(new CellTrackerGUI(params, false));
     params.loadPreferences();
 
     boolean runHeadless = false;
 
     for (int i = 0; i < (args.length - 1); i++) {
       String s = args[i];
+
+      if(s.equals("-h") || s.equals("--help")) {
+        TrackingAppParams.printParameterHelp();
+        return;
+      }
 
       // option controls whether the tracking is performed headless (no gui)
       if (s.equals("--headless"))
@@ -1631,8 +1647,17 @@ public class LineageMapper implements Runnable {
       params.setIsMacro(true);
     Log.setLogLevel(Log.LogType.MANDATORY);
 
-    Lineage_Mapper_Plugin lmp = new Lineage_Mapper_Plugin();
-    lmp.run(null);
-  }
+    if(params.isMacro()) {
+      // create a new (non-showing) gui to validate the params
+      params.setGuiPane(new CellTrackerGUI(params, false));
+      params.validateParameters();
 
+      LineageMapper lm = new LineageMapper(params);
+      lm.run();
+    }else{
+      Lineage_Mapper_Plugin lmp = new Lineage_Mapper_Plugin();
+      lmp.run(null);
+    }
+
+  }
 }

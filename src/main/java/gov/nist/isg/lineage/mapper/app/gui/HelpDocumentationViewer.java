@@ -18,8 +18,6 @@ import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 /**
  * Simple help documentation class that opens the HTML help documentation in the O/S default web
  * browser
- *
- * @author tjb3
  */
 public class HelpDocumentationViewer implements ActionListener {
 
@@ -32,7 +30,6 @@ public class HelpDocumentationViewer implements ActionListener {
 
   /**
    * Constructs the viewer
-   *
    * @param tag the html tag to point to
    */
   public HelpDocumentationViewer(String tag) {
@@ -47,7 +44,6 @@ public class HelpDocumentationViewer implements ActionListener {
     mainDocumentationTempFile = FileUtils.loadCompressedResource(helpDocumentation, ".html");
 
     createHtmlAncorLoader();
-
   }
 
   @Override

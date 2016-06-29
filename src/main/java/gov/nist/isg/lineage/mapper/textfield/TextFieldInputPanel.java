@@ -14,11 +14,8 @@ import javax.swing.JPanel;
 import main.java.gov.nist.isg.lineage.mapper.textfield.validator.Validator;
 
 /**
- * Cretes a text field input panel
- *
+ * Creates a text field input panel
  * @param <T> the type of text field
- * @author Tim Blattner
- * @version 1.0
  */
 public class TextFieldInputPanel<T> extends JPanel {
 
@@ -31,7 +28,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Creates a text field input panel
-   *
    * @param label     the label for the text field
    * @param text      the text inside the text field
    * @param validator the validator associated with the text field
@@ -46,7 +42,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Creates a text field input panel
-   *
    * @param label     the label for the text field
    * @param text      the text inside the text field
    * @param sz        the size of the text field
@@ -66,7 +61,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Sets the value for the text field (integer)
-   *
    * @param value the integer value
    */
   public void setValue(int value) {
@@ -75,7 +69,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Sets the value for the text field (double)
-   *
    * @param value the double value
    */
   public void setValue(double value) {
@@ -84,7 +77,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Sets the value for the text field (String)
-   *
    * @param value the String value
    */
   public void setValue(String value) {
@@ -93,7 +85,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Checks if an error exists in the input
-   *
    * @return true if an error exists
    */
   public boolean hasError() {
@@ -120,7 +111,6 @@ public class TextFieldInputPanel<T> extends JPanel {
 
   /**
    * Gets the value for the text field parsed by the validator
-   *
    * @return the value parsed by the validator
    */
   public T getValue() {

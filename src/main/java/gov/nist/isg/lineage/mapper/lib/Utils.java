@@ -21,9 +21,19 @@ import java.util.regex.Pattern;
 
 import javax.swing.JTable;
 
+
 public class Utils {
 
 
+  /**
+   * Combine the filename pattern and the general regex for replacing {iii} with numbers and the
+   * number to insert into the filename.
+   * @param filePattern the filename pattern (ex. 'img_{iii}.tif'
+   * @param regex the regex to match three groups (ex. '(*)({iii})(*)' ). This is used to find
+   *              the '{iii}' pattern and replace it with the requested index.
+   * @param index the number to replace the iterator with in the filename pattern.
+   * @return the filename constructed from the filename pattern and the requested index.
+   */
   public static String getFileName(String filePattern, String regex, int index) {
     Pattern pattern = Pattern.compile(regex);
     Matcher matcher = pattern.matcher(filePattern);
@@ -58,6 +68,11 @@ public class Utils {
     return maxval;
   }
 
+  /**
+   * Function to export a JTable to a csv file.
+   * @param table The table to export to the CSV file
+   * @param fh the File to write the JTable data to.
+   */
   public static void exportToCSVFile(JTable table, File fh) {
 
     try {
@@ -89,6 +104,11 @@ public class Utils {
     }
   }
 
+  /**
+   * Worker function to sort HashMap by value
+   * @param passedMap the hashMap to sort
+   * @return the sorted HashMap
+   */
   public static LinkedHashMap<Integer, Double> sortHashMapByValuesD(
       HashMap<Integer, Double> passedMap) {
     List<Integer> mapKeys = new ArrayList<Integer>(passedMap.keySet());

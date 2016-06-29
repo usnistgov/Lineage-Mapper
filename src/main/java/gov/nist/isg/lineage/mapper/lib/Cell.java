@@ -9,7 +9,9 @@ package main.java.gov.nist.isg.lineage.mapper.lib;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Object to hold the metadata about an individual cell being tracked
+ */
 public class Cell {
 
   private int globalLabel = 0;
@@ -24,8 +26,15 @@ public class Cell {
   private List<Integer> touchingCells = null;
   // holds the images labels of the cells this cell touches
 
+  /**
+   * Object to hold the metadata about an individual cell being tracked
+   */
   public Cell() {}
 
+  /**
+   * Object to hold the metadata about an individual cell being tracked
+   * @param label the label of this cell in the image
+   */
   public Cell(int label) {
     this.imgLabel = label;
   }

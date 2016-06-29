@@ -10,6 +10,9 @@ import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Class to hold and manage a metadata table
+ */
 public class MetadataTableModel extends AbstractTableModel {
 
   private static final long serialVersionUID = 1L;
@@ -17,6 +20,11 @@ public class MetadataTableModel extends AbstractTableModel {
   protected Vector<Number> data;
   protected Vector<String> columnNames;
 
+  /**
+   * Create a new Metadata Table given the column names and the vector of data
+   * @param columnNames the names of the data columns
+   * @param data the data to be held in the table
+   */
   public MetadataTableModel(Vector<String> columnNames, Vector<Number> data) {
     this.columnNames = columnNames;
     this.data = data;

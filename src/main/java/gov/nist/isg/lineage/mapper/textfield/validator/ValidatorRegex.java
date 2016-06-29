@@ -16,7 +16,6 @@ public class ValidatorRegex implements Validator<String> {
 
   /**
    * Creates a regex validator based on a given regex
-   *
    * @param regex     the regex to check
    * @param errorText the error text associated with this validator
    */

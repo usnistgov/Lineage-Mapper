@@ -1,0 +1,21 @@
+inputDirectory: 
+filenamePrefix: seg_{iii}.tif
+outputDirectory: 
+outputPrefix: trk-
+weightCellOverlap: 1
+weightCentroidsDistance: 0.5
+weightCellSize: 0.2
+maxCentroidsDistance: 50
+minCellLife: 32
+cellDeathDeltaCentroid: 10
+cellDensityAffectsCI: true
+borderCellAffectsCI: true
+daughterSizeSimilarity: 0.5
+minDivisionOverlap: 0.2
+daughterAspectRatioSimilarity: 0.7
+motherCircularityIndex: 0.3
+numFramesToCheckCircularity: 5
+enableCellDivision: false
+minCellArea: 100
+minFusionOverlap: 0.2
+enableCellFusion: true

@@ -29,6 +29,9 @@ import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorPrefix
 import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorRegex;
 
 
+/**
+ * Special JPanel to hold the general tracking parameters.
+ */
 public class OptionsPanel extends JPanel {
 
   /**
@@ -59,6 +62,11 @@ public class OptionsPanel extends JPanel {
 
   private TrackingAppParams params;
 
+  /**
+   * Special JPanel to hold the general tracking parameters.
+   * @param params instance of TrackingAppParams to be updated by the options available in this
+   *               panel.
+   */
   public OptionsPanel(TrackingAppParams params) {
     super();
 
@@ -189,14 +197,20 @@ public class OptionsPanel extends JPanel {
   }
 
 
+  /**
+   * Check all sub-elements for errors
+   * @return true if any contained element has an error
+   */
   public boolean hasError() {
     return minObjectSize.hasError() || maxCentroidDisplacement.hasError();
   }
 
+  /**
+   * Get string detailing what errors exist within the panel
+   * @return string representation of the errors present in the panel
+   */
   public String getErrorString() {
     String ret = "";
-
-
     if (this.inputDirectoryChooser.hasError())
       ret += "Invalid Input Directory\n";
     if (this.filenamePattern.hasError())
@@ -214,6 +228,9 @@ public class OptionsPanel extends JPanel {
   }
 
 
+  /**
+   * Push parameters from the instance of TrackingAppParams to their respective GUI elements
+   */
   public void pushParamsToGUI() {
     setInputDirectory(params.getInputDirectory());
     setFilenamePattern(params.getFilenamePattern());
@@ -225,6 +242,10 @@ public class OptionsPanel extends JPanel {
     setEnableFusion(params.isEnableCellFusion());
   }
 
+  /**
+   * Pull parameters from the GUI elements into their respective variables within the
+   * TrackingAppParams instance.
+   */
   public void pullParamsFromGUI() {
     params.setInputDirectory(getInputDirectory());
     params.setFilenamePattern(getFilenamePattern());
@@ -235,6 +256,7 @@ public class OptionsPanel extends JPanel {
     params.setEnableCellDivision(isEnableDivision());
     params.setEnableCellFusion(isEnableFusion());
   }
+
 
   public String getInputDirectory() {
     String val = inputDirectoryChooser.getValue();
@@ -267,6 +289,7 @@ public class OptionsPanel extends JPanel {
   public void setFilenamePattern(String val) {
     filenamePattern.setValue(val);
   }
+
 
   public void setOutputDirectory(String val) {
     if (!val.endsWith(File.separator))

@@ -14,9 +14,14 @@ public class AppImageHelper {
 
   private static String figureLoc = "/figs/";
 
-  private AppImageHelper() {
-  }
+  private AppImageHelper() {}
 
+  /**
+   * Loads an image given the name.
+   * @param name the name of the image resource to load
+   * @return an icon of that image for use in the GUI
+   * @throws FileNotFoundException if the requested image name could not be found
+   */
   public static ImageIcon loadImage(String name) throws FileNotFoundException {
     ImageIcon image = null;
     java.net.URL url = AppImageHelper.class.getResource(figureLoc + name);

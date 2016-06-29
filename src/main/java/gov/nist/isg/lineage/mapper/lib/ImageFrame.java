@@ -237,14 +237,14 @@ public class ImageFrame implements Comparable<ImageFrame> {
   /**
    * Get a reference to the ImageTile for this ImageFrame.
    *
-   * @return the ImageTile this ImageFrame holds main.java.gov.nist.isg.lineage.mapper.metadata for.
+   * @return the ImageTile this ImageFrame holds metadata for.
    */
   public ImageTile getImage() {
     return image;
   }
 
   /**
-   * Set the ImageTile this ImageFrame holds main.java.gov.nist.isg.lineage.mapper.metadata for.
+   * Set the ImageTile this ImageFrame holds metadata for.
    */
   public void setImage(String filepath, String outputFilepath) {
     image = new ImageTile(filepath, outputFilepath);
@@ -272,7 +272,7 @@ public class ImageFrame implements Comparable<ImageFrame> {
    * Get a reference to the List of cells within this ImageFrame.
    *
    * @return a reference to the List of Cells within the ImageTile that this ImageFrame holds
-   * main.java.gov.nist.isg.lineage.mapper.metadata about.
+   * metadata about.
    */
   public List<Cell> getCellsList() {
     return cells;
@@ -280,7 +280,7 @@ public class ImageFrame implements Comparable<ImageFrame> {
 
   /**
    * Process this ImageFrame. If its ImageTile has been read into memory, extract out
-   * main.java.gov.nist.isg.lineage.mapper.metadata from the ImageTile.
+   * metadata from the ImageTile.
    *
    * @return a reference to this ImageFrame.
    */
@@ -490,7 +490,7 @@ public class ImageFrame implements Comparable<ImageFrame> {
 
   /**
    * Compute the bounding boxes of the cells within the ImageTile that this ImageFrame holds
-   * main.java.gov.nist.isg.lineage.mapper.metadata for. Output is a 2D int array where the first
+   * metadata for. Output is a 2D int array where the first
    * dimension is number of cells long and the second dimension holds 4 values. [xMin, xMax, yMin,
    * yMax];
    *

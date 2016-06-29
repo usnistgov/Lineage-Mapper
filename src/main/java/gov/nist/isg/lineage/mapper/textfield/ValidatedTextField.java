@@ -35,10 +35,7 @@ import main.java.gov.nist.isg.lineage.mapper.textfield.validator.Validator;
 
 /**
  * Creates a text field that is validated by a validator.
- *
  * @param <T> the type for the text field
- * @author Tim Blattner
- * @version 1.0
  */
 public class ValidatedTextField<T> extends JTextField {
 
@@ -48,7 +45,6 @@ public class ValidatedTextField<T> extends JTextField {
 
   /**
    * Creates a text field validated by a validator
-   *
    * @param size      the size of the text field
    * @param text      the default text for the text field
    * @param validator the validator for the text field
@@ -81,7 +77,6 @@ public class ValidatedTextField<T> extends JTextField {
 
   /**
    * Checks if there is an error in the text field
-   *
    * @return true if an error exists
    */
   public boolean hasError() {
@@ -110,10 +105,7 @@ public class ValidatedTextField<T> extends JTextField {
 
   /**
    * Creates a text field filter that handles input into the text field.
-   *
    * @param <V> the type of the text field
-   * @author Tim Blattner
-   * @version 1.0
    */
   class TextFieldFilter<V> extends DocumentFilter {
 
@@ -122,7 +114,6 @@ public class ValidatedTextField<T> extends JTextField {
 
     /**
      * Creates a text field filter
-     *
      * @param txtArea   the text area associated with the filter
      * @param validator the validator to validate text
      */

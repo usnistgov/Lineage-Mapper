@@ -10,15 +10,11 @@ package main.java.gov.nist.isg.lineage.mapper.textfield;
  * Validator is an interface that handles text validation for text fields. Functions for testing the
  * text, getting the values, and getting the error text associated with the validation are
  * provided.
- *
  * @param <T> the type of Object for validation
- * @author Tim Blattner
- * @version 1.0
  */
 public interface TextFieldModel<T> {
   /**
    * Tests the text using a specific validator
-   *
    * @param val the text you wish to test
    * @return true if the the text is valid
    */
@@ -26,14 +22,12 @@ public interface TextFieldModel<T> {
 
   /**
    * Gets the error message associated with this validator
-   *
    * @return the error message
    */
   public String getErrorMessage();
 
   /**
    * Gets the value of the text based on the validation type
-   *
    * @param val the value you wish to parse
    * @return the value parsed by the validator
    */
@@ -42,7 +36,6 @@ public interface TextFieldModel<T> {
   /**
    * Gets the value of the text based on the validation type. The value that is returned represents
    * the value that is to be used in the text
-   *
    * @param val the value you wish to parse
    * @return the value that is to be placed inside the text field
    */

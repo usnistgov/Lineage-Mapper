@@ -14,7 +14,6 @@ import java.io.OutputStream;
 
 import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 
-
 public class FileUtils {
 
 
@@ -50,7 +49,7 @@ public class FileUtils {
       os.flush();
 
     } catch (Exception e) {
-      Log.mandatory("Error opening help file: " + e.getMessage());
+      Log.mandatory("Error opening help file: " + file + " - " + e.getMessage());
     } finally {
       try {
         if (os != null)

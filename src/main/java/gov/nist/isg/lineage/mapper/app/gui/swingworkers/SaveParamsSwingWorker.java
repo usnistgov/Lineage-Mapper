@@ -17,10 +17,17 @@ import main.java.gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
 import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 
 
+/**
+ * Swing worker to load the tracking parameters from a text file into the TrackingAppParams instance
+ */
 public class SaveParamsSwingWorker extends SwingWorker<Void, Void> {
 
   private TrackingAppParams params;
 
+  /**
+   * Swing worker to load the tracking parameters from a text file into the TrackingAppParams instance
+   * @param params the TrackingAppParams instance to load parameters into
+   */
   public SaveParamsSwingWorker(TrackingAppParams params) {
     this.params = params;
   }

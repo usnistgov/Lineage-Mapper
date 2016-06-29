@@ -24,9 +24,6 @@ import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorFile;
 /**
  * DirectoryChooserPanel is used as a wrapper to contain a directory chooser Utility functions for
  * getting the selected directory are available.
- *
- * @author Tim Blattner
- * @version 1.0
  */
 public class DirectoryChooserPanel extends JPanel {
 
@@ -40,7 +37,6 @@ public class DirectoryChooserPanel extends JPanel {
 
   /**
    * Creates a directory chooser
-   *
    * @param label       the label associated with the directory chooser
    * @param defLocation the default directory
    * @param sz          the size of the text field

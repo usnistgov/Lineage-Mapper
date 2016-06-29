@@ -18,19 +18,26 @@ import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 
 public class ConfidenceIndexMetadata {
 
-  private JTable table = null;
   private static final String fileName = "confidence-index.csv";
-
   public static String getFileName() {
     return fileName;
   }
 
+
+  private JTable table = null;
   private TrackingAppParams params;
 
+  /**
+   * Create a ConfidenceIndex metadata object
+   * @param params the TrackingAppParams instance to build the metadata from
+   */
   public ConfidenceIndexMetadata(TrackingAppParams params) {
     this.params = params;
   }
 
+  /**
+   * Build the confidence index metadata table
+   */
   public void buildMetadataTable() {
 
     if (table != null)

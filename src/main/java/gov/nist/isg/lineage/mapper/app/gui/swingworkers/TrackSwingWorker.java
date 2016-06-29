@@ -22,7 +22,6 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.SwingWorker;
 
-import ij.IJ;
 import ij.plugin.frame.Recorder;
 import main.java.gov.nist.isg.lineage.mapper.LineageMapper;
 import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
@@ -34,11 +33,17 @@ import main.java.gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
 import main.java.gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
 import main.java.gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 
-
+/**
+ * Swing worker to perform the tracking on a background thread
+ */
 public class TrackSwingWorker extends SwingWorker<Void, Void> {
 
   private TrackingAppParams params;
 
+  /**
+   * Swing worker to perform tracking on a background thread
+   * @param params the TrackingAppParams instance specifying the tracking parameters.
+   */
   public TrackSwingWorker(TrackingAppParams params) {
     this.params = params;
   }
@@ -122,14 +127,18 @@ public class TrackSwingWorker extends SwingWorker<Void, Void> {
   }
 
 
+  /**
+   * Checks what files within the output directory are going to be overwritten in order to query
+   * the user for confirmation before destructively overwriting those files.
+   * @param params the TrackingAppParams instance specifying the output directory
+   * @return the list of files tha will be overwritten by running the LineageMapper with this
+   * instance of TrackingAppParams.
+   */
   public static List<String> checkOverwriteExistingOutputFiles(TrackingAppParams params) {
     List<String> fileList = new ArrayList<String>();
-    // check if the output saving has been enabled
-
 
     String prefix = params.getOutputPrefix();
     String outDir = params.getOutputDirectory();
-
 
     File bdmFile = new File(outDir + prefix + BirthDeathMetadata.getFileName());
     if (bdmFile.exists())
@@ -172,6 +181,11 @@ public class TrackSwingWorker extends SwingWorker<Void, Void> {
     return fileList;
   }
 
+  /**
+   * Query the user to determine if they want to overwrite the conflicting files listed.
+   * @param fileList The list of files that will be overwritten if tracking is run.
+   * @return whether the user enabled or disabled file overwriting.
+   */
   public static boolean canOverwriteExistingFilesCheck(List<String> fileList) {
     if (fileList.size() > 0) {
 
@@ -190,18 +204,14 @@ public class TrackSwingWorker extends SwingWorker<Void, Void> {
       c.gridy = 1;
       panel.add(label, c);
 
-      int
-          val =
-          JOptionPane.showConfirmDialog(null, panel, "Warning: Overwriting files",
-              JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
-              null);
+      int val = JOptionPane.showConfirmDialog(null, panel, "Warning: Overwriting files",
+              JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null);
 
       if (val == JOptionPane.YES_OPTION) {
         return true;
       } else {
         return false;
       }
-
     }
     return true;
   }

@@ -28,7 +28,9 @@ import main.java.gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
 import main.java.gov.nist.isg.lineage.mapper.app.images.AppImageHelper;
 import main.java.gov.nist.isg.lineage.mapper.lib.Log;
 
-
+/**
+ * GUI to enable the user to specify the LineageMapper parameters.
+ */
 public class CellTrackerGUI extends JFrame {
 
   private OptionsPanel optionsPanel;
@@ -36,6 +38,13 @@ public class CellTrackerGUI extends JFrame {
   private ControlPanel controlPanel;
   private TrackingAppParams params;
 
+  /**
+   * GUI to enable the user to specify the LineageMapper parameters.
+   * @param params the TrackingAppParams instance backing the GUI parameters
+   * @param show whether to display the GUI or not. The GUI contains the parameter validation
+   *             logic, so when running headless a non-showing GUI is created to validate the
+   *             specified parameters.
+   */
   public CellTrackerGUI(TrackingAppParams params, boolean show) {
     super(TrackingAppParams.getAppTitle());
 
@@ -133,6 +142,10 @@ public class CellTrackerGUI extends JFrame {
     setVisible(true);
   }
 
+  /**
+   * Check all sub-elements for errors
+   * @return true if any contained element has an error
+   */
   public boolean hasError() {
     return this.getOptionsPanel().hasError() || this.getAdvancedPanel().hasError();
   }

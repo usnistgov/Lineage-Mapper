@@ -6,6 +6,9 @@
 
 package main.java.gov.nist.isg.lineage.mapper.lib;
 
+/**
+ * Union Find data structure to perform set union and find operations
+ */
 public class UnionFind {
 
 

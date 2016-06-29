@@ -19,20 +19,26 @@ import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 
 public class FusionMetadata {
 
-  private JTable table = null;
   private static final String fileName = "fusion.csv";
-
   public static String getFileName() {
     return fileName;
   }
 
+
+  private JTable table = null;
   private TrackingAppParams params;
 
+  /**
+   * Create a Fusion metadata object
+   * @param params the TrackingAppParams instance to build the metadata from
+   */
   public FusionMetadata(TrackingAppParams params) {
     this.params = params;
   }
 
-
+  /**
+   * Build the fusion metadata table
+   */
   public void buildMetadataTable() {
 
     if (table != null) return;

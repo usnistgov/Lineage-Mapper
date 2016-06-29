@@ -11,9 +11,6 @@ import java.util.List;
 
 /**
  * Validator that checks values based on a two regex
- *
- * @author Tim Blattner
- * @version 1.0
  */
 public class InvalidTextModel implements TextFieldModel<String> {
 

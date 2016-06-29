@@ -26,17 +26,25 @@ public class LineageViewer {
 
   private TrackingAppParams params;
 
+  /**
+   * Create the lineage viewer object.
+   * @param params
+   */
   public LineageViewer(TrackingAppParams params) {
     this.params = params;
   }
 
 
-  public boolean generateDataJS(File tgtIndex) {
+  /**
+   * Write the javascript file containing the all of the tracking data required to view the lineage
+   * @param f the lineage viewer html file. The data.js file is written relative to that file.
+   * @return whether or not it was successful.
+   */
+  public boolean generateDataJS(File f) {
     Log.debug("Starting generation of data js file");
 
     try {
-
-      File tgtDir = tgtIndex.getParentFile();
+      File tgtDir = f.getParentFile();
       File fh = new File(tgtDir.getCanonicalPath() + File.separator + "js" + File.separator + "data.js");
       FileWriter fw = new FileWriter(fh);
       PrintWriter pw = new PrintWriter(fw);
@@ -117,19 +125,23 @@ public class LineageViewer {
   }
 
 
-  private void copyFile(String s, File tgtDir) {
+  /**
+   * Worker function to copy a file from
+   * @param src the source File
+   * @param tgtDir the target directory
+   */
+  private void copyFile(File src, File tgtDir) {
     InputStream is = null;
     OutputStream os = null;
     try {
-      File f = new File(s);
 
       if (Desktop.isDesktopSupported()) {
 
-        is = getClass().getResourceAsStream(s);
+        is = getClass().getResourceAsStream(src.getPath().replace('\\','/'));
         if (!tgtDir.exists())
           tgtDir.mkdir();
 
-        File out = new File(tgtDir.getCanonicalPath() + File.separator + f.getName());
+        File out = new File(tgtDir.getCanonicalPath() + File.separator + src.getName());
 //        out.deleteOnExit();
 
         os = new FileOutputStream(out);
@@ -159,6 +171,11 @@ public class LineageViewer {
   }
 
 
+  /**
+   * Worker function to copy the lineage viewer webpage from the resources folder to the output
+   * directory.
+   * @return the File pointing to the lineage-viewer.html webpage.
+   */
   public File generateLineageViewerHtmlPage() {
     Log.debug("Copying Webpage files to output directory from jar");
 
@@ -167,71 +184,60 @@ public class LineageViewer {
     if (!filesDir.exists())
       filesDir.mkdir();
 
-    File index;
-    Log.debug("getting local file path");
-    java.net.URL url = LineageViewer.class.getResource(
-        "/main/java/gov/nist/isg/lineage/viewer/lineage-viewer.html");
-    File srcDir = new File(url.getPath()).getParentFile();
 
-    Log.debug("attempting copy");
-    Log.debug("src: " + srcDir.toString());
-    Log.debug("tgt: " + filesDir.toString());
     File jsDir = new File(filesDir.getAbsolutePath() + File.separator + "js");
-
-
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/lineage-viewer.html", filesDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/js/d3.min.js", jsDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/js/jquery-1.10.2.js", jsDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/js/jquery-ui-1.10.4.custom.min.js", jsDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/js/lineageMapper.js", jsDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/js/queue.v1.min.js", jsDir);
+    copyFile(new File("/main/resources/viewer/lineage-viewer.html"), filesDir);
+    copyFile(new File("/main/resources/viewer/js/d3.min.js"), jsDir);
+    copyFile(new File("/main/resources/viewer/js/jquery-1.10.2.js"), jsDir);
+    copyFile(new File("/main/resources/viewer/js/jquery-ui-1.10.4.custom.min.js"), jsDir);
+    copyFile(new File("/main/resources/viewer/js/lineageMapper.js"), jsDir);
+    copyFile(new File("/main/resources/viewer/js/queue.v1.min.js"), jsDir);
 
     File cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css");
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/bootstrap.min.css", cssDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/colony.css", cssDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/layout.css", cssDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/main_style.css", cssDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/reset.css", cssDir);
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/style.css", cssDir);
+    copyFile(new File("/main/resources/viewer/css/bootstrap.min.css"), cssDir);
+    copyFile(new File("/main/resources/viewer/css/colony.css"), cssDir);
+    copyFile(new File("/main/resources/viewer/css/layout.css"), cssDir);
+    copyFile(new File("/main/resources/viewer/css/main_style.css"), cssDir);
+    copyFile(new File("/main/resources/viewer/css/reset.css"), cssDir);
+    copyFile(new File("/main/resources/viewer/css/style.css"), cssDir);
 
     cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness");
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/jquery-ui.min.css", cssDir);
+    copyFile(new File("/main/resources/viewer/css/ui-lightness/jquery-ui.min.css"), cssDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css", cssDir);
+        new File("/main/resources/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"), cssDir);
 
     File imgsDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness" + File.separator + "images");
-    copyFile("/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/animated-overlay.gif", imgsDir);
+    copyFile(new File("/main/resources/viewer/css/ui-lightness/images/animated-overlay.gif"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-icons_228ef1_256x240.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_228ef1_256x240.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-icons_222222_256x240.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_222222_256x240.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-icons_ef8c08_256x240.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ef8c08_256x240.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-icons_ffd27a_256x240.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ffd27a_256x240.png"), imgsDir);
     copyFile(
-        "/main/java/gov/nist/isg/lineage/viewer/css/ui-lightness/images/ui-icons_ffffff_256x240.png", imgsDir);
+        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ffffff_256x240.png"), imgsDir);
 
-    index = new File(filesDir.getAbsolutePath() + File.separator + "lineage-viewer.html");
-
+    File index = new File(filesDir.getAbsolutePath() + File.separator + "lineage-viewer.html");
 
     Log.debug("File copy successful");
 

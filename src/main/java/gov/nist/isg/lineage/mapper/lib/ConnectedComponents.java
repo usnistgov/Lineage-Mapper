@@ -7,21 +7,61 @@
 package main.java.gov.nist.isg.lineage.mapper.lib;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-
+/**
+ * Collection of connected components labeling methods.
+ */
 public class ConnectedComponents {
 
+  /**
+   * computes the perimeter of the labeled objects within the pixeldata.
+   *
+   * This algorithm matches the MATLAB regionprops.computePerimeterFromBoundaryOld (aka the
+   * option PerimeterOld)
+   * @param pixeldata array of pixels
+   * @param width the width of the image
+   * @param maxval the highest pixel value found within pixeldata
+   * @return array of object perimeter lengths
+   */
   public static double[] getPerimeter(short[] pixeldata, int width, int maxval) {
 
-    int[][] startCoords = new int[maxval][2];
+    Map<Integer, int[][]> B = getBoundaryPixelList(pixeldata, width, maxval);
     double[] perimeter = new double[maxval];
-    for (int i = 0; i < perimeter.length; i++) {
-      perimeter[i] = 0;
+    for (int label = 1; label <= maxval; label++) {
+
+      int[][] boundaryList = B.get(label);
+      // if this object label does not exist in the pixel data
+      if(boundaryList == null)
+        continue;
+
+      perimeter[label-1] = 0;
+      for(int k = 1; k < boundaryList.length; k++) {
+        double dx =  boundaryList[k][0] - boundaryList[k-1][0];
+        double dy =  boundaryList[k][1] - boundaryList[k-1][1];
+        double delta = Math.sqrt(dx*dx + dy*dy);
+        perimeter[label-1] += delta;
+      }
+    }
+
+    return perimeter;
+  }
+
+
+
+  public static Map<Integer,int[][]> getBoundaryPixelList(short[] pixeldata, int width, int maxval) {
+    Map<Integer,int[][]> B = new HashMap<Integer,int[][]>(maxval+1);
+
+    int[][] startCoords = new int[maxval][2];
+    for (int i = 0; i < maxval; i++) {
       startCoords[i][0] = -1;
       startCoords[i][1] = -1;
     }
 
-    // loop over the image backwards looking for the first pixel rowwise
+    // find the first pixel row-wise
     for (int i = 0; i < pixeldata.length; i++) {
       if (pixeldata[i] > 0) {
         // if this is the first time finding a pixel
@@ -32,57 +72,77 @@ public class ConnectedComponents {
       }
     }
 
-    int xP, yP, xC, yC, xT, yT;
+
+    int xP, yP, xT, yT;
     Point pt;
     int dir;
     boolean done;
 
+    // Loop over the labeled objects in the image
     for (int label = 1; label <= maxval; label++) {
 
       int xS = startCoords[label - 1][0];
       int yS = startCoords[label - 1][1];
 
       // this label does not exit
-      if (xS < 0) {
+      if (xS < 0)
         continue;
-      }
 
-      perimeter[label - 1] = 0;
+      // allocate two lists to store the bound pixel locations
+      List<Integer> xLocs = new ArrayList<Integer>();
+      List<Integer> yLocs = new ArrayList<Integer>();
+
       pt = new Point(xS, yS);
+      // add the starting point
+      xLocs.add(pt.x);
+      yLocs.add(pt.y);
+
       dir = findNextPoint(pt, 0, pixeldata, width, label);
-      xP = xS;
-      yP = yS;
       xT = pt.x;
       yT = pt.y;
-      xC = pt.x;
-      yC = pt.y;
 
       // true if isolated pixel
-      done = (xS == xT && yS == yT);
+      done = (xS == pt.x && yS == pt.y);
       while (!done) {
+        // add the point to the perimeter list
+        xLocs.add(pt.x);
+        yLocs.add(pt.y);
 
-        pt.x = xC;
-        pt.y = yC;
+        // record the previous point
+        xP = pt.x;
+        yP = pt.y;
+        // find the next point
         dir = (dir + 5) % 8;
         dir = findNextPoint(pt, dir, pixeldata, width, label);
 
-        xP = xC;
-        yP = yC;
-        xC = pt.x;
-        yC = pt.y;
-
-        int deltaX = xP - xC;
-        int deltaY = yP - yC;
-        perimeter[label - 1] += Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        // back at the starting point
-        done = (xP == xS && yP == yS) && (xC == xT && yC == yT);
+        // back at the starting point, entering from the same direction
+        done = (xP == xS && yP == yS) && (pt.x == xT && pt.y == yT);
       }
+
+      // copy the boundary points into a 2D array
+      int[][] boundaryList = new int[xLocs.size()][2];
+      for(int i = 0; i < xLocs.size(); i++) {
+        boundaryList[i][0] = xLocs.get(i);
+        boundaryList[i][1] = yLocs.get(i);
+      }
+      // add this labeled objects boundary to the output list
+      B.put(label, boundaryList);
     }
 
-    return perimeter;
+    return B;
   }
 
-
+  /**
+   * worker method to find the next point along the perimeter within a 3x3 neighborhood.
+   * The Point passed in is updated with the new pixel location.
+   * @param pt the current point (pixel location) within the image
+   * @param dir the direction to start searching in
+   * @param px the array of pixels
+   * @param width the width of the image
+   * @param label the object label to find the next point of. Only pixel values matching this are
+   *              considered for the next pixel.
+   * @return the direction of the next pixel along the perimeter.
+   */
   private static int findNextPoint(Point pt, int dir, short[] px, int width, int label) {
     final int[][] delta = {{1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
 
@@ -103,6 +163,15 @@ public class ConnectedComponents {
   }
 
 
+  /**
+   * Method to label the connected components of a binary image according to 8 connectedness.
+   * This method modifies the pixeldata array passed to it.
+   *
+   * @param pixeldata the array of pizel data
+   * @param n the width of the image
+   * @param m the height of the image
+   * @return the number of connected components found.
+   */
   public static int labelConnectedComponents(short[] pixeldata, int n, int m) {
 
     short[] nbs = {0, 0, 0, 0};
@@ -242,6 +311,7 @@ public class ConnectedComponents {
       }
     }
 
+    // merge the label sets according to the equivalences in the union find data structure.
     short[] labels = new short[label];
     for (int i = 0; i < label; i++) {
       labels[uf.root(i)] = 1;

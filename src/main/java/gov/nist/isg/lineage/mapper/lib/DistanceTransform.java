@@ -7,8 +7,19 @@
 package main.java.gov.nist.isg.lineage.mapper.lib;
 
 
+
 public class DistanceTransform {
 
+  /**
+   * Worker function to assign the pixels in mask that are missing from the marker array to the
+   * nearest labeled objects in the marker array
+   * @param marker array containing the labeled objects pixels. Each pixel value represents an
+   *               object.
+   * @param mask array containing the pixels that need to be labeled with the nearest object in
+   *             marker. This is a binary array.
+   * @param width the width of the image
+   * @param height the height of the image
+   */
   public static void assignNearestConnectedLabel(short[] marker, final short[] mask, int width,
                                                  int height) {
 
@@ -111,141 +122,29 @@ public class DistanceTransform {
   }
 
 
-  public static double[] geodesicDistance(short[] marker, final short[] mask, int width,
-                                          int height) {
-
-    int k;
-    myStack pixStack = new myStack(height);
-    myStack edgeStack = new myStack(height);
-    myStack nameSwap;
-
-    if (mask.length != marker.length) {
-      throw new IllegalArgumentException("mask and marker must be the same size");
+  /**
+   * quicksort function to order the edge pixel list
+   * @param arr array of values to sort
+   * @param left the left index
+   * @param right the right index
+   */
+  private static void quickSort(int arr[], int left, int right) {
+    int index = partition(arr, left, right);
+    if (left < index - 1) {
+      quickSort(arr, left, index - 1);
     }
-    if (mask.length != width * height) {
-      throw new IllegalArgumentException(
-          "width times height must match the number of elements in mask");
+    if (index < right) {
+      quickSort(arr, index, right);
     }
-
-    double[] dist = new double[mask.length];
-    // initialize dist to infinity
-    for (int i = 0; i < dist.length; i++) {
-      dist[i] = Double.POSITIVE_INFINITY;
-    }
-    // any dist found under a marker pixel has a distance of zero
-    for (int i = 0; i < dist.length; i++) {
-      if (marker[i] > 0) {
-        dist[i] = 0;
-      }
-    }
-    // any dist under a pixel not valid in the mask is NaN
-    for (int i = 0; i < dist.length; i++) {
-      if (mask[i] == 0) {
-        dist[i] = Double.NaN;
-      }
-    }
-
-    // loop over the marker image looking for edge pixels
-    // start at index 1,1 and end and (m-1,n-1)
-    int start = width + 1;
-    int end = marker.length - width - 1;
-    for (int i = start; i < end; i++) {
-      // if not background
-      if (marker[i] > 0) {
-        if (marker[i - width - 1] > 0 || marker[i - width] > 0 || marker[i - width + 1] > 0 ||
-            // top left, top, top right
-            marker[i - 1] > 0 || marker[i + 1] > 0 || // left , right
-            marker[i + width - 1] > 0 || marker[i + width] > 0
-            || marker[i + width + 1] > 0) { // bottom left, bottom, bottom right
-          edgeStack.push(i);
-        }
-      }
-    }
-
-    int iterationCount = 0;
-    int label;
-    while (!edgeStack.isEmpty()) {
-      iterationCount++;
-
-      // loop over the 4 connected edge pixels
-      for (int i = 0; i < edgeStack.nbElements; i++) {
-        k = edgeStack.data[i];
-
-        label = marker[k];
-        // check left pixel
-        k = k - 1;
-        if (marker[k] == 0 && mask[k] > 0) {
-          marker[k] = (short) label;
-          pixStack.push(k);
-          edgeStack.data[i] = -1;
-        }
-        k = k - width + 1; // top
-        if (marker[k] == 0 && mask[k] > 0) {
-          marker[k] = (short) label;
-          pixStack.push(k);
-          edgeStack.data[i] = -1;
-        }
-        k = k + width + width; // bottom
-        if (marker[k] == 0 && mask[k] > 0) {
-          marker[k] = (short) label;
-          pixStack.push(k);
-          edgeStack.data[i] = -1;
-        }
-        k = k - width + 1; // right
-        if (marker[k] == 0 && mask[k] > 0) {
-          marker[k] = (short) label;
-          pixStack.push(k);
-          edgeStack.data[i] = -1;
-        }
-      }
-
-      // loop over uncovered 8 connected
-      for (int i = 0; i < edgeStack.nbElements; i++) {
-        k = edgeStack.data[i];
-
-        if (k >= 0) {
-          label = marker[k];
-          k = k - width - 1; // top left
-          if (marker[k] == 0 && mask[k] > 0) {
-            marker[k] = (short) label;
-            pixStack.push(k);
-          }
-          k = k + width + width; // bottom left
-          if (marker[k] == 0 && mask[k] > 0) {
-            marker[k] = (short) label;
-            pixStack.push(k);
-          }
-          k = k - width - width + 2;  // top right
-          if (marker[k] == 0 && mask[k] > 0) {
-            marker[k] = (short) label;
-            pixStack.push(k);
-          }
-          k = k + width + width; // bottom right
-          if (marker[k] == 0 && mask[k] > 0) {
-            marker[k] = (short) label;
-            pixStack.push(k);
-          }
-        }
-      }
-
-      // update the distance values found
-      for (int i = 0; i < pixStack.data.length; i++) {
-        dist[pixStack.data[i]] = (double) iterationCount;
-      }
-
-      // swap the stacks
-      // pointer name change so that edgeStack always has the current list of edge pixels
-      nameSwap = edgeStack;
-      edgeStack = pixStack;
-      pixStack = nameSwap;
-      pixStack.clear();
-
-      // sort the pixel locations so that any pixels that are equal distance from 2 objects will be handled in pixel order
-      quickSort(pixStack.data, 0, pixStack.nbElements - 1);
-    }
-    return dist;
   }
 
+  /**
+   * the quicksort partition function
+   * @param arr the array of values to sort
+   * @param left the left index
+   * @param right the right index
+   * @return the new middle index
+   */
   private static int partition(int arr[], int left, int right) {
     int i = left, j = right;
     int tmp;
@@ -266,21 +165,13 @@ public class DistanceTransform {
         j--;
       }
     }
-    ;
 
     return i;
   }
 
-  private static void quickSort(int arr[], int left, int right) {
-    int index = partition(arr, left, right);
-    if (left < index - 1) {
-      quickSort(arr, left, index - 1);
-    }
-    if (index < right) {
-      quickSort(arr, index, right);
-    }
-  }
-
+  /**
+   * Local variation of an LIFO stack to maintaining a list of edge pixels.
+   */
   private static class myStack {
 
     protected int[] data;

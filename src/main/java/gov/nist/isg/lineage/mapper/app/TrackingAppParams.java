@@ -31,6 +31,9 @@ import main.java.gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
 import main.java.gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
 import main.java.gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 
+/**
+ * Class to contain all of the parameters required to perform tracking.
+ */
 public class TrackingAppParams {
 
   private static final String newline = "\r\n";
@@ -105,7 +108,10 @@ public class TrackingAppParams {
   private List<ImageFrame> framesList = null;
 
 
-
+  /**
+   * Validates the current parameter values.
+   * @throws IllegalArgumentException if invalid parameters are found.
+   */
   public void validateParameters() throws IllegalArgumentException {
     String errors = getErrorString();
 
@@ -119,14 +125,29 @@ public class TrackingAppParams {
     }
   }
 
+  /**
+   * Get the string noting which parameters are invalid.
+   * @return the string of parameter validation errors.
+   */
   public String getErrorString() {
     return ctGUI.getOptionsPanel().getErrorString() + ctGUI.getAdvancedPanel().getErrorString();
   }
 
+  /**
+   * Sets the progress bar to a percentage complete. Values outside of [0,1] will be set to the
+   * nearest value within that range.
+   * @param val percentage to display within [0,1]
+   */
   public void setProgressBar(double val) {
+    // constrain val to [0,1]
+    val = (val < 0) ? 0 : val;
+    val = (val > 1) ? 1 : val;
     ctGUI.getControlPanel().getProgressBar().setValue((int) Math.round(val * 100));
   }
 
+  /**
+   * Resets the parameters in this instance to their default values.
+   */
   public void resetToDefaultParams() {
 
     inputDirectory = System.getProperty("user.home");
@@ -162,6 +183,10 @@ public class TrackingAppParams {
     confidenceIndexMetadata = null;
   }
 
+  /**
+   * Pull parameters from the GUI elements into their respective variables within the
+   * TrackingAppParams instance.
+   */
   public void pullParamsFromGui() {
     validateParameters();
 
@@ -172,6 +197,14 @@ public class TrackingAppParams {
     AdvancedPanel advancedPanel = ctGUI.getAdvancedPanel();
     // copy params from GUI to the params object
     advancedPanel.pullParamsFromGUI();
+  }
+
+  /**
+   * Push parameters from the instance of TrackingAppParams to their respective GUI elements
+   */
+  public void pushParamsToGUI() {
+    getGuiPane().getOptionsPanel().pushParamsToGUI();
+    getGuiPane().getAdvancedPanel().pushParamsToGUI();
   }
 
 
@@ -198,7 +231,6 @@ public class TrackingAppParams {
   public void setTrackingThread(Thread t) {
     trackingThread = t;
   }
-
 
   public String getOutputDirectory() {
     return outputDirectory;
@@ -436,6 +468,9 @@ public class TrackingAppParams {
   }
 
 
+  /**
+   * Writes the current set of parameters to the log file.
+   */
   public void writeParamsToLog() {
 
     DecimalFormat df = new DecimalFormat("#.##");
@@ -478,7 +513,12 @@ public class TrackingAppParams {
   }
 
 
-  //	********************** GUI Parameter Help
+  /**
+   * Writes the current set of parameters to a text file. This file can later be loaded by the
+   * loadParamsFromFile functionality.
+   * @param file the file to write the parameters into.
+   * @return true is successful, false otherwise.
+   */
   public boolean writeParamsToFile(File file) {
     try {
       FileWriter fw = new FileWriter(file.getAbsolutePath());
@@ -533,7 +573,11 @@ public class TrackingAppParams {
     return false;
   }
 
-
+  /**
+   * Loads parameters from the file specified into this instance of TrackingAppParams.
+   * @param file the file to read the parameters from.
+   * @return true is successful, false otherwise.
+   */
   public boolean loadParamsFromFile(File file) {
     try {
       if (!file.exists()) {
@@ -661,7 +705,9 @@ public class TrackingAppParams {
     }
   }
 
-
+  /**
+   * Records the current state of the tracking parameters into Java Prefs
+   */
   public void recordPreferences() {
 
     pullParamsFromGui();
@@ -714,7 +760,9 @@ public class TrackingAppParams {
     }
   }
 
-
+  /**
+   * Loads the tracking parameters from the Java Prefs
+   */
   public void loadPreferences() {
 
     Preferences pref = Preferences.userRoot().node(getPreferencesName());
@@ -766,12 +814,10 @@ public class TrackingAppParams {
 
   }
 
-  public void pushParamsToGUI() {
-    getGuiPane().getOptionsPanel().pushParamsToGUI();
-    getGuiPane().getAdvancedPanel().pushParamsToGUI();
-  }
 
-
+  /**
+   * Records the macro options into the Macro Recorder object
+   */
   public void recordMacro() {
     Recorder.setCommand(Lineage_Mapper_Plugin.recorderCommand);
 
@@ -810,7 +856,10 @@ public class TrackingAppParams {
     Recorder.saveCommand();
   }
 
-
+  /**
+   * Loads tracking parameters from the macro options specified.
+   * @param macroOptions String containing the macro options passed to the LineageMapper
+   */
   public void loadMacro(String macroOptions) {
     // input options
     inputDirectory = MacroUtils.loadMacroString(macroOptions, INPUT_DIRECTORY_DESC,
@@ -856,5 +905,58 @@ public class TrackingAppParams {
     enableCellFusion = MacroUtils.loadMacroBoolean(macroOptions, FUSION_ENABLED_DESC, enableCellFusion);
   }
 
+
+  public static void printParameterHelp() {
+    String tab = "\t";
+    System.out.println("-h, --help");
+    System.out.println(tab + "display a help message and exit");
+
+    System.out.println(TrackingAppParams.INPUT_DIRECTORY_DESC + " <value>");
+    System.out.println(tab + "the input directory containing the image to track");
+    System.out.println(TrackingAppParams.FILENAME_PATTERN_DESC + " <value>");
+    System.out.println(tab + "the filename pattern controlling which images to select");
+
+    System.out.println(TrackingAppParams.OUTPUT_DIRECTORY_DESC + " <value>");
+    System.out.println(tab + "the output directory where outputs are saved");
+    System.out.println(TrackingAppParams.OUTPUT_PREFIX_DESC + " <value>");
+    System.out.println(tab + "the prefix prepended to all output files");
+
+    System.out.println(TrackingAppParams.WGT_CELL_OVERLAP_DESC + " <value>");
+    System.out.println(tab + "the tracking cost function cell overlap weight");
+    System.out.println(TrackingAppParams.WGT_CENTROIDS_DIST_DESC + " <value>");
+    System.out.println(tab + "the tracking cost function cell centroid distance weight");
+    System.out.println(TrackingAppParams.WGT_CELL_SIZE_DESC + " <value>");
+    System.out.println(tab + "the tracking cost function cell size weight");
+    System.out.println(TrackingAppParams.MAX_CENTROID_DIST_DESC + " <value>");
+    System.out.println(tab + "the maximum centroid distance between two objects that could " +
+        "possibly be tracked together");
+
+    System.out.println(TrackingAppParams.D_SIZE_SIM_DESC + " <value>");
+    System.out.println(tab + "the daughter size similarity");
+    System.out.println(TrackingAppParams.MIN_DIV_OVERLAP_DESC + " <value>");
+    System.out.println(tab + "the minimum division overlap threshold");
+    System.out.println(TrackingAppParams.D_ASPECT_RATIO_SIM_DESC + " <value>");
+    System.out.println(tab + "the daughter aspect ratio similarity");
+    System.out.println(TrackingAppParams.NUM_FRAMES_CIRC_CHECK_DESC + " <value>");
+    System.out.println(tab + "the number of frames to check circularity for mitosis");
+    System.out.println(TrackingAppParams.DIV_ENABLED_DESC + " <value>");
+    System.out.println(tab + "is cell division enabled");
+
+    System.out.println(TrackingAppParams.MIN_CELL_AREA_DESC + " <value>");
+    System.out.println(tab + "the minimum cell area to be recognized as a cell");
+    System.out.println(TrackingAppParams.MIN_FUSION_OVERLAP_DESC + " <value>");
+    System.out.println(tab + "the minimum fusion overlap threshold");
+    System.out.println(TrackingAppParams.FUSION_ENABLED_DESC + " <value>");
+    System.out.println(tab + "is cell fusion enabled");
+
+    System.out.println(TrackingAppParams.MIN_CELL_LIFE_DESC + " <value>");
+    System.out.println(tab + "the minimum lifespan of a cell");
+    System.out.println(TrackingAppParams.CELL_DEATH_CENT_DESC + " <value>");
+    System.out.println(tab + "the maximum displacement allowed for a be considered dead");
+    System.out.println(TrackingAppParams.DENSITY_AFFECT_CI_DESC + " <value>");
+    System.out.println(tab + "does cell density affect the confidence index");
+    System.out.println(TrackingAppParams.BORDER_AFFECT_CI_DESC + " <value>");
+    System.out.println(tab + "do border cells affect the confidence index");
+  }
 
 }

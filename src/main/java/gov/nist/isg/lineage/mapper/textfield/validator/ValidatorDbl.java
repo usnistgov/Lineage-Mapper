@@ -42,7 +42,6 @@ public class ValidatorDbl implements Validator<Double> {
 
   /**
    * Creates a double validator that checks in bounds by min (inclusive) and max (inclusive)
-   *
    * @param min the minimum value that is valid (inclusive)
    * @param max the maximum value that is valid (inclusive)
    */

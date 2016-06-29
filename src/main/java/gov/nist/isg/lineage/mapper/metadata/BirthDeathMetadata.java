@@ -12,22 +12,28 @@ import javax.swing.JTable;
 
 import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 
-
 public class BirthDeathMetadata {
 
-  private JTable table = null;
   private static final String fileName = "birth-death.csv";
-
   public static String getFileName() {
     return fileName;
   }
 
+
+  private JTable table = null;
   private TrackingAppParams params;
 
+  /**
+   * Create a BirthDeath metadata object
+   * @param params the TrackingAppParams instance to build the metadata from
+   */
   public BirthDeathMetadata(TrackingAppParams params) {
     this.params = params;
   }
 
+  /**
+   * Build the birth and death metadata table
+   */
   public void buildMetadataTable() {
     if (table != null) return;
 
@@ -58,5 +64,7 @@ public class BirthDeathMetadata {
   public JTable getTable() {
     return table;
   }
+
+
 
 }

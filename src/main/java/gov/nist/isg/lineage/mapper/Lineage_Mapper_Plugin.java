@@ -21,13 +21,20 @@ public class Lineage_Mapper_Plugin implements PlugIn {
    */
   public static String recorderCommand;
   private static String macroOptions;
+
   private TrackingAppParams params;
 
+  /**
+   * Create a new Lineage Mapper Plugin instance
+   */
   public Lineage_Mapper_Plugin() {
     this.params = new TrackingAppParams();
   }
 
-  // LineageMapper call
+  /**
+   * Run the Lineage Mapper
+   * @param arg argument string
+   */
   public void run(String arg) {
 
     try {
@@ -53,7 +60,6 @@ public class Lineage_Mapper_Plugin implements PlugIn {
       }
 
     } catch (Exception e) {
-      e.printStackTrace();
       Log.error(e);
     }
   }

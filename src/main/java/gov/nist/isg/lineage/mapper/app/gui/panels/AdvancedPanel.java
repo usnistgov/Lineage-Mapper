@@ -24,7 +24,9 @@ import main.java.gov.nist.isg.lineage.mapper.textfield.TextFieldInputPanel;
 import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorDbl;
 import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorInt;
 
-
+/**
+ * Special JPanel to hold the advanced tracking parameters.
+ */
 public class AdvancedPanel extends JPanel {
 
   // Cost parameters
@@ -51,6 +53,11 @@ public class AdvancedPanel extends JPanel {
 
   private TrackingAppParams params;
 
+  /**
+   * Special JPanel to hold the advanced tracking parameters.
+   * @param params instance of TrackingAppParams to be updated by the options available in this
+   *               panel.
+   */
   public AdvancedPanel(TrackingAppParams params) {
     super();
 
@@ -58,6 +65,7 @@ public class AdvancedPanel extends JPanel {
     initElements();
     init();
   }
+
 
   private void init() {
 
@@ -198,6 +206,9 @@ public class AdvancedPanel extends JPanel {
 
   }
 
+  /**
+   * Push parameters from the instance of TrackingAppParams to their respective GUI elements
+   */
   public void pushParamsToGUI() {
     setWeightCellOverlap(params.getWeightCellOverlap());
     setWeightCellCentroidsDistance(params.getWeightCentroids());
@@ -214,7 +225,10 @@ public class AdvancedPanel extends JPanel {
     setBorderCellAffectsCI(params.isBorderCellAffectsCI());
   }
 
-
+  /**
+   * Pull parameters from the GUI elements into their respective variables within the
+   * TrackingAppParams instance.
+   */
   public void pullParamsFromGUI() {
     params.setWeightCellOverlap(getWeightCellOverlap());
     params.setWeightCentroids(getWeightCellCentroidDistance());
@@ -340,7 +354,6 @@ public class AdvancedPanel extends JPanel {
 
   /**
    * Check all sub-elements for errors
-   *
    * @return true if any contained element has an error
    */
   public boolean hasError() {
@@ -353,7 +366,6 @@ public class AdvancedPanel extends JPanel {
 
   /**
    * Get string detailing what errors exist within the panel
-   *
    * @return string representation of the errors present in the panel
    */
   public String getErrorString() {
@@ -408,10 +420,9 @@ public class AdvancedPanel extends JPanel {
 
   /**
    * Set the division options within this panel to enabled or disabled
-   *
    * @param enabled whether to enable or disable the division options
    */
-  protected void setDivisionEnabled(boolean enabled) {
+  public void setDivisionEnabled(boolean enabled) {
     minDivisionOverlap.setEnabled(enabled);
     daughterSizeSimilarity.setEnabled(enabled);
     daughterAspectRatioSimilarity.setEnabled(enabled);

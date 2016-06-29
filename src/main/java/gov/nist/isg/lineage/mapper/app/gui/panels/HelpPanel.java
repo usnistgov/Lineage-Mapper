@@ -24,7 +24,9 @@ import javax.swing.JPanel;
 
 import main.java.gov.nist.isg.lineage.mapper.app.gui.HelpDocumentationViewer;
 
-
+/**
+ * Special JPanel to hold and display the Lineage-Mapper help.
+ */
 public class HelpPanel extends JPanel {
 
   private static final String documentationURL =
@@ -51,6 +53,9 @@ public class HelpPanel extends JPanel {
   private JButton openHelpButton;
   private JLabel link;
 
+  /**
+   * Special JPanel to hold and display the Lineage-Mapper help.
+   */
   public HelpPanel() {
     super();
 

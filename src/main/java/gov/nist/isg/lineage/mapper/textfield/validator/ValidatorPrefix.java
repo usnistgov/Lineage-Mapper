@@ -17,7 +17,9 @@ public class ValidatorPrefix implements Validator<String> {
   private String prefix;
   private String errorText;
 
-
+  /**
+   * Creates a prefix validator that allows only valid file path characters.
+   */
   public ValidatorPrefix() {
     prefix = "";
     errorText = "<html>Please only enter valid file path characters in the text field.</html>";
