@@ -1,0 +1,75 @@
+
+
+Cost Function Help
+Weight of Cell Overlap
+	-percentage of the cost function between cells that comes from the cell overlap percentage
+Weight of Centroids Distance
+	-percentage of the cost function between cells that comes from the distance between the centroids of the cells
+Weight of Cell Size
+	-percentage of the cost function between cells that comes from the similarity between the cell areas
+Max Centroids Distance
+	-The maximum distance (in pixels) between the centroid of a cell in frame (t-1) and the centroid of a cell in frame (t) that could be considered tracked together. In other words, and 2 cells, one from frame (t-1) and one from frame (t) could be considered tracked to each other if the distance between their centroids is less than this threshold.
+Frames to Track
+	-This controls the frames to be tracked. If "All" then all available frames in the segmented images folder with the specified common name will be tracked. The syntax for specifying frames is a comma separated list. For example "1,3,5,9". A colon can also be used to specify a range of time slices. For example "1, 4:8, 12", would be considered "1,4,5,6,7,8,12".
+	
+	
+Confidence Index Parameters
+Min Cell Life (nb frames)
+	-This determines the minimum number of frames a cell must be alive in order to have a confidence index calculated for it.
+Cell death delta centroids threshold
+	-The distance between the centroids of consecutive frames of a given tracked cell. If the cell centroid delta distance is below this threshold then it is considered a dead cell if the difference in cell area between consecutive frames is less than 10 percent the mean cell area over the cells lifespan.
+Cell Density Affects CI
+	-This checkbox controls whether or not the cell density is factored into the confidence index calculation. If this is turned on then cell density component of the confidence index is calculated as 1/(mean number of cells that touch the given cell across the lifespan).
+Being Border Cell Affects CI
+	-This checkbox controls whether or not a cell touches the borders of the image affects its confidence index.
+Confidence Index Calculation
+	CI = cell_density_component + cell_lifespan_component + border_cell_component + 1;
+	cell_density_component = 1/mean(nb touching neighbour cells);
+	cell_lifespan_component = 1 if (death - birth) > cell life threshold;
+	border_cell_component = 1 if the cell never touches the border of the image;
+
+
+Mitotic Parameters
+Min Mitotic Overlap
+	-This is the percentage overlap between the mother cell and any potential daughter cell. For example overlap_percentage = overlap(mother, daughter)/size(daughter);.
+Daughter Size Similarity
+	-The sizes between pairs of possible daughter cells must be similar. Size similarity between 2 daughter cells is defined as: 1 - (abs(size(daughter1) - size(daughter2))/(size(daughter1) + size(daughter2));.
+Daughter Aspect Ratio Similarity
+	-The aspect ratio between pairs of possible daughter cells must be similarly. Aspect ratio similarity is defined as: 1 - (abs(aspect_ratio(daughter1) - aspect_ratio(daughter2))/(aspect_ratio(daughter1) + aspect_ratio(daughter2));.
+Circularity Index
+	-For a cell to be considered a mother cell in a mitosis it must have been round in the previous few frames. This circularity threshold determines what is round enough to be considered a mitotic cell. Cell circularity is defined as: circularity = (4*PI*cell_area)/(cell_perimeter^2);.
+Number of Frames to Check Circularity
+	-This determines the number of previous frames to check if the given cell meets the circularity threshold to qualify as round. The potential mother is cell is considered round enough if during any of the frames from the current time t to time (t - number frames to check circularity) has a circularity value less than the circularity index.
+Enable Cell Mitosis
+	-This checkbox controls whether cells are allowed to divide into daughters. If this is disabled both daughter cells of a mitosis will have the same label as the mother cell did. This will happen even if the two daughter cells are no longer touching, and no matter how far apart the daughter cells drift.
+	
+	
+	
+Fusion Parameters
+Min Cell Area
+	-This defines the minimum area that a cell can have if fusion is disabled and a cell that was fused is being cut apart. If one of the components the fused cell was cut into is less than this area (in pixels) then it is merged back into the dominant neighbour cell.
+Min Fusion Overlap
+	-This is the percent overlap between a cell in frame (t-1) and frame (t) that the pair of cells must have in order to be considered a fusion between the cells. The cell in frame (t) must overlap at least Min Fusion Overlap percentage of the cells pixels in frame (t-1). Overlap percentage is defined as: overlap_percentage = overlap(cell_at(t-1), cell_at(t))/size(cell_at(t-1);.
+Enable Cell Fusion
+	-This checkbox controls whether cells are allowed to fuse together. If this is turned off then cells that fuse are separated by looking at the nearest cell body in the frame at (t-1) for any pixels that do not directly overlap the cells in frame at (t-1).
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

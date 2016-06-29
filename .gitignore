@@ -1,13 +1,12 @@
-/bin/
-/out/
-\bin\
-\out\
-.classpath
 *.dat
 *.class
+
+# Intellij Folders
+out
 target
 
+# specific folders
+test\test_track_results
 
+# User-specific IntlliJ workspace:
 .idea/workspace.xml
-.idea\workspace.xml
-.idea/codeStyleSettings.xml
