@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper;
+package gov.nist.isg.lineage.mapper;
 
 
 import java.io.File;
@@ -13,18 +13,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
-import main.java.gov.nist.isg.lineage.mapper.lib.Cell;
-import main.java.gov.nist.isg.lineage.mapper.lib.ConnectedComponents;
-import main.java.gov.nist.isg.lineage.mapper.lib.DistanceTransform;
-import main.java.gov.nist.isg.lineage.mapper.lib.ImageFrame;
-import main.java.gov.nist.isg.lineage.mapper.lib.ImageTile;
-import main.java.gov.nist.isg.lineage.mapper.lib.Log;
-import main.java.gov.nist.isg.lineage.mapper.lib.Matrix2D;
-import main.java.gov.nist.isg.lineage.mapper.lib.Utils;
-import main.java.gov.nist.isg.lineage.mapper.metadata.CellTrackerMetadata;
+import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
+import gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
+import gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
+import gov.nist.isg.lineage.mapper.lib.Cell;
+import gov.nist.isg.lineage.mapper.lib.ConnectedComponents;
+import gov.nist.isg.lineage.mapper.lib.DistanceTransform;
+import gov.nist.isg.lineage.mapper.lib.ImageFrame;
+import gov.nist.isg.lineage.mapper.lib.ImageTile;
+import gov.nist.isg.lineage.mapper.lib.Log;
+import gov.nist.isg.lineage.mapper.lib.Matrix2D;
+import gov.nist.isg.lineage.mapper.lib.Utils;
+import gov.nist.isg.lineage.mapper.metadata.CellTrackerMetadata;
 
 
 public class LineageMapper implements Runnable {
@@ -700,7 +700,7 @@ public class LineageMapper implements Runnable {
           px[i] = rn[px[i]];
         }
       }
-      // update the main.java.gov.nist.isg.lineage.mapper.metadata about the image now that pixel data has changed
+      // update the gov.nist.isg.lineage.mapper.metadata about the image now that pixel data has changed
       curFrame.processImage();
       // if the aspect ratio had been generated, recompute it now that pixel data has changed
       if (curFrame.isAspectRatioGenerated()) {
@@ -805,7 +805,7 @@ public class LineageMapper implements Runnable {
     // delete the cells below the size threshold after being cut
     enforceMinObjectSize(curFrame);
 
-    // update the main.java.gov.nist.isg.lineage.mapper.metadata about the image now that pixel data has changed
+    // update the gov.nist.isg.lineage.mapper.metadata about the image now that pixel data has changed
     curFrame.processImage();
     // if the aspect ratio had been generated, recompute it now that pixel data has changed
     if (curFrame.isAspectRatioGenerated()) {

@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.metadata;
+package gov.nist.isg.lineage.mapper.metadata;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -18,8 +18,8 @@ import java.io.PrintWriter;
 
 import javax.swing.JTable;
 
-import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
-import main.java.gov.nist.isg.lineage.mapper.lib.Log;
+import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
+import gov.nist.isg.lineage.mapper.lib.Log;
 
 
 public class LineageViewer {
@@ -186,56 +186,56 @@ public class LineageViewer {
 
 
     File jsDir = new File(filesDir.getAbsolutePath() + File.separator + "js");
-    copyFile(new File("/main/resources/viewer/lineage-viewer.html"), filesDir);
-    copyFile(new File("/main/resources/viewer/js/d3.min.js"), jsDir);
-    copyFile(new File("/main/resources/viewer/js/jquery-1.10.2.js"), jsDir);
-    copyFile(new File("/main/resources/viewer/js/jquery-ui-1.10.4.custom.min.js"), jsDir);
-    copyFile(new File("/main/resources/viewer/js/lineageMapper.js"), jsDir);
-    copyFile(new File("/main/resources/viewer/js/queue.v1.min.js"), jsDir);
+    copyFile(new File("/viewer/lineage-viewer.html"), filesDir);
+    copyFile(new File("/viewer/js/d3.min.js"), jsDir);
+    copyFile(new File("/viewer/js/jquery-1.10.2.js"), jsDir);
+    copyFile(new File("/viewer/js/jquery-ui-1.10.4.custom.min.js"), jsDir);
+    copyFile(new File("/viewer/js/lineageMapper.js"), jsDir);
+    copyFile(new File("/viewer/js/queue.v1.min.js"), jsDir);
 
     File cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css");
-    copyFile(new File("/main/resources/viewer/css/bootstrap.min.css"), cssDir);
-    copyFile(new File("/main/resources/viewer/css/colony.css"), cssDir);
-    copyFile(new File("/main/resources/viewer/css/layout.css"), cssDir);
-    copyFile(new File("/main/resources/viewer/css/main_style.css"), cssDir);
-    copyFile(new File("/main/resources/viewer/css/reset.css"), cssDir);
-    copyFile(new File("/main/resources/viewer/css/style.css"), cssDir);
+    copyFile(new File("/viewer/css/bootstrap.min.css"), cssDir);
+    copyFile(new File("/viewer/css/colony.css"), cssDir);
+    copyFile(new File("/viewer/css/layout.css"), cssDir);
+    copyFile(new File("/viewer/css/main_style.css"), cssDir);
+    copyFile(new File("/viewer/css/reset.css"), cssDir);
+    copyFile(new File("/viewer/css/style.css"), cssDir);
 
     cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness");
-    copyFile(new File("/main/resources/viewer/css/ui-lightness/jquery-ui.min.css"), cssDir);
+    copyFile(new File("/viewer/css/ui-lightness/jquery-ui.min.css"), cssDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"), cssDir);
+        new File("/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"), cssDir);
 
     File imgsDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness" + File.separator + "images");
-    copyFile(new File("/main/resources/viewer/css/ui-lightness/images/animated-overlay.gif"), imgsDir);
+    copyFile(new File("/viewer/css/ui-lightness/images/animated-overlay.gif"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_20_666666_40x40.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_flat_10_000000_40x100.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_glass_65_ffffff_1x400.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_gloss-wave_35_f6a828_500x100.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_highlight-soft_75_ffe45c_1x100.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-bg_highlight-soft_100_eeeeee_1x100.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_228ef1_256x240.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-icons_228ef1_256x240.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_222222_256x240.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-icons_222222_256x240.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ef8c08_256x240.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-icons_ef8c08_256x240.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ffd27a_256x240.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-icons_ffd27a_256x240.png"), imgsDir);
     copyFile(
-        new File("/main/resources/viewer/css/ui-lightness/images/ui-icons_ffffff_256x240.png"), imgsDir);
+        new File("/viewer/css/ui-lightness/images/ui-icons_ffffff_256x240.png"), imgsDir);
 
     File index = new File(filesDir.getAbsolutePath() + File.separator + "lineage-viewer.html");
 

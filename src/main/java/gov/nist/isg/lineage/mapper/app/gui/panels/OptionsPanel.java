@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.app.gui.panels;
+package gov.nist.isg.lineage.mapper.app.gui.panels;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -19,14 +19,14 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
-import main.java.gov.nist.isg.lineage.mapper.filechooser.DirectoryChooserPanel;
-import main.java.gov.nist.isg.lineage.mapper.textfield.TextFieldInputPanel;
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.Validator;
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorDbl;
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorInt;
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorPrefix;
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.ValidatorRegex;
+import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
+import gov.nist.isg.lineage.mapper.filechooser.DirectoryChooserPanel;
+import gov.nist.isg.lineage.mapper.textfield.TextFieldInputPanel;
+import gov.nist.isg.lineage.mapper.textfield.validator.Validator;
+import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorDbl;
+import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorInt;
+import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorPrefix;
+import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorRegex;
 
 
 /**

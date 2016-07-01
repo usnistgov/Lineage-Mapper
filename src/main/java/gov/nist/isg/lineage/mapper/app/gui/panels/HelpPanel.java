@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.app.gui.panels;
+package gov.nist.isg.lineage.mapper.app.gui.panels;
 
 import java.awt.Cursor;
 import java.awt.Desktop;
@@ -22,7 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import main.java.gov.nist.isg.lineage.mapper.app.gui.HelpDocumentationViewer;
+import gov.nist.isg.lineage.mapper.app.gui.HelpDocumentationViewer;
 
 /**
  * Special JPanel to hold and display the Lineage-Mapper help.

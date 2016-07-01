@@ -20,7 +20,7 @@
 //
 // ================================================================
 
-package main.java.gov.nist.isg.lineage.mapper.textfield.validator;
+package gov.nist.isg.lineage.mapper.textfield.validator;
 
 
 public class ValidatorDbl implements Validator<Double> {

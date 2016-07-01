@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.app.gui.swingworkers;
+package gov.nist.isg.lineage.mapper.app.gui.swingworkers;
 
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -22,16 +22,16 @@ import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.SwingWorker;
 
+import gov.nist.isg.lineage.mapper.LineageMapper;
+import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
+import gov.nist.isg.lineage.mapper.app.gui.panels.ControlPanel;
+import gov.nist.isg.lineage.mapper.lib.ImageFrame;
+import gov.nist.isg.lineage.mapper.lib.Log;
+import gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
+import gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
+import gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
+import gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 import ij.plugin.frame.Recorder;
-import main.java.gov.nist.isg.lineage.mapper.LineageMapper;
-import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.panels.ControlPanel;
-import main.java.gov.nist.isg.lineage.mapper.lib.ImageFrame;
-import main.java.gov.nist.isg.lineage.mapper.lib.Log;
-import main.java.gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 
 /**
  * Swing worker to perform the tracking on a background thread

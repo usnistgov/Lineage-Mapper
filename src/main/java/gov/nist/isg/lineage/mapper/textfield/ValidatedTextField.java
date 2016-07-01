@@ -20,7 +20,7 @@
 //
 // ================================================================
 
-package main.java.gov.nist.isg.lineage.mapper.textfield;
+package gov.nist.isg.lineage.mapper.textfield;
 
 import java.awt.Color;
 
@@ -31,7 +31,7 @@ import javax.swing.text.Document;
 import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 
-import main.java.gov.nist.isg.lineage.mapper.textfield.validator.Validator;
+import gov.nist.isg.lineage.mapper.textfield.validator.Validator;
 
 /**
  * Creates a text field that is validated by a validator.

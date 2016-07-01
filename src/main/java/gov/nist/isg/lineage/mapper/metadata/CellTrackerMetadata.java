@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.metadata;
+package gov.nist.isg.lineage.mapper.metadata;
 
 import java.awt.Desktop;
 import java.io.File;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import main.java.gov.nist.isg.lineage.mapper.app.TrackingAppParams;
-import main.java.gov.nist.isg.lineage.mapper.lib.Cell;
-import main.java.gov.nist.isg.lineage.mapper.lib.ImageFrame;
-import main.java.gov.nist.isg.lineage.mapper.lib.Log;
-import main.java.gov.nist.isg.lineage.mapper.lib.Matrix2D;
+import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
+import gov.nist.isg.lineage.mapper.lib.Cell;
+import gov.nist.isg.lineage.mapper.lib.ImageFrame;
+import gov.nist.isg.lineage.mapper.lib.Log;
+import gov.nist.isg.lineage.mapper.lib.Matrix2D;
 
 
 public class CellTrackerMetadata {
@@ -268,7 +268,7 @@ public class CellTrackerMetadata {
 
       CI.put(gCellNb, ciVal / 4.0);
     }
-    CI = main.java.gov.nist.isg.lineage.mapper.lib.Utils.sortHashMapByValuesD(CI);
+    CI = gov.nist.isg.lineage.mapper.lib.Utils.sortHashMapByValuesD(CI);
 
     return CI;
   }
@@ -289,21 +289,21 @@ public class CellTrackerMetadata {
     params.setBirthDeathMetadata(bdm);
     bdm.buildMetadataTable();
     if (bdm.getTable() != null) {
-      main.java.gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(bdm.getTable(), new File(targetFolder + prefix + bdm.getFileName()));
+      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(bdm.getTable(), new File(targetFolder + prefix + bdm.getFileName()));
     }
 
     DivisionMetadata dm = new DivisionMetadata(params);
     params.setDivisionMetadata(dm);
     dm.buildMetadataTable();
     if (dm.getTable() != null) {
-      main.java.gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(dm.getTable(), new File(targetFolder + prefix + dm.getFileName()));
+      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(dm.getTable(), new File(targetFolder + prefix + dm.getFileName()));
     }
 
     FusionMetadata fm = new FusionMetadata(params);
     params.setFusionMetadata(fm);
     fm.buildMetadataTable();
     if (fm.getTable() != null) {
-      main.java.gov.nist.isg.lineage.mapper.lib.Utils
+      gov.nist.isg.lineage.mapper.lib.Utils
           .exportToCSVFile(fm.getTable(), new File(targetFolder + prefix + fm.getFileName()));
     }
 
@@ -311,7 +311,7 @@ public class CellTrackerMetadata {
     params.setConfidenceIndexMetadata(cim);
     cim.buildMetadataTable();
     if (cim.getTable() != null) {
-      main.java.gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(cim.getTable(), new File(targetFolder + prefix + cim.getFileName()));
+      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(cim.getTable(), new File(targetFolder + prefix + cim.getFileName()));
     }
 
     params.writeParamsToFile(new File(targetFolder + prefix + "tracking-params.txt"));

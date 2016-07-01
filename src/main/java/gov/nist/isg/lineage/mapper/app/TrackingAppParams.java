@@ -4,7 +4,7 @@
 
 // You are solely responsible for determining the appropriateness of using and distributing the software and you assume all risks associated with its use, including but not limited to the risks and costs of program errors, compliance with applicable laws, damage to or loss of data, programs or equipment, and the unavailability or interruption of operation. This software is not intended to be used in any situation where a failure could cause risk of injury or damage to property. The software developed by NIST employees is not subject to copyright protection within the United States.
 
-package main.java.gov.nist.isg.lineage.mapper.app;
+package gov.nist.isg.lineage.mapper.app;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,19 +17,19 @@ import java.util.List;
 import java.util.prefs.BackingStoreException;
 import java.util.prefs.Preferences;
 
+import gov.nist.isg.lineage.mapper.Lineage_Mapper_Plugin;
+import gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
+import gov.nist.isg.lineage.mapper.app.gui.panels.AdvancedPanel;
+import gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
+import gov.nist.isg.lineage.mapper.app.utils.MacroUtils;
+import gov.nist.isg.lineage.mapper.lib.ImageFrame;
+import gov.nist.isg.lineage.mapper.lib.Log;
+import gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
+import gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
+import gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
+import gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 import ij.IJ;
 import ij.plugin.frame.Recorder;
-import main.java.gov.nist.isg.lineage.mapper.Lineage_Mapper_Plugin;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.panels.AdvancedPanel;
-import main.java.gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
-import main.java.gov.nist.isg.lineage.mapper.app.utils.MacroUtils;
-import main.java.gov.nist.isg.lineage.mapper.lib.ImageFrame;
-import main.java.gov.nist.isg.lineage.mapper.lib.Log;
-import main.java.gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
-import main.java.gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
 
 /**
  * Class to contain all of the parameters required to perform tracking.
@@ -42,7 +42,7 @@ public class TrackingAppParams {
   private static final String APP_TITLE = "Lineage Mapper";
   private static final String PreferencesName = "lineage_mapper";
 
-  //	Descriptions used in writing, loading, and saving main.java.gov.nist.isg.lineage.mapper.app parameters
+  //	Descriptions used in writing, loading, and saving gov.nist.isg.lineage.mapper.app parameters
   public static final String DS = ": "; // description separator
   public static final String WGT_CELL_OVERLAP_DESC = "weightCellOverlap";
   public static final String WGT_CENTROIDS_DIST_DESC = "weightCentroidsDistance";

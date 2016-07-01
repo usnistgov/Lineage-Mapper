@@ -20,7 +20,7 @@
 //
 // ================================================================
 
-package main.java.gov.nist.isg.lineage.mapper.lib;
+package gov.nist.isg.lineage.mapper.lib;
 
 import java.util.HashMap;
 
