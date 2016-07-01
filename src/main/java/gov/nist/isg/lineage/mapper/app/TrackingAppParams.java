@@ -28,6 +28,7 @@ import gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
 import gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
 import gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
 import gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
+import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorRegex;
 import ij.IJ;
 import ij.plugin.frame.Recorder;
 
@@ -96,7 +97,7 @@ public class TrackingAppParams {
   private boolean enableCellFusion = false;
 
 
-  private CellTrackerGUI ctGUI = new CellTrackerGUI(this, false);
+  private CellTrackerGUI ctGUI;
   private boolean tracking = false;
   private boolean macro = false;
   private Thread trackingThread = null;
@@ -113,7 +114,41 @@ public class TrackingAppParams {
    * @throws IllegalArgumentException if invalid parameters are found.
    */
   public void validateParameters() throws IllegalArgumentException {
-    String errors = getErrorString();
+
+    String errors = "";
+
+    // Filepath Options
+    ValidatorRegex filenamePatternValidator = new ValidatorRegex(OptionsPanel
+        .filenamePatternRegex, OptionsPanel
+        .filenamePatternExample);
+    if(!filenamePatternValidator.validate(filenamePattern))
+      errors += "Invalid FilenamePattern: \"" + filenamePattern + "\"\n";
+
+    // Input Options
+    if(cellSizeThreshold < 0)
+      errors += "Invalid Minimum Object Size: \"" + cellSizeThreshold + "\"\n";
+    if(maxCentroidsDist < 0)
+      errors += "Invalid Maximum Centroid Displacement: \"" + maxCentroidsDist + "\"\n";
+
+    // Advanced Options
+    // Cost Function
+    if(weightCellOverlap < 0 || weightCellOverlap > 1)
+      errors += "Invalid Weight Cell Overlap: \"" + weightCellOverlap + "\"\n";
+    if(weightCellSize < 0 || weightCellSize > 1)
+      errors += "Invalid Weight Cell Size: \"" + weightCellSize + "\"\n";
+    if(weightCentroids < 0 || weightCentroids > 1)
+      errors += "Invalid Weight Cell Centroid Distance: \"" + weightCentroids + "\"\n";
+    // Division
+    if(divisionOverlapThreshold < 0 || divisionOverlapThreshold > 1)
+      errors += "Invalid Minimum Division Overlap: \"" + divisionOverlapThreshold + "\"\n";
+    if(daughterSizeSimilarity < 0 || daughterSizeSimilarity > 1)
+      errors += "Invalid Daughter Size Similarity: \"" + daughterSizeSimilarity + "\"\n";
+    if(daughterAspectRatioSimilarity < 0 || daughterAspectRatioSimilarity > 1)
+      errors += "Invalid Daughter Aspect Ratio Similarity: \"" + daughterAspectRatioSimilarity + "\"\n";
+    if(motherCircularityThreshold < 0 || motherCircularityThreshold > 1)
+      errors += "Invalid Mother Cell Circularity Threshold: \"" + motherCircularityThreshold + "\"\n";
+    if(numFramesToCheckCircularity < 0)
+      errors += "Invalid Number Frames to Check Circularity: \"" + numFramesToCheckCircularity + "\"\n";
 
     if (!errors.isEmpty()) {
       Log.setLogLevel(Log.LogType.MANDATORY);
@@ -126,23 +161,17 @@ public class TrackingAppParams {
   }
 
   /**
-   * Get the string noting which parameters are invalid.
-   * @return the string of parameter validation errors.
-   */
-  public String getErrorString() {
-    return ctGUI.getOptionsPanel().getErrorString() + ctGUI.getAdvancedPanel().getErrorString();
-  }
-
-  /**
    * Sets the progress bar to a percentage complete. Values outside of [0,1] will be set to the
    * nearest value within that range.
    * @param val percentage to display within [0,1]
    */
   public void setProgressBar(double val) {
-    // constrain val to [0,1]
-    val = (val < 0) ? 0 : val;
-    val = (val > 1) ? 1 : val;
-    ctGUI.getControlPanel().getProgressBar().setValue((int) Math.round(val * 100));
+    if( ctGUI!= null) {
+      // constrain val to [0,1]
+      val = (val < 0) ? 0 : val;
+      val = (val > 1) ? 1 : val;
+      ctGUI.getControlPanel().getProgressBar().setValue((int) Math.round(val * 100));
+    }
   }
 
   /**
@@ -183,28 +212,15 @@ public class TrackingAppParams {
     confidenceIndexMetadata = null;
   }
 
-  /**
-   * Pull parameters from the GUI elements into their respective variables within the
-   * TrackingAppParams instance.
-   */
-  public void pullParamsFromGui() {
-    validateParameters();
-
-    OptionsPanel optionsPanel = ctGUI.getOptionsPanel();
-    // copy params from GUI to the params object
-    optionsPanel.pullParamsFromGUI();
-
-    AdvancedPanel advancedPanel = ctGUI.getAdvancedPanel();
-    // copy params from GUI to the params object
-    advancedPanel.pullParamsFromGUI();
-  }
 
   /**
    * Push parameters from the instance of TrackingAppParams to their respective GUI elements
    */
   public void pushParamsToGUI() {
-    getGuiPane().getOptionsPanel().pushParamsToGUI();
-    getGuiPane().getAdvancedPanel().pushParamsToGUI();
+    if (this.ctGUI != null){
+      this.ctGUI.getOptionsPanel().pushParamsToGUI();
+      this.ctGUI.getAdvancedPanel().pushParamsToGUI();
+    }
   }
 
 
@@ -709,8 +725,9 @@ public class TrackingAppParams {
    * Records the current state of the tracking parameters into Java Prefs
    */
   public void recordPreferences() {
+    if(ctGUI != null)
+      ctGUI.copyToTrackingAppParams();
 
-    pullParamsFromGui();
     Preferences pref = Preferences.userRoot().node(getPreferencesName());
 
     try {

@@ -74,7 +74,7 @@ public class TrackSwingWorker extends SwingWorker<Void, Void> {
       } else {
         // Running from the GUI
         try {
-          params.pullParamsFromGui();
+          params.getGuiPane().copyToTrackingAppParams();
         } catch (IllegalArgumentException e) {
           progressBar.setString("Invalid Parameters Found");
           Log.error("Invalid Parameters Found");

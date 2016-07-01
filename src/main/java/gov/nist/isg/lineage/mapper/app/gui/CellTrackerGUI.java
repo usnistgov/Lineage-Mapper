@@ -27,6 +27,7 @@ import gov.nist.isg.lineage.mapper.app.gui.panels.HelpPanel;
 import gov.nist.isg.lineage.mapper.app.gui.panels.OptionsPanel;
 import gov.nist.isg.lineage.mapper.app.images.AppImageHelper;
 import gov.nist.isg.lineage.mapper.lib.Log;
+import ij.IJ;
 
 /**
  * GUI to enable the user to specify the LineageMapper parameters.
@@ -109,6 +110,25 @@ public class CellTrackerGUI extends JFrame {
     manager.setInitialDelay(500);
     manager.setReshowDelay(500);
     manager.setLightWeightPopupEnabled(true);
+  }
+
+  public void copyToTrackingAppParams() {
+
+    String errors = this.optionsPanel.getErrorString() + this.advancedPanel.getErrorString();
+    if (!errors.isEmpty()) {
+      Log.setLogLevel(Log.LogType.MANDATORY);
+      Log.error("Invalid Parameter(s):");
+      Log.error(errors);
+      IJ.error("Invalid Parameter Found: See Log for Details");
+
+      throw new IllegalArgumentException("Invalid Parameters found");
+    }
+
+    // copy params from GUI to the params object
+    this.optionsPanel.pullParamsFromGUI();
+
+    // copy params from GUI to the params object
+    this.advancedPanel.pullParamsFromGUI();
   }
 
 

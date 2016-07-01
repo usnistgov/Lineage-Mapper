@@ -42,7 +42,7 @@ public class SaveParamsSwingWorker extends SwingWorker<Void, Void> {
     progressBar.setIndeterminate(true);
 
     if (!guiPane.hasError()) {
-      params.pullParamsFromGui();
+      guiPane.copyToTrackingAppParams();
     } else {
       progressBar.setString("Invalid Parameters Found");
       progressBar.setIndeterminate(false);

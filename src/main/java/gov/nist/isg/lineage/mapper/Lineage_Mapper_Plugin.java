@@ -10,6 +10,7 @@ import gov.nist.isg.lineage.mapper.app.TrackingAppParams;
 import gov.nist.isg.lineage.mapper.app.gui.CellTrackerGUI;
 import gov.nist.isg.lineage.mapper.app.gui.swingworkers.TrackSwingWorker;
 import gov.nist.isg.lineage.mapper.lib.Log;
+import ij.ImageJ;
 import ij.Macro;
 import ij.plugin.PlugIn;
 import ij.plugin.frame.Recorder;
@@ -62,6 +63,12 @@ public class Lineage_Mapper_Plugin implements PlugIn {
     } catch (Exception e) {
       Log.error(e);
     }
+  }
+
+  public static void main(String[] args) {
+    new ImageJ();
+
+    (new Lineage_Mapper_Plugin()).run(null);
   }
 
 

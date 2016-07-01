@@ -371,49 +371,28 @@ public class AdvancedPanel extends JPanel {
   public String getErrorString() {
     String ret = "";
 
-    if (wightCellOverlap.hasError()) {
+    if (wightCellOverlap.hasError())
       ret += "Invalid Weight Cell Overlap: \"" + wightCellOverlap.getText() + "\"\n";
-    }
-
-    if (weightCellCentroidDistance.hasError()) {
+    if (weightCellCentroidDistance.hasError())
       ret += "Invalid Weight Cell Centroid Distance: \"" + weightCellCentroidDistance.getText() + "\"\n";
-    }
-
-    if (weightCellSize.hasError()) {
+    if (weightCellSize.hasError())
       ret += "Invalid Weight Cell Size: \"" + weightCellSize.getText() + "\"\n";
-    }
-
-    if (minDivisionOverlap.hasError()) {
+    if (minDivisionOverlap.hasError())
       ret += "Invalid Minimum Division Overlap: \"" + minDivisionOverlap.getText() + "\"\n";
-    }
-
-    if (daughterSizeSimilarity.hasError()) {
+    if (daughterSizeSimilarity.hasError())
       ret += "Invalid Daughter Size Similarity: \"" + daughterSizeSimilarity.getText() + "\"\n";
-    }
-
-    if (daughterAspectRatioSimilarity.hasError()) {
+    if (daughterAspectRatioSimilarity.hasError())
       ret += "Invalid Daughter Aspect Ratio Similarity: \"" + daughterAspectRatioSimilarity.getText() + "\"\n";
-    }
-
-    if (motherCircularityIndex.hasError()) {
+    if (motherCircularityIndex.hasError())
       ret += "Invalid Mother Cell Circularity Threshold: \"" + motherCircularityIndex.getText() + "\"\n";
-    }
-
-    if (numberFramesCheckCircularity.hasError()) {
+    if (numberFramesCheckCircularity.hasError())
       ret += "Invalid Number Frames to Check Circularity: \"" + numberFramesCheckCircularity.getText() + "\"\n";
-    }
-
-    if (minFusionOverlap.hasError()) {
+    if (minFusionOverlap.hasError())
       ret += "Invalid Minimum Fusion Overlap: \"" + minFusionOverlap.getText() + "\"\n";
-    }
-
-    if (minCellLifespan.hasError()) {
+    if (minCellLifespan.hasError())
       ret += "Invalid Minimum Cell Lifespan: \"" + minCellLifespan.getText() + "\"\n";
-    }
-
-    if (cellDeathDeltaCentroidThreshold.hasError()) {
+    if (cellDeathDeltaCentroidThreshold.hasError())
       ret += "Invalid Cell Death Delta Centroid Threshold: \"" + cellDeathDeltaCentroidThreshold.getText() + "\"\n";
-    }
 
     return ret;
   }
