@@ -51,8 +51,8 @@ public class ImageTile {
     pixeldata = new short[nbpixels];
 
     // convert the image to 16 bit short
-    if (ip.getBitDepth() != 16) {
-      if (ip.getBitDepth() > 16) {
+    if (imp.getBitDepth() != 16) {
+      if (imp.getBitDepth() > 16) {
         Log.mandatory("Warning: Down-Converting Image To 16bit");
       } else {
         Log.debug("Up-Converting Image To 16bit: ");
