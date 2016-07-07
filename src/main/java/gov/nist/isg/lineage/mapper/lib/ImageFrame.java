@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ij.IJ;
+import ij.io.FileSaver;
 
 
 public class ImageFrame implements Comparable<ImageFrame> {
@@ -227,7 +228,8 @@ public class ImageFrame implements Comparable<ImageFrame> {
     String newImgName = prefix + oldImgName;
 
     // write the image to disk
-    if (!IJ.saveAsTiff(image.getAsImagePlus(), (outputDirectory + newImgName))) {
+    FileSaver fs = new FileSaver(image.getAsImagePlus());
+    if (!fs.saveAsTiff(outputDirectory + newImgName)) {
       throw new IllegalArgumentException("Unable to save image to disk.");
     }
     // set the state of this image to written
