@@ -1,0 +1,29 @@
+    <!-- ******ABOUT****** -->
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="title text-center">What is Lineage-Mapper?</h2>
+            
+						<p class="intro text-center">Lineage Mapper is an open-source, highly accurate, overlap-based cell tracking system for time-lapse images of biological cells, colonies, and particles. Lineage Mapper tracks objects independently of the segmentation method, detects mitosis in confluence, separates cell clumps mistakenly segmented as a single cell, provides accuracy and scalability even on terabyte-sized datasets, and creates division and/or fusion lineages. Lineage Mapper has been tested and validated on multiple biological and simulated problems.<br/>
+						</p>
+				
+
+						<div class="row">
+							<figure>
+								<img src="assets/LM_Processing_Pipeline.png"
+										 class="img-responsive"
+										 alt="Tracking Pipeline"
+												/>
+								<figcaption class="text-center">
+									Lineage Mapper processing pipeline and tracking outputs. The algorithmic steps consists of:
+									(1) compute cost between cells from consecutive frames, (2) detect cell collision and
+									account for it, (3) detect mitosis events, (4) assign tracks between cells, and (5) create
+									tracking outputs. The outputs includes saved tracked images, the cell lineage plotting and 
+									4 tracking output measurements: confidence index, the birth and death matrix, the mitosis 
+									matrix, and the fusion matrix.
+								</figcaption>
+							</figure>
+						</div>
+						
+				
+        </div><!--//container-->
+    </section><!--//about-->
