@@ -692,6 +692,15 @@ pre code {
     font-size: 18px;
   }
 }
+
+.img-responsive{
+	margin-left: auto;
+  margin-right: auto;
+	text-align:center;
+	max-width:70%;
+}
+
+
 /* Small devices (tablets, 768px and up) */
 /* Medium devices (desktops, 992px and up) */
 /* Large devices (large desktops, 1200px and up) */
