@@ -1,30 +1,45 @@
     <!-- ******ACCURACY****** -->
     <section id="accuracy" class="features section">
         <div class="container">
+	        <div class="row">
             <h2 class="title text-center">Tracking Accuracy</h2>
-            
-						<p><b>Particle Simulation</b> - LM tracking performance is compared against 14 existing particle tracking tools (a). The accuracy of any tracking method was computed using four metrics: Alpha, Beta, Jaccard, and Jaccard Theta. The summary of the accuracy results is reported by the number of times a particular method ranked among the top 3 positions for a given scoring metric across all 12 datasets. This analysis measures the robustness of a tracking technique across multiple particle motion scenarios and scoring metrics.  LM performed well amongst the tested particle tracking methods (a) and scored in the top three: 12/12 with the Alpha score, 11/12 with the Beta score, 9/12 with the Jaccard score, and 10/12 with the Jaccard Theta score.
+
+            <p class="text-center">Cell and particle tracking performance of Lineage Mapper on real and simulated datasets.
+						(a) Tracking accuracy measured on 12 simulated reference datasets for performance quantification
+						and comparison between 15 trackers. (b,c) Tracking accuracy measured on manual segmentation and
+						tracking of two randomly chosen time-lapse images of NIH 3T3 fibroblast cells and MCF10A breast
+						epithelial sheets respectively.
 						</p>
-						<p><b>NIH 3T3</b> - one randomly chosen MCF10A breast epithelial cell sheets time-sequence (59 frames, 5722 tracking decisions, and 6 mitosis events) was manually segmented and tracked by expert scientists. Both manual segmentations and tracking data were inspected by a second expert to reduce human errors. LM tracking and mitosis detection accuracies measured between 94.42% and 98.88% (b) on this biological datasets.
-						</p>
-						<p><b>NIH MCF10A Breast Epithelial</b> - one randomly chosen NIH 3T3 fibroblast experiment (238 frames, 8091 tracking decisions, and 148 mitosis events) was manually segmented and tracked by expert scientists. Both manual segmentations and tracking data were inspected by a second expert to reduce human errors. LM tracking and mitosis detection accuracies measured 100% (c) on this biological datasets.
-						</p>
-						<div class="row">
-							<figure>
-								<img src="assets/LM_accuracy.png"
+					</div>
+
+
+            <div class="row well">
+            	<img src="assets/LM_accuracy_Particle.png"
 										 class="img-responsive"
-										 alt="Tracking Accuracy"
+										 alt="Tracking Accuracy: Particle Simulation"
 												/>
-								<figcaption class="text-center">
-									Cell and particle tracking performance of Lineage Mapper on real and simulated datasets.
-									(a) Tracking accuracy measured on 12 simulated reference datasets for performance quantification 
-									and comparison between 15 trackers. (b,c) Tracking accuracy measured on manual segmentation and 
-									tracking of two randomly chosen time-lapse images of NIH 3T3 fibroblast cells and MCF10A breast 
-									epithelial sheets respectively.
-								</figcaption>
-							</figure>
+							<p><b>Particle Simulation</b> - LM tracking performance is compared against 14 existing particle tracking tools (a). The accuracy of any tracking method was computed using four metrics: Alpha, Beta, Jaccard, and Jaccard Theta. The summary of the accuracy results is reported by the number of times a particular method ranked among the top 3 positions for a given scoring metric across all 12 datasets. This analysis measures the robustness of a tracking technique across multiple particle motion scenarios and scoring metrics.  LM performed well amongst the tested particle tracking methods (a) and scored in the top three: 12/12 with the Alpha score, 11/12 with the Beta score, 9/12 with the Jaccard score, and 10/12 with the Jaccard Theta score.
+							</p>
 						</div>
-						
-						
+
+
+						<div class="row well">
+							<img src="assets/LM_accuracy_3T3.png"
+									 class="img-responsive"
+									 alt="Tracking Accuracy: NIH 3T3"
+											/>
+							<p><b>NIH 3T3</b> - one randomly chosen NIH 3T3 fibroblast experiment (238 frames, 8091 tracking decisions, and 148 mitosis events) was manually segmented and tracked by expert scientists. Both manual segmentations and tracking data were inspected by a second expert to reduce human errors. LM tracking and mitosis detection accuracies measured 100% (c) on this biological datasets.
+							</p>
+						</div>
+
+
+						<div class="row well">
+							<img src="assets/LM_accuracy_BC.png"
+									 class="img-responsive"
+									 alt="Tracking Accuracy: NIH MCF10A Breast Epithelial"
+											/>
+							<p><b>NIH MCF10A Breast Epithelial</b> - one randomly chosen MCF10A breast epithelial cell sheets time-sequence (59 frames, 5722 tracking decisions, and 6 mitosis events) was manually segmented and tracked by expert scientists. Both manual segmentations and tracking data were inspected by a second expert to reduce human errors. LM tracking and mitosis detection accuracies measured between 94.42% and 98.88% (b) on this biological datasets.
+						</div>
+
         </div><!--//container-->
     </section><!--//about-->
