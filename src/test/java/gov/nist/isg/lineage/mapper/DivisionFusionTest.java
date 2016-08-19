@@ -63,7 +63,10 @@ public class DivisionFusionTest {
     params.setCellDensityAffectsCI(true);
     params.setBorderCellAffectsCI(true);
 
-    params.setIsMacro(true); // disables auto-open of lineage viewer webpage
+    params.setIsMacro(false); // disables auto-open of lineage viewer webpage
+
+    params.setIsSaveMetadata(true);
+    params.setIsSaveLineageViewerPage(false);
 
     LineageMapper lm = new LineageMapper(params);
     lm.run();

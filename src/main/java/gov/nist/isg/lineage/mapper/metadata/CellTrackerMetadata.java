@@ -19,6 +19,7 @@ import gov.nist.isg.lineage.mapper.lib.ImageFrame;
 import gov.nist.isg.lineage.mapper.lib.Log;
 import gov.nist.isg.lineage.mapper.lib.Matrix2D;
 
+import static gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile;
 
 public class CellTrackerMetadata {
 
@@ -281,60 +282,69 @@ public class CellTrackerMetadata {
 
     String prefix = params.getOutputPrefix();
 
-    String targetFolder = params.getOutputDirectory();
-    if (!targetFolder.endsWith(File.separator))
-      targetFolder = targetFolder + File.separator;
-
     BirthDeathMetadata bdm = new BirthDeathMetadata(params);
     params.setBirthDeathMetadata(bdm);
     bdm.buildMetadataTable();
-    if (bdm.getTable() != null) {
-      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(bdm.getTable(), new File(targetFolder + prefix + bdm.getFileName()));
-    }
 
     DivisionMetadata dm = new DivisionMetadata(params);
     params.setDivisionMetadata(dm);
     dm.buildMetadataTable();
-    if (dm.getTable() != null) {
-      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(dm.getTable(), new File(targetFolder + prefix + dm.getFileName()));
-    }
 
     FusionMetadata fm = new FusionMetadata(params);
     params.setFusionMetadata(fm);
     fm.buildMetadataTable();
-    if (fm.getTable() != null) {
-      gov.nist.isg.lineage.mapper.lib.Utils
-          .exportToCSVFile(fm.getTable(), new File(targetFolder + prefix + fm.getFileName()));
-    }
 
     ConfidenceIndexMetadata cim = new ConfidenceIndexMetadata(params);
     params.setConfidenceIndexMetadata(cim);
     cim.buildMetadataTable();
-    if (cim.getTable() != null) {
-      gov.nist.isg.lineage.mapper.lib.Utils.exportToCSVFile(cim.getTable(), new File(targetFolder + prefix + cim.getFileName()));
+
+    // only write outputs to disk if requested to
+    if(params.isSaveMetadata()) {
+      String targetFolder = params.getOutputDirectory();
+      if (!targetFolder.endsWith(File.separator))
+        targetFolder = targetFolder + File.separator;
+
+      if (bdm.getTable() != null)
+        exportToCSVFile(bdm.getTable(), new File(targetFolder + prefix + bdm.getFileName()));
+
+      if (dm.getTable() != null)
+        exportToCSVFile(dm.getTable(), new File(targetFolder + prefix + dm.getFileName()));
+
+      if (fm.getTable() != null)
+        exportToCSVFile(fm.getTable(), new File(targetFolder + prefix + fm.getFileName()));
+
+      if (cim.getTable() != null)
+        exportToCSVFile(cim.getTable(), new File(targetFolder + prefix + cim.getFileName()));
+
+      params.writeParamsToFile(new File(targetFolder + prefix + "tracking-params.txt"));
     }
 
-    params.writeParamsToFile(new File(targetFolder + prefix + "tracking-params.txt"));
+      // only output the lineage viewer page if requested
+    if (params.isSaveLineageViewerPage()) {
 
-    // write the Lineage Viewer webpage to disk
-    LineageViewer lv = new LineageViewer(params);
-    File linageViewPage = lv.generateLineageViewerHtmlPage();
-    if (linageViewPage == null) {
-      Log.error("Creating lineage viewer html page failed");
-    }
-    if (!lv.generateDataJS(linageViewPage)) {
-      Log.error("Generating interactive lineage visualization data failed");
-    }
+      // write the Lineage Viewer webpage to disk
+      LineageViewer lv = new LineageViewer(params);
+      File linageViewPage = lv.generateLineageViewerHtmlPage();
+      if (linageViewPage == null) {
+        Log.error("Creating lineage viewer html page failed");
+      } else {
+        if (!lv.generateDataJS(linageViewPage)) {
+          Log.error("Generating interactive lineage visualization data failed");
+        }
 
-    Log.debug("attempting to hand the newly create lineage-viewer.html to a web browser");
-    if (!params.isMacro() && Desktop.isDesktopSupported()) {
-      Log.debug("Java Desktop is supported");
-      try {
-        Log.debug("Asking Desktop to open lineage-viewer.html");
-        Desktop.getDesktop().open(linageViewPage);
-      } catch (IOException ex) {
-        Log.mandatory("Opening Lineage Mapper tree in web browser failed.");
-        Log.error(ex);
+        Log.debug("attempting to hand the newly create lineage-viewer.html to a web browser");
+        if (!params.isMacro()) {
+          try {
+            Log.debug("Asking Desktop to open lineage-viewer.html");
+            if (Desktop.isDesktopSupported()) {
+              Log.debug("Asking Desktop to open lineage-viewer.html");
+              Desktop.getDesktop().open(linageViewPage);
+            }
+          } catch (Exception ex) {
+            Log.mandatory("Opening Lineage Mapper tree in web browser failed.");
+            Log.error(ex);
+          }
+        }
       }
     }
 

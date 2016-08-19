@@ -115,9 +115,9 @@ public class LineageViewer {
       fw.close();
 
     } catch (FileNotFoundException e) {
-      Log.error(e);
+      Log.error("Failed writing metadata file: " + f);
     } catch (IOException e) {
-      Log.error(e);
+      Log.error("Failed writing metadata file: " + f);
     }
 
     Log.debug("data.js generation successful");
@@ -186,6 +186,7 @@ public class LineageViewer {
 
 
     File jsDir = new File(filesDir.getAbsolutePath() + File.separator + "js");
+
     copyFile(new File("/viewer/lineage-viewer.html"), filesDir);
     copyFile(new File("/viewer/js/d3.min.js"), jsDir);
     copyFile(new File("/viewer/js/jquery-1.10.2.js"), jsDir);
@@ -194,6 +195,7 @@ public class LineageViewer {
     copyFile(new File("/viewer/js/queue.v1.min.js"), jsDir);
 
     File cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css");
+
     copyFile(new File("/viewer/css/bootstrap.min.css"), cssDir);
     copyFile(new File("/viewer/css/colony.css"), cssDir);
     copyFile(new File("/viewer/css/layout.css"), cssDir);
@@ -203,10 +205,10 @@ public class LineageViewer {
 
     cssDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness");
     copyFile(new File("/viewer/css/ui-lightness/jquery-ui.min.css"), cssDir);
-    copyFile(
-        new File("/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"), cssDir);
+    copyFile(new File("/viewer/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"), cssDir);
 
     File imgsDir = new File(filesDir.getAbsolutePath() + File.separator + "css" + File.separator + "ui-lightness" + File.separator + "images");
+
     copyFile(new File("/viewer/css/ui-lightness/images/animated-overlay.gif"), imgsDir);
     copyFile(
         new File("/viewer/css/ui-lightness/images/ui-bg_diagonals-thick_18_b81900_40x40.png"), imgsDir);

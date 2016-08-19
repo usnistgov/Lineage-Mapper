@@ -101,6 +101,8 @@ public class TrackingAppParams {
   private boolean tracking = false;
   private boolean macro = false;
   private Thread trackingThread = null;
+  private boolean saveMetadata = true;
+  private boolean saveLineageViewerPage = true;
 
   private BirthDeathMetadata birthDeathMetadata = null;
   private DivisionMetadata divisionMetadata = null;
@@ -222,6 +224,14 @@ public class TrackingAppParams {
       this.ctGUI.getAdvancedPanel().pushParamsToGUI();
     }
   }
+
+  public boolean isSaveMetadata() { return saveMetadata; }
+
+  public void setIsSaveMetadata(boolean val) { saveMetadata = val; }
+
+  public boolean isSaveLineageViewerPage() { return saveLineageViewerPage; }
+
+  public void setIsSaveLineageViewerPage(boolean val) { saveLineageViewerPage = val; }
 
 
   public boolean isTracking() {

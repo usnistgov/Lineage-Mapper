@@ -135,46 +135,50 @@ public class TrackSwingWorker extends SwingWorker<Void, Void> {
    * instance of TrackingAppParams.
    */
   public static List<String> checkOverwriteExistingOutputFiles(TrackingAppParams params) {
+
     List<String> fileList = new ArrayList<String>();
+    // only check for overwriting output files if outputs are being saved
+    if(params.isSaveMetadata()) {
 
-    String prefix = params.getOutputPrefix();
-    String outDir = params.getOutputDirectory();
+      String prefix = params.getOutputPrefix();
+      String outDir = params.getOutputDirectory();
 
-    File bdmFile = new File(outDir + prefix + BirthDeathMetadata.getFileName());
-    if (bdmFile.exists())
-      fileList.add(bdmFile.getAbsolutePath());
+      File bdmFile = new File(outDir + prefix + BirthDeathMetadata.getFileName());
+      if (bdmFile.exists())
+        fileList.add(bdmFile.getAbsolutePath());
 
 
-    if (params.isEnableCellDivision()) {
-      File file = new File(outDir + prefix + DivisionMetadata.getFileName());
-      if (file.exists())
-        fileList.add(file.getAbsolutePath());
-    }
+      if (params.isEnableCellDivision()) {
+        File file = new File(outDir + prefix + DivisionMetadata.getFileName());
+        if (file.exists())
+          fileList.add(file.getAbsolutePath());
+      }
 
-    if (params.isEnableCellFusion()) {
-      File file = new File(outDir + prefix + FusionMetadata.getFileName());
-      if (file.exists())
-        fileList.add(file.getAbsolutePath());
-    }
+      if (params.isEnableCellFusion()) {
+        File file = new File(outDir + prefix + FusionMetadata.getFileName());
+        if (file.exists())
+          fileList.add(file.getAbsolutePath());
+      }
 
-    File ciFile = new File(outDir + prefix + ConfidenceIndexMetadata.getFileName());
-    if (ciFile.exists())
-      fileList.add(ciFile.getAbsolutePath());
+      File ciFile = new File(outDir + prefix + ConfidenceIndexMetadata.getFileName());
+      if (ciFile.exists())
+        fileList.add(ciFile.getAbsolutePath());
 
-    File paramsFile = new File(outDir + prefix + "tracking-params.txt");
-    if (paramsFile.exists())
-      fileList.add(paramsFile.getAbsolutePath());
+      File paramsFile = new File(outDir + prefix + "tracking-params.txt");
+      if (paramsFile.exists())
+        fileList.add(paramsFile.getAbsolutePath());
 
-    // warn the user about overwriting all of the lineage viewer files
-    File viewerFiles = new File(outDir + prefix + "lineage-viewer");
-    if (viewerFiles.exists())
-      fileList.add(viewerFiles.getAbsolutePath() + File.separator + "*");
+      // warn the user about overwriting all of the lineage viewer files
+      File viewerFiles = new File(outDir + prefix + "lineage-viewer");
+      if (viewerFiles.exists())
+        fileList.add(viewerFiles.getAbsolutePath() + File.separator + "*");
 
-    // get the write conflicts in the set of images to be written to disk
-    for (ImageFrame imf : params.getFramesList()) {
-      File file = new File(imf.getImage().getOutputFilepath());
-      if (file.exists()) {
-        fileList.add(file.getAbsolutePath());
+      // get the write conflicts in the set of images to be written to disk
+      for (ImageFrame imf : params.getFramesList()) {
+        File file = new File(imf.getImage().getOutputFilepath());
+        if (file.exists()) {
+          fileList.add(file.getAbsolutePath());
+        }
       }
     }
 
