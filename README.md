@@ -25,3 +25,13 @@ We have an example dataset of segmented images and the tracking results. Include
 The dataset can be downloaded from the following link:
 
 [LineageMapper_Test_Data.zip ~ 55 KB](../../wiki/testdata/LineageMapper_Test_Data.zip)
+
+## Utilities
+
+We have a ImageJ/Fiji plugin for converting binary images into labeled images using connected components labeling.
+
+This plugin can be downloaded from the following link:
+
+[Connected_Components_Labeling.jar ~ 6 KB](../../wiki/utilities/Connected_Components_Labeling.jar)
+
+
