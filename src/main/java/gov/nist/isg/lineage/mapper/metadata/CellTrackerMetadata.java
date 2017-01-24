@@ -298,6 +298,10 @@ public class CellTrackerMetadata {
     params.setConfidenceIndexMetadata(cim);
     cim.buildMetadataTable();
 
+    ObjectPositionMetadata opm = new ObjectPositionMetadata(params);
+    params.setObjectPositionMetadata(opm);
+    opm.buildMetadataTable();
+
     // only write outputs to disk if requested to
     if(params.isSaveMetadata()) {
       String targetFolder = params.getOutputDirectory();
@@ -315,6 +319,9 @@ public class CellTrackerMetadata {
 
       if (cim.getTable() != null)
         exportToCSVFile(cim.getTable(), new File(targetFolder + prefix + cim.getFileName()));
+
+      if(opm.getTable() != null)
+        exportToCSVFile(opm.getTable(), new File(targetFolder + prefix + opm.getFileName()));
 
       params.writeParamsToFile(new File(targetFolder + prefix + "tracking-params.txt"));
     }

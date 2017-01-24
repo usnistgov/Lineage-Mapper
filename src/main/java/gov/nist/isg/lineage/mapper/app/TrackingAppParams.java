@@ -28,6 +28,7 @@ import gov.nist.isg.lineage.mapper.metadata.BirthDeathMetadata;
 import gov.nist.isg.lineage.mapper.metadata.ConfidenceIndexMetadata;
 import gov.nist.isg.lineage.mapper.metadata.DivisionMetadata;
 import gov.nist.isg.lineage.mapper.metadata.FusionMetadata;
+import gov.nist.isg.lineage.mapper.metadata.ObjectPositionMetadata;
 import gov.nist.isg.lineage.mapper.textfield.validator.ValidatorRegex;
 import ij.IJ;
 import ij.plugin.frame.Recorder;
@@ -108,7 +109,9 @@ public class TrackingAppParams {
   private DivisionMetadata divisionMetadata = null;
   private FusionMetadata fusionMetadata = null;
   private ConfidenceIndexMetadata confidenceIndexMetadata = null;
+  private ObjectPositionMetadata objectPositionMetadata = null;
   private List<ImageFrame> framesList = null;
+
 
 
   /**
@@ -325,6 +328,12 @@ public class TrackingAppParams {
 
   public void setConfidenceIndexMetadata(ConfidenceIndexMetadata confidenceIndexMetadata) {
     this.confidenceIndexMetadata = confidenceIndexMetadata;
+  }
+
+  public ObjectPositionMetadata getObjectPositionMetadata() { return objectPositionMetadata; }
+
+  public void setObjectPositionMetadata(ObjectPositionMetadata objectPositionMetadata) {
+    this.objectPositionMetadata = objectPositionMetadata;
   }
 
   public void setGuiPane(CellTrackerGUI gui) {
