@@ -8,6 +8,8 @@ target
 # specific folders
 test\test_track_results
 test\junit_results
+test/test_track_results
+test/junit_results
 
 # User-specific IntlliJ workspace:
 .idea/workspace.xml
