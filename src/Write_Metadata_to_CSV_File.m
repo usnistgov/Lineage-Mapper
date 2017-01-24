@@ -68,6 +68,23 @@ for i = 1:size(Confidence_Index,1)
 end
 fclose(fh);
 
+% write object positions to csv
+fh = fopen([tracked_images_path 'positions.csv'],'w');
+fprintf(fh, 'Cell ID,Frame Number,X Coordinate, Y Coordinate\n');
+for i = 1:numel(centroids)
+  cents = centroids{i};
+  for j = 1:size(cents,1)
+    global_id = renumbering_vectors{i}(j);
+    frame_number = i;
+    x = cents(j,1);
+    y = cents(j,2);
+    fprintf(fh, '%d,%d,%.14f,%.14f\n', global_id, frame_number, x, y);
+  end
+end
+fclose(fh);
+
+
+
 if exist('division_matrix','var')
     % write division to csv
     fh = fopen([tracked_images_path 'division.csv'],'w');
