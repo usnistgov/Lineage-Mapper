@@ -20,6 +20,14 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>plugins.config</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>
