@@ -137,7 +137,9 @@ public class LineageMapper implements Runnable {
 
       // track the pair of image
       Log.mandatory("Tracking: " + (prevFrame == null ? "\"\"" : prevFrame.getTitle()) + " -> " + curFrame.getTitle());
+      long startTime = System.nanoTime();
       trackImageFramePair(curFrame, prevFrame, i);
+      Log.mandatory("  took: " + ((System.nanoTime() - startTime) / 1000000) + " ms.");
 
       if (prevFrame != null) {
         // if the prevFrame is not null, apply global labels and write the image to disk
@@ -983,8 +985,11 @@ public class LineageMapper implements Runnable {
         short pix2 = curImage.get(x, y);
         // if this is not a background pixel and it belongs to the fused cell
         if (pix2 > 0 && pix2 == fusedCellNb) {
+
           // get the pixel in the same location as pix2 from the previous image
-          short pix1 = prevImage.get(x, y);
+          short pix1 = 0;
+          if(x >= 0 && x < width && y >= 0 && y < height)
+            pix1 = prevImage.get(x, y);
           // if the previous image pixel is not background and it belongs to a cell that fused into the cell in the current frame
           if (pix1 > 0 && fusion.get(pix1, pix2) > 0) {
             // the pixel in current image overlaps the pixel in the previous image involved in the fusion,
@@ -1003,9 +1008,13 @@ public class LineageMapper implements Runnable {
             while (!foundNeighbors) {
               // constrain search to the bounding box
               int xMin = Math.max(0, x - pixelDist);
+              xMin = Math.min(xMin, width - 1);
               int xMax = Math.min(width - 1, x + pixelDist);
+              xMax = Math.max(xMax, 0);
               int yMin = Math.max(0, y - pixelDist);
+              yMin = Math.min(yMin, height - 1);
               int yMax = Math.min(height - 1, y + pixelDist);
+              yMax = Math.max(yMax, 0);
 
               // loop over the mini box around the current pixel looking for a label to assign it
               for (int k = yMin; k <= yMax; k++) {
@@ -1020,8 +1029,13 @@ public class LineageMapper implements Runnable {
                   neighbors.increment(pix1, 1);
                 }
               }
-              for (int k = (xMin + 1); k <= (xMax - 1); k++) {
+              for (int k = xMin; k <= xMax; k++) {
+                // implement skipping corners here to avoid weird edge effects where xMin=xMax
+                if(k == xMin) continue; // skip corner, since it has already been done
+                if(k == xMax) continue; // skip corner, since it has already been done
+
                 pix1 = prevImage.get(k, yMin);
+
                 if (pix1 > 0 && fusion.get(pix1, pix2) > 0) {
                   foundNeighbors = true;
                   neighbors.increment(pix1, 1);
