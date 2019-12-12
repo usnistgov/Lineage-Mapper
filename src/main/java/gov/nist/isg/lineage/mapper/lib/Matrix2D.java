@@ -33,11 +33,17 @@ public class Matrix2D {
    */
   public Matrix2D(int newM, int newN) {
     if (newM < 1 || newN < 1) {
-      m = 0;
-      n = 0;
+      m = newM;
+      n = newN;
       data = null;
       return;
     }
+//    if (newM < 1 || newN < 1) {
+//      m = 0;
+//      n = 0;
+//      data = null;
+//      return;
+//    }
     m = newM;
     n = newN;
     data = new double[m][n];

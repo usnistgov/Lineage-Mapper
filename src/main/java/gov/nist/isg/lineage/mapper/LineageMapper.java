@@ -349,8 +349,15 @@ public class LineageMapper implements Runnable {
     // create the matrices to hold the resulting index and value data after cost has been minimized row wise
     Matrix2D trackVector = new Matrix2D(cost.getM(), 1);
     Matrix2D trackvals = new Matrix2D(cost.getM(), 1);
-    // minimize cost row wise
-    cost.rowWiseMin(trackvals, trackVector);
+
+    if(cost.getM() < 1 || cost.getN() < 1) {
+      // handle iamges with no cells
+      trackVector.initTo(Double.NaN);
+      trackvals.initTo(0.0);
+    }else {
+      // minimize cost row wise
+      cost.rowWiseMin(trackvals, trackVector);
+    }
 
     // set the current ImageFrames track vector to this instance
     curFrame.setTrackVector(trackVector);
@@ -1432,7 +1439,7 @@ public class LineageMapper implements Runnable {
     }
 
     boolean untrackedSourceCellsExist = false;
-    for (int i = 1; i <= untrackedSourceCells.length(); i++) {
+    for (int i = 1; i <= untrackedSourceCells.getM(); i++) {
       if (untrackedSourceCells.get(i, 1) > 0) {
         untrackedSourceCellsExist = true;
       }
