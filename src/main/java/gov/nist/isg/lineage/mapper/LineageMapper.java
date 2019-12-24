@@ -55,7 +55,7 @@ public class LineageMapper implements Runnable {
       // check for 0 or 1 based filename patterns
       String fn = Utils.getFileName(params.getFilenamePattern(), OptionsPanel
           .filenamePatternRegex, i);
-      File f = new File(params.getInputDirectory() + fn);
+      File f = new File(new File(params.getInputDirectory()), fn);
       if (f.exists()) {
         startIndex = i;
         break;
@@ -69,8 +69,9 @@ public class LineageMapper implements Runnable {
     }
 
     int imgIndex = startIndex;
-    while ((new File(params.getInputDirectory() + Utils.getFileName(params.getFilenamePattern(),
-        OptionsPanel.filenamePatternRegex, imgIndex))).exists()) {
+    while ((new File(new File(params.getInputDirectory()),
+                     Utils.getFileName(params.getFilenamePattern(),
+                                       OptionsPanel.filenamePatternRegex, imgIndex))).exists()) {
 
       String imgName = Utils.getFileName(params.getFilenamePattern(),
           OptionsPanel.filenamePatternRegex, imgIndex);
