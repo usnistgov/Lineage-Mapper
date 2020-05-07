@@ -13,31 +13,32 @@
 % they have been modified.
 
 
-
-
-
 function Explore_Time_Sequence_Images
 
 bcgrd_c = [0.8,0.8,0.8];
+file_extension = 'tif';
 
 % Define path to read images
-raw_images_path = 'D:\temp\Leiber_DIC_preprocessed\';
-raw_images_common_name = '20130705_L2_DIC_t';
+raw_images_path = 'D:\Programming\Car_T_cell\Data\2019-08-02-CART-microgrid-sorted-Ed\Stitched_images\';
+raw_images_common_name = 'Phase';
 % raw_images_path = 'D:\temp\phase_stitched\\';
 % raw_images_common_name = 'stitched_c01t';
-image_raw_files = dir([raw_images_path '*' raw_images_common_name '*.tif']);
+image_raw_files = dir([raw_images_path '*' raw_images_common_name '*.' file_extension]);
 
-
-tracked_images_path = 'D:\temp\Leiber_DIC_preprocessed\tracked\';
-tracked_images_common_name = 'tracked_';
+tracked_images_path = 'D:\Programming\Car_T_cell\Data\2019-08-02-CART-microgrid-sorted-Ed\tracked_cells_AI_Densenet_clean\';
+tracked_images_common_name = 'track';
 % tracked_images_path = 'D:\temp\tracked\';
 % tracked_images_common_name = 'tracked_stitched_t';
 
-image_tracked_files = dir([tracked_images_path '*' tracked_images_common_name '*.tif']);
+save_images_path = 'D:\Programming\Car_T_cell\Data\2019-08-02-CART-microgrid-sorted-Ed\tracked_cells_AI_Densenet_clean\';
+save_images_common_name = 'superimpose_';
+Res = 300; % Resolution of the saved image. The higher the number the lager the output file size on disk
+
+image_tracked_files = dir([tracked_images_path '*' tracked_images_common_name '*.' file_extension]);
 nb_frames = length(image_tracked_files);
 frames_to_track = 1:nb_frames;
 
-highest_cell_number = 5000;
+highest_cell_number = 50000;
 cell_colors = jet(highest_cell_number);
 cell_colors = cell_colors(randperm(highest_cell_number),:);
     
@@ -253,7 +254,7 @@ plot_image
         
         % Plot with the corresponding outputs
         delete(get(Haxes_tracks, 'Children'));
-        if contour_indicator == 1, 
+        if contour_indicator == 1
             imshow(raw_image,[], 'Parent', Haxes_tracks);
             hold on                    
         end
@@ -268,7 +269,7 @@ plot_image
                 cell_number = tracked_image(text_location(i,2), text_location(i,1));
                 
                 text(text_location(i,1), text_location(i,2), num2str(cell_number), 'Parent', Haxes_tracks, 'fontunits','normalized', 'fontsize', .03, ...
-                    'FontWeight', 'bold', 'Margin', .005, 'color', cell_colors(cell_number+1,:), 'BackgroundColor', 'w', 'color', 'k', 'EraseMode', 'non', 'Clipping', 'on')
+                    'FontWeight', 'bold', 'Margin', .005, 'color', cell_colors(cell_number+1,:), 'BackgroundColor', 'w', 'color', 'k', 'Clipping', 'on')
             end
         end
     end
@@ -292,7 +293,7 @@ plot_image
         unique_numbers = unique(user_tracked_image);
         if unique_numbers(1) == 0, unique_numbers(1) = []; end
         nb_cells = length(unique_numbers);
-        [edge_image, text_location] = find_edges(user_tracked_image, nb_cells);
+        [edge_image, text_location] = find_edges(user_tracked_image);
         
         if contour_indicator == 1
             % Dilate the edge_image to thicken the contour plot
@@ -350,7 +351,9 @@ plot_image
             superimposed_image(image_RGB>0) = image_RGB(image_RGB>0);
             
             % Plot image
-            h = figure; set(h, 'visible', 'off');
+            h = figure; h.Visible = 'off'; h.WindowState = 'fullscreen'; 
+            ax = gca; 
+            ax.Position = ax.OuterPosition;
             imshow(superimposed_image)
             hold on
             
@@ -359,11 +362,14 @@ plot_image
                 for j = 1:nb_cells
                     cell_number = tracked_image(text_location(j,2), text_location(j,1));
                     
-                    text(text_location(j,1), text_location(j,2), num2str(cell_number), 'fontunits','normalized', 'fontsize', 12, ...
+                    text(text_location(j,1), text_location(j,2), num2str(cell_number), 'fontunits','normalized', 'fontsize', .03, ...
                         'FontWeight', 'bold', 'Margin', .1, 'color', cell_colors(cell_number+1,:), 'BackgroundColor', 'w')
                 end
             end
-            print(h, [tracked_images_path superimposed_common_name sprintf(['%0' zero_pad 'd'],i) '.tif'], '-dtiff')
+            %print(h, [tracked_images_path superimposed_common_name sprintf(['%0' zero_pad 'd'],i) '.tif'], '-dtiff')
+            %cdata = print(h,'-RGBImage','-r500');
+            %imwrite(cdata,[save_images_path save_images_common_name sprintf(['%0' zero_pad 'd'],i) '.tif'])
+            exportgraphics(ax,[save_images_path save_images_common_name sprintf(['%0' zero_pad 'd'],i) '.tif'],'Resolution',Res)
             close(h)
         end
         print_update(3,1,nb_frames);
@@ -385,6 +391,4 @@ plot_image
     end
 
 end
-
-
 
